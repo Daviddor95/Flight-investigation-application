@@ -87,9 +87,6 @@ namespace Player
             {
                 while (this.playing && this.currentLine < this.CSVLines.Length && this.currentLine >= 0)
                 {
-                    /*                    TimeSpan diff = this.time - DateTime.MinValue;
-                                        long seconds = (long)diff.TotalSeconds;
-                                        client.write(CSVLines[seconds * this.sampleRate]);*/
                     this.client.write(this.CSVLines[this.currentLine]);
                     if (this.PlaybackSpeed > 0)
                     {
@@ -99,7 +96,6 @@ namespace Player
                     {
                         this.currentLine--;
                     }
-                    //this.currentLine++;
                     /*if (this.currentLine % this.sampleRate == 0)
                     {
                         this.time = this.time.AddSeconds(1);
