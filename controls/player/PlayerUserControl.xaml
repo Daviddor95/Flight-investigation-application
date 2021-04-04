@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Player.PlayerUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Player"
+             mc:Ignorable="d" d:DesignWidth="800" Height="110">
+    <Grid Height="110" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Canvas Margin="10,10,10,0" Height="100" VerticalAlignment="Top">
+            <Slider x:Name="playerSlider" Height="20" Canvas.Left="10" Canvas.Top="40" Width="754" HorizontalContentAlignment="Stretch" ValueChanged="Slider_ValueChanged" Value="{Binding Path=VM_Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Maximum="{Binding Path=VM_LengthSec}"/>
+            <Button Content="Open CSV file" Height="25" Canvas.Left="10" Canvas.Top="10" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="OpenCSV" Click="OpenCSV_Click">
+                <Button.ContextMenu>
+                    <ContextMenu/>
+                </Button.ContextMenu>
+            </Button>
+            <TextBox x:Name="playbackSpeed" Height="25" Canvas.Left="401" TextWrapping="Wrap" Text="{Binding Path=VM_PlaybackSpeed, UpdateSourceTrigger=Explicit, StringFormat=N2}" Canvas.Top="10" Width="50" TextAlignment="Center" FontSize="16" MaxLines="1" MaxLength="4" KeyUp="playbackSpeed_KeyUp"/>
+            <TextBlock Height="25" Canvas.Left="313" TextWrapping="Wrap" Text="Play speed" Canvas.Top="10" Width="88" FontSize="16" TextAlignment="Center"/>
+            <TextBlock x:Name="time" Text="{Binding Path=VM_DigitalTime, StringFormat=HH:mm:ss, UpdateSourceTrigger=PropertyChanged}" Height="25" Canvas.Left="689" TextWrapping="Wrap" Canvas.Top="10" Width="75" TextAlignment="Center" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Image Height="25" Canvas.Left="388" Canvas.Top="60" Width="25" Source="player-48x48-123357.png" MouseUp="Pause_MouseUp"/>
+            <Image Height="25" Canvas.Left="358" Canvas.Top="60" Width="25" Source="player-48x48-123358.png" MouseUp="Play_MouseUp"/>
+            <Image Height="25" Canvas.Left="419" Canvas.Top="60" Width="25" Source="player-48x48-123361.png" MouseUp="Stop_MouseUp"/>
+            <Image Height="25" Canvas.Left="448" Canvas.Top="60" Width="25" Source="player-48x48-123363.png" MouseUp="FastForward_MouseUp"/>
+            <Image Height="25" Canvas.Left="478" Canvas.Top="60" Width="25" Source="player-48x48-123359.png" MouseUp="JumpToEnd_MouseUp"/>
+            <Image Height="25" Canvas.Left="328" Canvas.Top="60" Width="25" Source="player-48x48-123362.png" MouseUp="FastBackwards_MouseUp"/>
+            <Image Height="25" Canvas.Left="299" Canvas.Top="60" Width="25" Source="player-48x48-123360.png" MouseUp="JumpToStart_MouseUp"/>
+        </Canvas>
+    </Grid>
+</UserControl>

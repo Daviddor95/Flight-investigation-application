@@ -1,0 +1,16 @@
+﻿<Window x:Class="Flight_investigation_application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flight_investigation_application"
+        xmlns:controls="clr-namespace:Player"
+        mc:Ignorable="d"
+        Title="Flight investigation application" Height="550" Width="800" Closed="Window_Closed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <controls:PlayerUserControl Margin="0,411,-0.4,-0.2"/>
+    </Grid>
+</Window>
