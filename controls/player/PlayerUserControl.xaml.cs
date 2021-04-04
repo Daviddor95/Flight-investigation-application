@@ -26,9 +26,6 @@ namespace Player
             InitializeComponent();
             playerVM = new PlayerViewModel(new FIAModel(new TelnetClient()));
             DataContext = playerVM;
-            /*            Binding bind = new Binding("Text");
-                        bind.Source = this.playerVM.VM_DigitalTime;
-                        time.SetBinding(TextBlock.TextProperty, bind);*/
         }
 
         private void OpenCSV_Click(object sender, RoutedEventArgs e)
@@ -83,7 +80,6 @@ namespace Player
 
         private void playbackSpeed_KeyUp(object sender, KeyEventArgs e)
         {
-            //TextBox playbackSpeed = sender as TextBox;
             if (e.Key == Key.Enter && playbackSpeed != null)
             {
                 this.playerVM.VM_PlaybackSpeed = float.Parse(playbackSpeed.Text);
