@@ -31,14 +31,15 @@ namespace Player
             }
             set
             {
-                model.Time = DateTime.MinValue.AddSeconds(value);
+                this.model.Time = DateTime.MinValue.AddSeconds(value);
+                this.model.jumpToTime();
             }
         }
         public DateTime VM_DigitalTime
         {
             get
             {
-                return model.Time;
+                return this.model.Time;
             }
         }
         public int VM_LengthSec
@@ -95,9 +96,9 @@ namespace Player
         {
             this.model.fastBackwards();
         }
-        public void jumpToTime(int time)
+        public void jumpToTime()
         {
-            this.model.jumpToTime(time);
+            this.model.jumpToTime();
         }
         public void closeWindow()
         {

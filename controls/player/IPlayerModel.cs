@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Player
 {
-    partial interface IPlayerModel : INotifyPropertyChanged
+    interface IPlayerModel : INotifyPropertyChanged
     {
         float PlaybackSpeed
         {
@@ -34,7 +34,7 @@ namespace Player
         void fastBackwards();
         void jumpToStart();
         void jumpToEnd();
-        void jumpToTime(int time);
+        void jumpToTime();
         void loadCSVFile();
         void closeWindow();
     }

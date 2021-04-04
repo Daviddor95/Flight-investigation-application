@@ -21,10 +21,10 @@ namespace Flight_investigation_application
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FlightInvestigationWindow : Window
     {
         PlayerViewModel playerVM;
-        public MainWindow()
+        public FlightInvestigationWindow()
         {
             InitializeComponent();
             playerVM = new PlayerViewModel(new FIAModel(new TelnetClient()));

@@ -160,10 +160,11 @@ namespace Player
                 this.jumpToStart();
             }
         }
-        public void jumpToTime(int time)
+        public void jumpToTime()
         {
-            this.Time = DateTime.MinValue.AddSeconds(time);
-            this.currentLine = time * this.sampleRate;
+            //this.Time = DateTime.MinValue.AddSeconds(time);
+            TimeSpan diff = this.Time - DateTime.MinValue;
+            this.currentLine = (int) diff.TotalSeconds * this.sampleRate;
         }
         public void loadCSVFile()
         {
@@ -194,8 +195,6 @@ namespace Player
         }
     }
 }
-
-
 
 /*            OpenFileDialog FileDialog = new OpenFileDialog();
             if ((bool)FileDialog.ShowDialog())
