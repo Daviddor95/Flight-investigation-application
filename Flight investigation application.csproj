@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="controls\joyStick\UserControl1.xaml">
+    <Page Include="controls\joyStick\joyStickUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,9 +71,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="controls\joyStick\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="controls\joyStick\IJoyStickViewModel.cs" />
+    <Compile Include="controls\joyStick\JoyStickModel.cs" />
+    <Compile Include="controls\joyStick\IJoyStickModel.cs" />
+    <Compile Include="controls\joyStick\joyStickUserControl.xaml.cs">
+      <DependentUpon>joyStickUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\joyStick\JoyStickViewModel.cs" />
     <Compile Include="controls\player\IPlayerModel.cs" />
     <Compile Include="controls\player\IPlayerViewModel.cs" />
     <Compile Include="controls\player\ITelnetClient.cs" />
