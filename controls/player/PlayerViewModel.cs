@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Model;
 
-namespace Player
+namespace ViewModel
 {
-    class PlayerViewModel : IPlayerViewModel
+    public class PlayerViewModel : IPlayerViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private IPlayerModel model;
+        private IFIAModel model;
         public float VM_PlaybackSpeed
         {
             get
@@ -49,7 +50,7 @@ namespace Player
                 return model.LengthSec;
             }
         }
-        public PlayerViewModel(IPlayerModel model)
+        public PlayerViewModel(IFIAModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs eventArgs)
@@ -99,10 +100,6 @@ namespace Player
         public void jumpToTime()
         {
             this.model.jumpToTime();
-        }
-        public void closeWindow()
-        {
-            this.model.closeWindow();
         }
     }
 }

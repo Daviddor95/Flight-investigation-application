@@ -9,10 +9,12 @@ using Microsoft.Win32;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using Client;
+using Flight_investigation_application.controls.player;
 
-namespace Player
+namespace Model
 {
-    partial class FIAModel : IPlayerModel
+    partial class FIAModel : IFIAModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ITelnetClient client;
@@ -23,15 +25,17 @@ namespace Player
         private int sampleRate;
         private int lengthSec;
         private int currentLine;
+        private static FIAModel model;
+        private List<DataType> importantData;
         public float PlaybackSpeed
         {
             get
             {
-                return playbackSpeed;
+                return this.playbackSpeed;
             }
             set
             {
-                playbackSpeed = value;
+                this.playbackSpeed = value;
                 NotifyPropertyChanged("PlaybackSpeed");
             }
         }
@@ -39,11 +43,11 @@ namespace Player
         {
             get
             {
-                return time;
+                return this.time;
             }
             set
             {
-                time = value;
+                this.time = value;
                 NotifyPropertyChanged("Time");
             }
         }
@@ -51,15 +55,26 @@ namespace Player
         {
             get
             {
-                return lengthSec;
+                return this.lengthSec;
             }
             set
             {
-                lengthSec = value;
+                this.lengthSec = value;
                 NotifyPropertyChanged("LengthSec");
             }
         }
-        public FIAModel(ITelnetClient client)
+        public static FIAModel Model
+        {
+            get
+            {
+                if (model == null)
+                {
+                    model = new FIAModel(new TelnetClient());
+                }
+                return model;
+            }
+        }
+        private FIAModel(ITelnetClient client)
         {
             this.client = client;
             this.playing = true;
@@ -67,6 +82,16 @@ namespace Player
             this.Time = DateTime.MinValue;
             this.sampleRate = 10;
             this.currentLine = 0;
+
+            this.importantData = new List<DataType>();
+            this.importantData.Add(new DataType() { Data = "altimeter:i.a.f", Value = 0 });//altimeter_indicated-altitude-ft
+            //importantData.Add(new DataType() { Data = "altimeter:p.a.f", Value = 10001 }); // altimeter_pressure-alt-ft
+            this.importantData.Add(new DataType() { Data = "airspeed", Value = 0 }); // airspeed-kt
+            //importantData.Add(new DataType() { Data = "Indicated airspeed", Value = 20001 }); //airspeed-indicator_indicated-speed-kt
+            this.importantData.Add(new DataType() { Data = "direction", Value = 0 });//heading-deg
+            this.importantData.Add(new DataType() { Data = "yaw", Value = 0 }); //(side-slip-deg)
+            this.importantData.Add(new DataType() { Data = "roll", Value = 0 });
+            this.importantData.Add(new DataType() { Data = "pitch", Value = 0 });
         }
         public void connect()
         {
@@ -79,7 +104,7 @@ namespace Player
         public void disconnect()
         {
             this.playing = false;
-            client.disconnect();
+            this.client.disconnect();
         }
         public void start()
         {
@@ -96,11 +121,11 @@ namespace Player
                     {
                         this.currentLine--;
                     }
-                    /*if (this.currentLine % this.sampleRate == 0)
+                    if (this.currentLine % this.sampleRate == 0)
                     {
                         this.time = this.time.AddSeconds(1);
-                    }*/
-                    this.Time = this.Time.AddSeconds(1 / this.sampleRate);
+                    }
+                    //this.Time = this.Time.AddSeconds(1 / this.sampleRate);
                     if (this.PlaybackSpeed != 0)
                     {
                         Thread.Sleep((int)(1000 / (this.sampleRate * Math.Abs(this.PlaybackSpeed))));
@@ -109,6 +134,9 @@ namespace Player
                     {
                         this.playing = false;
                     }
+                    //player();
+                    //moveJoystick();
+                    //graph();
                 }
             }).Start();
         }
@@ -187,11 +215,6 @@ namespace Player
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
-        }
-
-        public void closeWindow()
-        {
-            this.disconnect();
         }
     }
 }

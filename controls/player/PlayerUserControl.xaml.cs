@@ -12,8 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using Client;
+using ViewModel;
+using Model;
 
-namespace Player
+namespace View
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
@@ -24,8 +28,8 @@ namespace Player
         public PlayerUserControl()
         {
             InitializeComponent();
-            playerVM = new PlayerViewModel(new FIAModel(new TelnetClient()));
-            DataContext = playerVM;
+            this.playerVM = new PlayerViewModel(FIAModel.Model);
+            DataContext = this.playerVM;
         }
 
         private void OpenCSV_Click(object sender, RoutedEventArgs e)
@@ -71,11 +75,6 @@ namespace Player
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             this.playerVM.VM_Time = (int)playerSlider.Value;
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            this.playerVM.closeWindow();
         }
 
         private void playbackSpeed_KeyUp(object sender, KeyEventArgs e)
