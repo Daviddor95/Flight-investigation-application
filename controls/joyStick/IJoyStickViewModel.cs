@@ -23,7 +23,7 @@ namespace ViewModel
         }
         /*void radiusVM();
         
-        void startJoyStickVM();
+        void startJoystickVM();
         
         void startDataTableVM();
         */

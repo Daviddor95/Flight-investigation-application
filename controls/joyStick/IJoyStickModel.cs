@@ -4,18 +4,18 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//namespace Flight_investigation_application.controls.joyStick
+//namespace Flight_investigation_application.controls.Joystick
 namespace Model
 {
     public partial interface IFIAModel : INotifyPropertyChanged
     {
-        float aileronJoyStickX
+        float aileronJoystickX
         {
             set;
             get;
         }
 
-        float elevatorJoyStickY
+        float elevatorJoystickY
         {
             set;
             get;
@@ -34,7 +34,7 @@ namespace Model
         }
 
         
-        void startJoyStick();
+        void startJoystick();
         void startDataTable();
     }
 }

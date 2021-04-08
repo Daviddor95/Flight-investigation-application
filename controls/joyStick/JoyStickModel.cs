@@ -11,8 +11,8 @@ namespace Model
     public partial class FIAModel : IFIAModel
     {
         //public event PropertyChangedEventHandler PropertyChanged;
-        private float xOfJoyStick;
-        private float yOfJoyStick;
+        private float xOfJoystick;
+        private float yOfJoystick;
         private float xOfRudderScroller;
         private float yOfThrottleScroller;
         //private float radiusOfOutercircle = 100;
@@ -20,28 +20,28 @@ namespace Model
         //private string[] CSVLines;
         //private int currentLine;
 
-        public float aileronJoyStickX
+        public float aileronJoystickX
         {
             get
             {
-                return xOfJoyStick;
+                return xOfJoystick;
             }
             set
             {
-                xOfJoyStick = value;
-                NotifyPropertyChanged("ailerohJoyStickX");
+                xOfJoystick = value;
+                NotifyPropertyChanged("ailerohJoystickX");
             }
         }
-         public float elevatorJoyStickY
+         public float elevatorJoystickY
         {
             get
             {
-                return yOfJoyStick;
+                return yOfJoystick;
             }
             set
             {
-                yOfJoyStick = value;
-                NotifyPropertyChanged("elevatorJoyStickY");
+                yOfJoystick = value;
+                NotifyPropertyChanged("elevatorJoystickY");
             }
         }
 
@@ -74,10 +74,10 @@ namespace Model
         
         
        
-        public void startJoyStick()
+        public void startJoystick()
         {
-            this.aileronJoyStickX = this.currentLine;
-            this.elevatorJoyStickY = 9;
+            this.aileronJoystickX = this.currentLine;
+            this.elevatorJoystickY = 9;
             //x = x * radiusOfOutercircle;
             //y = y * radiusOfOutercircle;
             //????????????   

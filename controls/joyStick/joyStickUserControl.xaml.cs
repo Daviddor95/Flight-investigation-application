@@ -49,9 +49,9 @@ namespace View
 
         }
 
-       /* public void startJoyStickVM()
+       /* public void startJoystickVM()
         {
-            this.joystickVM.startJoyStickVM();
+            this.joystickVM.startJoystickVM();
         }
 
         public void radiusVM()

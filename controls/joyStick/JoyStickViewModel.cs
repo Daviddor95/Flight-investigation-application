@@ -17,7 +17,7 @@ namespace ViewModel
         {
             get
             {
-                return model.elevatorJoyStickY;
+                return model.elevatorJoystickY;
             }
             
         }
@@ -25,7 +25,7 @@ namespace ViewModel
         {
             get
             {
-                return model.aileronJoyStickX;
+                return model.aileronJoystickX;
             }
             
         }
@@ -62,9 +62,9 @@ namespace ViewModel
             }
         }
 
-       /* public void startJoyStickVM()
+       /* public void startJoystickVM()
         {
-            this.model.startJoyStick();
+            this.model.startJoystick();
         }
         
        
