@@ -17,16 +17,5 @@ namespace Flight_investigation_application
     /// </summary>
     public partial class App : Application
     {
-
-        /*        protected IFIAModel model;
-       protected override void OnStartup(StartupEventArgs e)
-       {
-           base.OnStartup(e);
-           this.model = new FIAModel(new TelnetClient());
-           //FlightInvestigationViewModel FIViewModel = new FlightInvestigationViewModel();
-           //FlightInvestigationWindow FIWindow = new FlightInvestigationWindow(FIViewModel);
-           //FIWindow.DataContext = FIViewModel;
-           //FIWindow.Show();
-       }*/
     }
 }

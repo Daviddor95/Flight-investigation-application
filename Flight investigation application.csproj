@@ -94,13 +94,13 @@
     <Compile Include="controls\joystick\JoystickViewModel.cs" />
     <Compile Include="controls\player\IPlayerModel.cs" />
     <Compile Include="controls\player\IPlayerViewModel.cs" />
-    <Compile Include="controls\player\ITelnetClient.cs" />
+    <Compile Include="client\ITelnetClient.cs" />
     <Compile Include="controls\player\PlayerModel.cs" />
     <Compile Include="controls\player\PlayerUserControl.xaml.cs">
       <DependentUpon>PlayerUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\player\PlayerViewModel.cs" />
-    <Compile Include="controls\player\TelnetClient.cs" />
+    <Compile Include="client\TelnetClient.cs" />
     <Compile Include="controls\main\FlightInvestigationWindow.xaml.cs">
       <DependentUpon>FlightInvestigationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -144,25 +144,25 @@
     <Folder Include="settings\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123363.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123363.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123357.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123357.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123358.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123358.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123359.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123359.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123360.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123360.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123361.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123361.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\player\player-48x48-123362.png" />
+    <Resource Include="controls\player\player icons\player-48x48-123362.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

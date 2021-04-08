@@ -14,7 +14,7 @@ using Flight_investigation_application.controls.player;
 
 namespace Model
 {
-    partial class FIAModel : IFIAModel
+    public partial class FIAModel : IFIAModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ITelnetClient client;

@@ -19,13 +19,13 @@
             <TextBox x:Name="playbackSpeed" Height="25" Canvas.Left="401" TextWrapping="Wrap" Text="{Binding Path=VM_PlaybackSpeed, UpdateSourceTrigger=Explicit, StringFormat=N2}" Canvas.Top="10" Width="50" TextAlignment="Center" FontSize="16" MaxLines="1" MaxLength="4" KeyUp="playbackSpeed_KeyUp"/>
             <TextBlock Height="25" Canvas.Left="313" TextWrapping="Wrap" Text="Play speed" Canvas.Top="10" Width="88" FontSize="16" TextAlignment="Center"/>
             <TextBlock x:Name="time" Text="{Binding Path=VM_DigitalTime, StringFormat=HH:mm:ss, UpdateSourceTrigger=PropertyChanged}" Height="25" Canvas.Left="689" TextWrapping="Wrap" Canvas.Top="10" Width="75" TextAlignment="Center" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-            <Image Height="25" Canvas.Left="388" Canvas.Top="60" Width="25" Source="player-48x48-123357.png" MouseUp="Pause_MouseUp"/>
-            <Image Height="25" Canvas.Left="358" Canvas.Top="60" Width="25" Source="player-48x48-123358.png" MouseUp="Play_MouseUp"/>
-            <Image Height="25" Canvas.Left="419" Canvas.Top="60" Width="25" Source="player-48x48-123361.png" MouseUp="Stop_MouseUp"/>
-            <Image Height="25" Canvas.Left="448" Canvas.Top="60" Width="25" Source="player-48x48-123363.png" MouseUp="FastForward_MouseUp"/>
-            <Image Height="25" Canvas.Left="478" Canvas.Top="60" Width="25" Source="player-48x48-123359.png" MouseUp="JumpToEnd_MouseUp"/>
-            <Image Height="25" Canvas.Left="328" Canvas.Top="60" Width="25" Source="player-48x48-123362.png" MouseUp="FastBackwards_MouseUp"/>
-            <Image Height="25" Canvas.Left="299" Canvas.Top="60" Width="25" Source="player-48x48-123360.png" MouseUp="JumpToStart_MouseUp"/>
+            <Image Height="25" Canvas.Left="388" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123357.png" MouseUp="Pause_MouseUp"/>
+            <Image Height="25" Canvas.Left="358" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123358.png" MouseUp="Play_MouseUp"/>
+            <Image Height="25" Canvas.Left="419" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123361.png" MouseUp="Stop_MouseUp"/>
+            <Image Height="25" Canvas.Left="448" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123363.png" MouseUp="FastForward_MouseUp"/>
+            <Image Height="25" Canvas.Left="478" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123359.png" MouseUp="JumpToEnd_MouseUp"/>
+            <Image Height="25" Canvas.Left="328" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123362.png" MouseUp="FastBackwards_MouseUp"/>
+            <Image Height="25" Canvas.Left="299" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123360.png" MouseUp="JumpToStart_MouseUp"/>
         </Canvas>
     </Grid>
 </UserControl>
