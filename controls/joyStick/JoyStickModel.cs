@@ -16,9 +16,11 @@ namespace Model
         private float xOfRudderScroller;
         private float yOfThrottleScroller;
         //private float radiusOfOutercircle = 100;
-
-        //private string[] CSVLines;
-        //private int currentLine;
+        /*private float altimeter;
+        private float yOfThrottleScroller;
+        private float yOfThrottleScroller;
+        private float yOfThrottleScroller;
+        private float yOfThrottleScroller;*/
 
         public float aileronJoystickX
         {
@@ -29,7 +31,7 @@ namespace Model
             set
             {
                 xOfJoystick = value;
-                NotifyPropertyChanged("ailerohJoystickX");
+                NotifyPropertyChanged("aileronJoystickX");
             }
         }
          public float elevatorJoystickY
@@ -76,21 +78,27 @@ namespace Model
        
         public void startJoystick()
         {
-            this.aileronJoystickX = this.currentLine;
-            this.elevatorJoystickY = 9;
-            //x = x * radiusOfOutercircle;
-            //y = y * radiusOfOutercircle;
-            //????????????   
+            float radius = 55;
+            float x = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[0]);
+            float y = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[1]);
+            this.aileronJoystickX = x * radius;
+            this.elevatorJoystickY = y * radius;  
         }
 
+        public void startScrollers()
+        {
+            this.rudderScrollerX = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[2]);
+            this.throttleScrollerY = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[6]);
+
+        }
         public void startDataTable()
         {
             float x = this.rudderScrollerX;
             float y = this.throttleScrollerY;
             //????????????
-               
+
         }
-        
+
         /*public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
