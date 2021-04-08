@@ -33,8 +33,9 @@ namespace Model
             get;
         }
 
-        
+
         void startJoystick();
+        void startScrollers();
         void startDataTable();
     }
 }

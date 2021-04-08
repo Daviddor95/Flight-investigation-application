@@ -19,7 +19,10 @@ namespace ViewModel
             {
                 return model.elevatorJoystickY;
             }
-            
+            set
+            {
+                model.elevatorJoystickY = value;
+            }
         }
         public float VM_Aileron
         {
@@ -27,7 +30,10 @@ namespace ViewModel
             {
                 return model.aileronJoystickX;
             }
-            
+            set
+            {
+                model.aileronJoystickX = value;
+            }
         }
         public float VM_Rudder
         {
@@ -35,7 +41,10 @@ namespace ViewModel
             {
                 return model.rudderScrollerX;
             }
-            
+            set
+            {
+                model.rudderScrollerX = value;
+            }
         }
         public float VM_Throttle
         {
@@ -43,7 +52,11 @@ namespace ViewModel
             {
                 return model.throttleScrollerY;
             }
-            
+            set
+            {
+                model.throttleScrollerY = value;
+            }
+
         }
         //DON'T TOUCH, IT'S DAVID
         public JoystickViewModel(IFIAModel model)
