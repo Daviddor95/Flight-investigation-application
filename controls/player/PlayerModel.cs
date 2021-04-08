@@ -10,7 +10,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using Client;
-using Flight_investigation_application.controls.player;
+//using Flight_investigation_application.controls.player;
 using System.Reflection;
 using Util;
 
