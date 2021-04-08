@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Model;
 
-namespace Player
+namespace ViewModel
 {
-    class PlayerViewModel : IPlayerViewModel
+    public class PlayerViewModel : IPlayerViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private IPlayerModel model;
+        private IFIAModel model;
         public float VM_PlaybackSpeed
         {
             get
@@ -31,14 +32,15 @@ namespace Player
             }
             set
             {
-                model.Time = DateTime.MinValue.AddSeconds(value);
+                this.model.Time = DateTime.MinValue.AddSeconds(value);
+                this.model.jumpToTime();
             }
         }
         public DateTime VM_DigitalTime
         {
             get
             {
-                return model.Time;
+                return this.model.Time;
             }
         }
         public int VM_LengthSec
@@ -48,7 +50,7 @@ namespace Player
                 return model.LengthSec;
             }
         }
-        public PlayerViewModel(IPlayerModel model)
+        public PlayerViewModel(IFIAModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs eventArgs)
@@ -95,13 +97,9 @@ namespace Player
         {
             this.model.fastBackwards();
         }
-        public void jumpToTime(int time)
+        public void jumpToTime()
         {
-            this.model.jumpToTime(time);
-        }
-        public void closeWindow()
-        {
-            this.model.closeWindow();
+            this.model.jumpToTime();
         }
     }
 }

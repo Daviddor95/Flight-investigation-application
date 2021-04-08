@@ -63,7 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="FlightInvestigationWindow.xaml">
+    <Page Include="controls\main\FlightInvestigationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -77,6 +77,10 @@
     <Compile Include="controls\joyStick\joyStickUserControl.xaml.cs">
       <DependentUpon>joyStickUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\main\FlightInvestigationModel.cs" />
+    <Compile Include="controls\main\FlightInvestigationViewModel.cs" />
+    <Compile Include="controls\main\IFlightInvestigationModel.cs" />
+    <Compile Include="controls\player\DataType.cs" />
     <Compile Include="controls\joyStick\JoyStickViewModel.cs" />
     <Compile Include="controls\player\IPlayerModel.cs" />
     <Compile Include="controls\player\IPlayerViewModel.cs" />
@@ -87,7 +91,7 @@
     </Compile>
     <Compile Include="controls\player\PlayerViewModel.cs" />
     <Compile Include="controls\player\TelnetClient.cs" />
-    <Compile Include="FlightInvestigationWindow.xaml.cs">
+    <Compile Include="controls\main\FlightInvestigationWindow.xaml.cs">
       <DependentUpon>FlightInvestigationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

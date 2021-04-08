@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace Player
+namespace Model
 {
-    partial interface IPlayerModel : INotifyPropertyChanged
+    public partial interface IFIAModel : INotifyPropertyChanged
     {
         float PlaybackSpeed
         {
@@ -34,8 +34,7 @@ namespace Player
         void fastBackwards();
         void jumpToStart();
         void jumpToEnd();
-        void jumpToTime(int time);
+        void jumpToTime();
         void loadCSVFile();
-        void closeWindow();
     }
 }

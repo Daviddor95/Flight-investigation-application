@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 
-namespace Player
+namespace Client
 {
     class TelnetClient : ITelnetClient
     {
