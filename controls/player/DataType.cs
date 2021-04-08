@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flight_investigation_application.controls.player
+namespace Util
 {
     public class DataType
     {
         public string Data { get; set; }
-        public int Value { get; set; }
+        public float Value { get; set; }
     }
 }
