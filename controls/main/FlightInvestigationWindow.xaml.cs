@@ -14,25 +14,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
-using Player;
+using ViewModel;
+using Model;
+using Client;
+using Flight_investigation_application;
 
-namespace Flight_investigation_application
+namespace View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FlightInvestigationWindow : Window
     {
-        PlayerViewModel playerVM;
-        public MainWindow()
+        FlightInvestigationViewModel mainVM;
+        public FlightInvestigationWindow()
         {
             InitializeComponent();
-            playerVM = new PlayerViewModel(new FIAModel(new TelnetClient()));
-            DataContext = playerVM;
+            this.mainVM = new FlightInvestigationViewModel(FIAModel.Model);
+            DataContext = mainVM;
         }
         private void Window_Closed(object sender, EventArgs e)
         {
-            this.playerVM.closeWindow();
+            this.mainVM.closeWindow();
         }
     }
 }
