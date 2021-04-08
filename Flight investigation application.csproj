@@ -77,6 +77,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controls\charts\ChartsModel.cs" />
+    <Compile Include="controls\charts\ChartsViewModel.cs" />
+    <Compile Include="controls\charts\InterfaceChartsModel.cs" />
+    <Compile Include="controls\charts\InterfaceChartsViewModel.cs" />
     <Compile Include="controls\joystick\IJoystickViewModel.cs" />
     <Compile Include="controls\joystick\JoystickModel.cs" />
     <Compile Include="controls\joystick\IJoystickModel.cs" />

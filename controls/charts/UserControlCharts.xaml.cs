@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using ViewModel;
+using Model;
 
 namespace View
 {
@@ -42,7 +44,7 @@ namespace View
         public UserControlCharts()
         {
             InitializeComponent();
-            chartsVM = new ChartsViewModel(new FIAModel());
+            chartsVM = new ChartsViewModel(FIAModel.Model);
 
             // Instantiate ListBox
             List<String> elements = new List<String>();

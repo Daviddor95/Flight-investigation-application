@@ -11,10 +11,10 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Model
 {
-    public partial class FIAModel : InterfaceChartsModel
+    public partial class FIAModel : IFIAModel
     {
         // variables -- small letters ------------------------------------------------------
-       // public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
         private int elementPreasonIndex;
         private int elementChosenIndex;
 
@@ -78,7 +78,7 @@ namespace Model
             }
         } //first Y values in a chart
         
-        /*public void NotifyPropertyChanged(string propName)
+      /*  public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
             {

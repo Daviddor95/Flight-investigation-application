@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Wpf;
+using Model;
 
 namespace ViewModel
 {
     class ChartsViewModel
     {
-        public ChartsViewModel(InterfaceChartsModel model)
+        public ChartsViewModel(IFIAModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs eventArgs)
@@ -28,7 +29,7 @@ namespace ViewModel
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private InterfaceChartsModel model;
+        private IFIAModel model;
 
         public SeriesCollection SeriesCollectionChart6 { get { return model.SeriesCollectionChart6; } }
       //  public SeriesCollection SeriesCollectionChart7 { get { return model.SeriesCollectionChart7; } }
@@ -41,7 +42,7 @@ namespace ViewModel
         //public Double MinValueChart7 { get { return model.MinValueChart7; } }
         //public Double MaxRangeChart7 { get { return model.MaxRangeChart7; } }
         //public Double MinRangeChart7 { get { return model.MinRangeChart7; } }
-        public LineSeries mylineseries { get { return model.mylineseries; } } //first Y values in a chart
+        public LineSeries mylineseries { get { return model.Mylineseries; } } //first Y values in a chart
     //    public string ChosenElement { get { return model.ChosenElement; } }
      //   public string PeasonElement { get { return model.PeasonElement; } }
     }
