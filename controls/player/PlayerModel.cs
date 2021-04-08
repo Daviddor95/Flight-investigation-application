@@ -125,7 +125,6 @@ namespace Model
                     {
                         this.time = this.time.AddSeconds(1);
                     }
-                    //this.Time = this.Time.AddSeconds(1 / this.sampleRate);
                     if (this.PlaybackSpeed != 0)
                     {
                         Thread.Sleep((int)(1000 / (this.sampleRate * Math.Abs(this.PlaybackSpeed))));

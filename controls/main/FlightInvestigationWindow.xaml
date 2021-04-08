@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Flight_investigation_application"
         xmlns:controls="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Flight investigation application" Height="550" Width="800" Closed="Window_Closed">
+        Title="Flight investigation application" Height="598" Width="800" Closed="Window_Closed">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <controls:PlayerUserControl HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="794" Margin="0,411,-0.4,0"/>
-        <!--<controls:joystickUserControl Margin="525,10,9.6,114.8"/>-->
+        <controls:PlayerUserControl HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="794" Margin="0,459,-0.4,0"/>
+        <controls:joystickUserControl Margin="544,10,9.6,114.8"/>
     </Grid>
 </Window>
