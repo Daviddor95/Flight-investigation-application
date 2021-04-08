@@ -24,9 +24,14 @@ namespace Model
             get;
             set;
         }
-        void connect(string ip, int port);
-        void disconnect();
+/*        FIAModel Model
+        {
+            get;
+        }*/
+        //void connect(string ip, int port);
+        //void disconnect();
         void start();
+        //void playVideo();
         void play();
         void pause();
         void stop();

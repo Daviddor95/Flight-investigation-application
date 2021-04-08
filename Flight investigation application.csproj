@@ -136,13 +136,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="settings\reg_flight.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="settings\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="controls\player\player icons\player-48x48-123363.png" />
   </ItemGroup>
@@ -163,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\player\player icons\player-48x48-123362.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="settings\playback_small.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
