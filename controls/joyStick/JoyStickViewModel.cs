@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Util;
 
 namespace ViewModel
 {
@@ -58,6 +59,88 @@ namespace ViewModel
             }
 
         }
+
+        public float VM_Pitch
+        {
+            get
+            {
+                return model.pitchM;
+            }
+            set
+            {
+                model.pitchM = value;
+            }
+        }
+        public float VM_Roll
+        {
+            get
+            {
+                return model.rollM;
+            }
+            set
+            {
+                model.rollM = value;
+            }
+        }
+        public float VM_Yaw
+        {
+            get
+            {
+                return model.yawM;
+            }
+            set
+            {
+                model.yawM = value;
+            }
+        }
+        public float VM_Direction
+        {
+            get
+            {
+                return model.directionM;
+            }
+            set
+            {
+                model.directionM = value;
+            }
+
+        }
+
+        public float VM_Altimeter
+        {
+            get
+            {
+                return model.altimeterM;
+            }
+            set
+            {
+                model.altimeterM = value;
+            }
+        }
+        public float VM_Airspeed
+        {
+            get
+            {
+                return model.airspeedM;
+            }
+            set
+            {
+                model.airspeedM = value;
+            }
+        }
+
+        public List<DataType> VM_DataTable
+        {
+            get
+            {
+                return model.DataTableM;
+            }
+            set
+            {
+                model.DataTableM = value;
+            }
+        }
+
         //DON'T TOUCH, IT'S DAVID
         public JoystickViewModel(IFIAModel model)
         {
