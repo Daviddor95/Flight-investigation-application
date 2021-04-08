@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="controls\joyStick\joystickUserControl.xaml">
+    <Page Include="controls\joystick\joystickUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,17 +71,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="controls\joyStick\IJoystickViewModel.cs" />
-    <Compile Include="controls\joyStick\JoystickModel.cs" />
-    <Compile Include="controls\joyStick\IJoystickModel.cs" />
-    <Compile Include="controls\joyStick\joystickUserControl.xaml.cs">
+    <Compile Include="controls\joystick\IJoystickViewModel.cs" />
+    <Compile Include="controls\joystick\JoystickModel.cs" />
+    <Compile Include="controls\joystick\IJoystickModel.cs" />
+    <Compile Include="controls\joystick\joystickUserControl.xaml.cs">
       <DependentUpon>joystickUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\main\FlightInvestigationModel.cs" />
     <Compile Include="controls\main\FlightInvestigationViewModel.cs" />
     <Compile Include="controls\main\IFlightInvestigationModel.cs" />
     <Compile Include="controls\player\DataType.cs" />
-    <Compile Include="controls\joyStick\JoystickViewModel.cs" />
+    <Compile Include="controls\joystick\JoystickViewModel.cs" />
     <Compile Include="controls\player\IPlayerModel.cs" />
     <Compile Include="controls\player\IPlayerViewModel.cs" />
     <Compile Include="controls\player\ITelnetClient.cs" />

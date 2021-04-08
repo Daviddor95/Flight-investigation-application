@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using ViewModel;
 
 namespace View
-{
+{ 
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
