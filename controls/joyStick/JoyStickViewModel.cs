@@ -1,4 +1,4 @@
-﻿using Player;
+﻿using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flight_investigation_application.controls.joyStick
+namespace ViewModel
 {
-    class JoyStickViewModel : IJoyStickViewModel
+    class JoystickViewModel : IJoystickViewModel
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private IJoyStickModel model;
+        private IFIAModel model;
         public float VM_Elevator
         {
             get
@@ -46,7 +46,7 @@ namespace Flight_investigation_application.controls.joyStick
             
         }
         //DON'T TOUCH, IT'S DAVID
-        public JoyStickViewModel(IJoyStickModel model)
+        public JoystickViewModel(IFIAModel model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs eventArgs)

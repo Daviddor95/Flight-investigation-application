@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Flight_investigation_application.controls.joyStick
+namespace ViewModel
 {
-    interface IJoyStickViewModel: INotifyPropertyChanged
+    interface IJoystickViewModel: INotifyPropertyChanged
     {
         float VM_Elevator
         {

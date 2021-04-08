@@ -4,18 +4,18 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Player;
+using Model;
 
-namespace Player
+namespace Model
 {
-    public partial class FIAModel : IJoyStickModel
+    public partial class FIAModel : IFIAModel
     {
         //public event PropertyChangedEventHandler PropertyChanged;
         private float xOfJoyStick;
         private float yOfJoyStick;
         private float xOfRudderScroller;
         private float yOfThrottleScroller;
-        private float radiusOfOutercircle = 100;
+        //private float radiusOfOutercircle = 100;
 
         //private string[] CSVLines;
         //private int currentLine;

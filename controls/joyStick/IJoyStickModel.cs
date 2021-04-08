@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //namespace Flight_investigation_application.controls.joyStick
-namespace Player
+namespace Model
 {
-    partial interface IJoyStickModel : INotifyPropertyChanged
+    public partial interface IFIAModel : INotifyPropertyChanged
     {
         float aileronJoyStickX
         {
