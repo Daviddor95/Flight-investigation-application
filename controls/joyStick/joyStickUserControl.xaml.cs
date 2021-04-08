@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
 
-
-namespace Flight_investigation_application.controls.joyStick
+namespace View
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
@@ -28,7 +29,7 @@ namespace Flight_investigation_application.controls.joyStick
         public joystickUserControl()
         {
             InitializeComponent();
-            joystickVM = new JoyStickViewModel(new FIAModel());
+            joystickVM = new JoyStickViewModel(FIAModel.Model);
             DataContext = joystickVM;
 
             /*  this.importantData = new List<DataType>();

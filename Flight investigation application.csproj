@@ -73,7 +73,7 @@
     </Compile>
     <Compile Include="controls\joyStick\IJoyStickViewModel.cs" />
     <Compile Include="controls\joyStick\JoyStickModel.cs" />
-    <Compile Include="controls\joyStick\IJoyStickModel.cs" />
+    <Compile Include="controls\joyStick\IFIAModel.cs" />
     <Compile Include="controls\joyStick\joyStickUserControl.xaml.cs">
       <DependentUpon>joyStickUserControl.xaml</DependentUpon>
     </Compile>
