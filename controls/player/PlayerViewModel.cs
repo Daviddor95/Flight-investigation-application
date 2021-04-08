@@ -23,12 +23,12 @@ namespace ViewModel
                 model.PlaybackSpeed = value;
             }
         }
-        public int VM_Time
+        public float VM_Time
         {
             get
             {
                 TimeSpan diff = model.Time - DateTime.MinValue;
-                return (int)diff.TotalSeconds;
+                return (float)diff.TotalSeconds;
             }
             set
             {
@@ -43,7 +43,7 @@ namespace ViewModel
                 return this.model.Time;
             }
         }
-        public int VM_LengthSec
+        public float VM_LengthSec
         {
             get
             {

@@ -164,7 +164,9 @@
     <Resource Include="controls\player\player icons\player-48x48-123362.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="settings\playback_small.xml" />
+    <Resource Include="settings\playback_small.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

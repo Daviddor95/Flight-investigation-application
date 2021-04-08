@@ -8,10 +8,15 @@
         mc:Ignorable="d"
         Title="Flight investigation application" Height="598" Width="800" Closed="Window_Closed">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
-        <controls:PlayerUserControl HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="794" Margin="0,459,-0.4,0"/>
-        <controls:joystickUserControl Margin="544,10,9.6,114.8"/>
+        <controls:PlayerUserControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="110" VerticalAlignment="Top" Margin="10,0,10,0"/>
+        <controls:joystickUserControl Grid.Row="0" Grid.Column="1" Margin="0,0,-0.4,0.4"/>
     </Grid>
 </Window>
