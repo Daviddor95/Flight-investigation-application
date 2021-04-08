@@ -61,7 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="controls\joyStick\joyStickUserControl.xaml">
+    <Page Include="controls\joyStick\joystickUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -77,6 +77,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controls\joyStick\IJoystickViewModel.cs" />
+    <Compile Include="controls\joyStick\JoystickModel.cs" />
+    <Compile Include="controls\joyStick\IJoystickModel.cs" />
+    <Compile Include="controls\joyStick\joystickUserControl.xaml.cs">
+      <DependentUpon>joystickUserControl.xaml</DependentUpon>
     <Compile Include="controls\charts\ChartsModel.cs" />
     <Compile Include="controls\charts\ChartsViewModel.cs" />
     <Compile Include="controls\charts\InterfaceChartsModel.cs" />
@@ -91,7 +96,7 @@
     <Compile Include="controls\main\FlightInvestigationViewModel.cs" />
     <Compile Include="controls\main\IFlightInvestigationModel.cs" />
     <Compile Include="controls\player\DataType.cs" />
-    <Compile Include="controls\joyStick\JoyStickViewModel.cs" />
+    <Compile Include="controls\joyStick\JoystickViewModel.cs" />
     <Compile Include="controls\player\IPlayerModel.cs" />
     <Compile Include="controls\player\IPlayerViewModel.cs" />
     <Compile Include="controls\player\ITelnetClient.cs" />
