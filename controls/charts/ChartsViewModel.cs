@@ -31,6 +31,11 @@ namespace ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private IFIAModel model;
 
+        public String ChosenElementName {
+            get { return model.ChosenElementName; }
+            set { model.ChosenElementName = value; }
+        }
+
         public SeriesCollection SeriesCollectionChart6 { get { return model.SeriesCollectionChart6; } }
       //  public SeriesCollection SeriesCollectionChart7 { get { return model.SeriesCollectionChart7; } }
         public List<string> LabelsChart67 { get { return model.LabelsChart67; } }
