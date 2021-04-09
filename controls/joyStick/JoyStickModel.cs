@@ -37,7 +37,7 @@ namespace Model
                 NotifyPropertyChanged("xOfJoystick");
             }
         }
-         public float elevatorJoystickY
+        public float elevatorJoystickY
         {
             get
             {
@@ -50,7 +50,7 @@ namespace Model
             }
         }
 
-         public float throttleScrollerY
+        public float throttleScrollerY
         {
             get
             {
@@ -63,7 +63,7 @@ namespace Model
             }
         }
 
-         public float rudderScrollerX
+        public float rudderScrollerX
         {
             get
             {
@@ -195,6 +195,14 @@ namespace Model
             this.importantData[3].Value = this.yaw;
             this.importantData[4].Value = this.roll;
             this.importantData[5].Value = this.pitch;
+
+        }
+
+        public void startDastartAllJoystickModel()
+        {
+            startJoystick();
+            startScrollers();
+            startDataTable();
 
         }
 
