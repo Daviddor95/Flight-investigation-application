@@ -19,7 +19,7 @@
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
                         <SkewTransform/>
-                        <RotateTransform Angle="-180.421"/>
+                        <RotateTransform Angle="-180"/>
                         <TranslateTransform X="-83.069" Y="-46.245"/>
                     </TransformGroup>
                 </Slider.RenderTransform>

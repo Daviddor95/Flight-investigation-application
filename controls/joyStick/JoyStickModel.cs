@@ -34,7 +34,7 @@ namespace Model
             set
             {
                 xOfJoystick = value;
-                NotifyPropertyChanged("xOfJoystick");
+                NotifyPropertyChanged("aileronJoystickX");
             }
         }
         public float elevatorJoystickY
@@ -46,7 +46,7 @@ namespace Model
             set
             {
                 yOfJoystick = value;
-                NotifyPropertyChanged("yOfJoystick");
+                NotifyPropertyChanged("elevatorJoystickY");
             }
         }
 
@@ -59,7 +59,7 @@ namespace Model
             set
             {
                 yOfThrottleScroller = value;
-                NotifyPropertyChanged("yOfThrottleScroller");
+                NotifyPropertyChanged("throttleScrollerY");
             }
         }
 
@@ -72,7 +72,7 @@ namespace Model
             set
             {
                 xOfRudderScroller = value;
-                NotifyPropertyChanged("xOfRudderScroller");
+                NotifyPropertyChanged("rudderScrollerX");
             }
         }
 
@@ -85,7 +85,7 @@ namespace Model
             set
             {
                 direction = value;
-                NotifyPropertyChanged("direction");
+                NotifyPropertyChanged("directionM");
             }
         }
 
@@ -98,7 +98,7 @@ namespace Model
             set
             {
                 altimeter = value;
-                NotifyPropertyChanged("altimeter");
+                NotifyPropertyChanged("altimeterM");
             }
         }
         public float airspeedM
@@ -110,7 +110,7 @@ namespace Model
             set
             {
                 airspeed = value;
-                NotifyPropertyChanged("airspeed");
+                NotifyPropertyChanged("airspeedM");
             }
         }
 
@@ -123,7 +123,7 @@ namespace Model
             set
             {
                 yaw = value;
-                NotifyPropertyChanged("yaw");
+                NotifyPropertyChanged("yawM");
             }
         }
         public float rollM
@@ -135,7 +135,7 @@ namespace Model
             set
             {
                 roll = value;
-                NotifyPropertyChanged("roll");
+                NotifyPropertyChanged("rollM");
             }
         }
 
@@ -148,7 +148,7 @@ namespace Model
             set
             {
                 pitch = value;
-                NotifyPropertyChanged("pitch");
+                NotifyPropertyChanged("pitchM");
             }
         }
 
@@ -161,7 +161,7 @@ namespace Model
             set
             {
                 importantData = value;
-                NotifyPropertyChanged("importantData");
+                NotifyPropertyChanged("DataTableM");
             }
         }
 

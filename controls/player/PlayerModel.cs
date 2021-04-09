@@ -118,11 +118,10 @@ namespace Model
             {
                 this.currentLine--;
             }
-            /*if (this.currentLine % this.sampleRate == 0)
+            if (this.currentLine % this.sampleRate == 0)
             {
                 this.Time = this.Time.AddSeconds(1);
-            }*/
-            this.Time = this.Time.AddSeconds(1 / this.sampleRate);
+            }
         }
         public void play()
         {

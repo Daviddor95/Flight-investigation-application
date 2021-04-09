@@ -28,7 +28,7 @@ namespace ViewModel
             get
             {
                 TimeSpan diff = model.Time - DateTime.MinValue;
-                return (float)diff.TotalSeconds;
+                return (int)diff.TotalSeconds;
             }
             set
             {
