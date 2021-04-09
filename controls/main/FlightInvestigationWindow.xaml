@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flight_investigation_application"
         xmlns:controls="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Flight investigation application" Height="598" Width="800" Closed="Window_Closed">
+        Title="Flight investigation application" Height="598" Width="800" Closed="Window_Closed" MinWidth="700" MinHeight="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

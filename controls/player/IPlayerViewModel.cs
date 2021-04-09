@@ -24,7 +24,7 @@ namespace ViewModel
         {
             get;
         }
-        DateTime VM_DigitalTime
+        string VM_DigitalTime
         {
             get;
         }

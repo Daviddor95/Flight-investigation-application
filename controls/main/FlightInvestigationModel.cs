@@ -13,7 +13,7 @@ namespace Model
         {
             new Thread(delegate ()
             {
-                while (this.playing && this.currentLine < this.CSVLines.Length && this.currentLine >= 0)
+                while (this.playing && this.currentLine < this.CSVLines.Length - 1 && this.currentLine >= 0)
                 {
                     this.playVideo();
                     this.startAllJoystickModel();

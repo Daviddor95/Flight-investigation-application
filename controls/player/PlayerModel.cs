@@ -56,7 +56,7 @@ namespace Model
                 }
                 else if (value < DateTime.MinValue)
                 {
-                    this.time = value;
+                    this.time = DateTime.MinValue;
                 }
                 else
                 {
@@ -113,14 +113,18 @@ namespace Model
             if (this.PlaybackSpeed > 0 && this.currentLine < this.CSVLines.Length)
             {
                 this.currentLine++;
+                if (this.currentLine % this.sampleRate == 0)
+                {
+                    this.Time = this.Time.AddSeconds(1);
+                }
             }
-            else if (this.currentLine > 0)
+            else if (this.PlaybackSpeed < 0 && this.currentLine > 0)
             {
                 this.currentLine--;
-            }
-            if (this.currentLine % this.sampleRate == 0)
-            {
-                this.Time = this.Time.AddSeconds(1);
+                if (this.currentLine % this.sampleRate == 0)
+                {
+                    this.Time = this.Time.Subtract(DateTime.MinValue.AddSeconds(1) - DateTime.MinValue);
+                }
             }
         }
         public void play()
@@ -151,7 +155,6 @@ namespace Model
         }
         public void fastForward()
         {
-            //if (this.currentLine + 10 * this.sampleRate < this.CSVLines.Length)
             if (this.Time < DateTime.MinValue.AddSeconds(this.lengthSec - 10))
                 {
                 this.Time = this.Time.AddSeconds(10);
@@ -164,7 +167,6 @@ namespace Model
         }
         public void fastBackwards()
         {
-            //if (this.currentLine - 10 * this.sampleRate > 0)
             if (this.Time > DateTime.MinValue.AddSeconds(10))
             {
                 this.Time = this.Time.Subtract(new TimeSpan(0, 0, 10));
@@ -192,7 +194,7 @@ namespace Model
                 {
                     csv = input.ReadToEnd();
                 }
-                this.CSVLines = csv.Split('\n');
+                this.CSVLines = csv.Split('\n').Where(x => !string.IsNullOrEmpty(x)).ToArray();
                 this.LengthSec = this.CSVLines.Length / this.sampleRate;
             }
         }

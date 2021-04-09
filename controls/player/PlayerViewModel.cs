@@ -36,11 +36,11 @@ namespace ViewModel
                 this.model.jumpToTime();
             }
         }
-        public DateTime VM_DigitalTime
+        public string VM_DigitalTime
         {
             get
             {
-                return this.model.Time;
+                return this.model.Time.ToString("HH:mm:ss");
             }
         }
         public float VM_LengthSec
