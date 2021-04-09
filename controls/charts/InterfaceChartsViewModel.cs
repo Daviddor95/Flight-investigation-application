@@ -11,7 +11,7 @@ namespace ViewModel
 {
     interface InterfaceChartsViewModel : INotifyPropertyChanged
     {
-        String chosenElementName { get; set; }
+        String ChosenElementName { get; set; }
         SeriesCollection SeriesCollectionChart6 { set; get; }
     //    SeriesCollection SeriesCollectionChart7 { set; get; }
         List<string> LabelsChart67 { get; set; } //this is the X line's labels with is the time, so it's the same in chart 6 & 7

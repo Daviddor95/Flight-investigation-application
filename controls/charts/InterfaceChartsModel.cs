@@ -12,7 +12,7 @@ namespace Model
     public partial interface IFIAModel : INotifyPropertyChanged
     {
         //for element List
-        String chosenElementName { get; set; }
+        String ChosenElementName { get; set; }
 
         //for the charts
         SeriesCollection SeriesCollectionChart6 { set; get; }

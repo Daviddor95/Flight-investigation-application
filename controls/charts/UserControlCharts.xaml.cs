@@ -90,7 +90,7 @@ namespace View
 
         private void elementList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.chartsVM.chosenElementName = elementList.SelectedItem.ToString();
+            this.chartsVM.ChosenElementName = elementList.SelectedItem.ToString();
         }
     }
 }

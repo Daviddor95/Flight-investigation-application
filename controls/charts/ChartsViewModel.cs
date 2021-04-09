@@ -32,8 +32,8 @@ namespace ViewModel
         private IFIAModel model;
 
         public String ChosenElementName {
-            get { return model.chosenElementName; }
-            set; 
+            get { return model.ChosenElementName; }
+            set { model.ChosenElementName = value; }
         }
 
         public SeriesCollection SeriesCollectionChart6 { get { return model.SeriesCollectionChart6; } }
