@@ -110,11 +110,11 @@ namespace Model
         private void playVideo()
         {
             this.client.write(this.CSVLines[this.currentLine]);
-            if (this.PlaybackSpeed > 0)
+            if (this.PlaybackSpeed > 0 && this.currentLine < this.CSVLines.Length)
             {
                 this.currentLine++;
             }
-            else
+            else if (this.currentLine > 0)
             {
                 this.currentLine--;
             }
