@@ -8,7 +8,7 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              d:DesignHeight="396" d:DesignWidth="519">
     <Grid>
-        <lvc:CartesianChart x:Name="chart6" Series="{Binding SeriesCollectionChart6}" LegendLocation="Left" Margin="247,0,0,175">
+        <lvc:CartesianChart x:Name="chart6" Series="{Binding SeriesCollectionChart6}" LegendLocation="Left" Margin="237,10,10,165">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Time" Labels="{Binding LabelsChart67}" FontSize="14"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
@@ -17,5 +17,12 @@
                           MinRange="{Binding MinRangeChart6}" MaxRange="{Binding MaxRangeChart6}"/>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
+        <ComboBox x:Name="elementList" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115" Height="21" SelectionChanged="elementList_SelectionChanged">
+            <ComboBoxItem IsSelected="True">air speed</ComboBoxItem>
+            <ComboBoxItem>direction</ComboBoxItem>
+            <ComboBoxItem>altimeter</ComboBoxItem>
+            <ComboBoxItem>yaw</ComboBoxItem>
+            <ComboBoxItem>roll</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </UserControl>

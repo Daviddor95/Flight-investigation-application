@@ -11,6 +11,10 @@ namespace Model
 {
     public partial interface IFIAModel : INotifyPropertyChanged
     {
+        //for element List
+        String chosenElementName { get; set; }
+
+        //for the charts
         SeriesCollection SeriesCollectionChart6 { set; get; }
        // SeriesCollection SeriesCollectionChart7 { set; get; }
         List<string> LabelsChart67 { get; set; } //this is the X line's labels with is the time, so it's the same in chart 6 & 7
@@ -24,7 +28,7 @@ namespace Model
 
         //functions
         void chart();
-        void startLine();
+        void createLine();
         /*
         void get30SecOfEleCSV(int elementLocationInCSV);
         double findMaxMinValueRange(); //goes over the 30secArray and find min & max value

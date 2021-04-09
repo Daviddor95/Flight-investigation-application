@@ -25,27 +25,13 @@ namespace View
     /// </summary>
     public partial class UserControlCharts : UserControl
     {
-        public SeriesCollection SeriesCollectionChart6 { get; set; }
-        //
-        public List<string> LabelsChart67 { get; set; }
-        //temp for new y, to be added
-        private double _new_Y_value;
-        //the first 8 x points
-        private double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
-
-        // Min & Max Value is the line Y in the chart, aka the element we chose
-        public double MaxValueChart6 { get; set; }
-        public double MinValueChart6 { get; set; }
-        // Min & Max Range is the ????
-        public double MaxRangeChart6 { get; set; }
-        public double MinRangeChart6 { get; set; }
-
         ChartsViewModel chartsVM;
         public UserControlCharts()
         {
             InitializeComponent();
             chartsVM = new ChartsViewModel(FIAModel.Model);
-
+            DataContext = chartsVM;
+            /*
             // Instantiate ListBox
             List<String> elements = new List<String>();
 
@@ -73,9 +59,10 @@ namespace View
             // Start the Chart line drewing
             linestart();
             DataContext = this;
+            */
         }
         
-        //Continuous line chart method
+        /*//Continuous line chart method
         public void linestart()
         {
             Task.Run(() =>
@@ -99,6 +86,11 @@ namespace View
                     });
                 }
             });
+        }*/
+
+        private void elementList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.chartsVM.chosenElementName = elementList.SelectedItem.ToString();
         }
     }
 }
