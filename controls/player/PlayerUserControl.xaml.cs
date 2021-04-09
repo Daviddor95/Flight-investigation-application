@@ -24,7 +24,7 @@ namespace View
     /// </summary>
     public partial class PlayerUserControl : UserControl
     {
-        PlayerViewModel playerVM;
+        private PlayerViewModel playerVM;
         public PlayerUserControl()
         {
             InitializeComponent();
