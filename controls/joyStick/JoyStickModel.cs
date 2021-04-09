@@ -198,7 +198,7 @@ namespace Model
 
         }
 
-        public void startDastartAllJoystickModel()
+        public void startAllJoystickModel()
         {
             startJoystick();
             startScrollers();
