@@ -169,26 +169,26 @@ namespace Model
         public void startJoystick()
         {
             float radius = 55;
-            float x = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[0]);
-            float y = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[1]);
+            float x = float.Parse(this.CSVLines[currentLine].Split(',')[0]);
+            float y = float.Parse(this.CSVLines[currentLine].Split(',')[1]);
             this.aileronJoystickX = 135 + x * radius;
             this.elevatorJoystickY = 20 + y * radius;
         }
 
         public void startScrollers()
         {
-            this.rudderScrollerX = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[2]);
-            this.throttleScrollerY = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[6]);
+            this.rudderScrollerX = float.Parse(this.CSVLines[currentLine].Split(',')[2]);
+            this.throttleScrollerY = float.Parse(this.CSVLines[currentLine].Split(',')[6]);
 
         }
         public void startDataTable()
         {
-            this.direction = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[19]);
-            this.airspeed = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[21]);
-            this.altimeter = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[26]);
-            this.yaw = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[20]);
-            this.roll = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[17]);
-            this.pitch = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[18]);
+            this.direction = float.Parse(this.CSVLines[currentLine].Split(',')[19]);
+            this.airspeed = float.Parse(this.CSVLines[currentLine].Split(',')[21]);
+            this.altimeter = float.Parse(this.CSVLines[currentLine].Split(',')[26]);
+            this.yaw = float.Parse(this.CSVLines[currentLine].Split(',')[20]);
+            this.roll = float.Parse(this.CSVLines[currentLine].Split(',')[17]);
+            this.pitch = float.Parse(this.CSVLines[currentLine].Split(',')[18]);
             this.importantData[0].Value = this.altimeter;
             this.importantData[1].Value = this.airspeed;
             this.importantData[2].Value = this.direction;

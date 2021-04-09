@@ -16,6 +16,8 @@ namespace Model
                 while (this.playing && this.currentLine < this.CSVLines.Length && this.currentLine >= 0)
                 {
                     this.playVideo();
+                    this.startAllJoystickModel();
+                    //graph();
                     if (this.PlaybackSpeed != 0)
                     {
                         Thread.Sleep((int)(1000 / (this.sampleRate * Math.Abs(this.PlaybackSpeed))));
@@ -24,8 +26,6 @@ namespace Model
                     {
                         this.playing = false;
                     }
-                    //moveJoystick();
-                    //graph();
                 }
             }).Start();
         }
