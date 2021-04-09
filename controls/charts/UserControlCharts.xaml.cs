@@ -25,13 +25,27 @@ namespace View
     /// </summary>
     public partial class UserControlCharts : UserControl
     {
+        private String chosenElementName;
+        //public event PropertyChangedEventHandler PropertyChanged;
+        private int elementPreasonIndex;
+        private int elementChosenIndex;
+
+        private SeriesCollection seriesCollectionChart6;
+        private double maxValueChart6;
+        private double minValueChart6;
+        private double maxRangeChart6;
+        double minRangeChart6;
+        List<string> labelsChart67;
+        LineSeries mylineseries;
+        private double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
+
         ChartsViewModel chartsVM;
         public UserControlCharts()
         {
             InitializeComponent();
             chartsVM = new ChartsViewModel(FIAModel.Model);
             DataContext = chartsVM;
-            /*
+ 
             // Instantiate ListBox
             List<String> elements = new List<String>();
 
@@ -44,24 +58,23 @@ namespace View
             //Distance style of line chart
             mylineseries.PointGeometry = null;
             // Add the abscissa //this is the X line's marks like 0 1 2 3->
-            LabelsChart67 = new List<string> {};
+            labelsChart67 = new List<string> {};
             // Add the data of the line chart
             mylineseries.Values = new ChartValues<double>(temp);
-            SeriesCollectionChart6 = new SeriesCollection {};
-            SeriesCollectionChart6.Add(mylineseries);
-            _new_Y_value = 8; //this is the Y in the points //Ordinate
+            seriesCollectionChart6 = new SeriesCollection {};
+            seriesCollectionChart6.Add(mylineseries);
 
-            MaxValueChart6 = 10;
-            MinValueChart6 = -10;
-            MaxRangeChart6 = 10;
-            MinRangeChart6 = -10;
+            maxValueChart6 = 10;
+            minValueChart6 = -10;
+            maxRangeChart6 = 10;
+            minRangeChart6 = -10;
 
             // Start the Chart line drewing
-            linestart();
-            DataContext = this;
-            */
+            //linestart();
+            //DataContext = this;
+
         }
-        
+
         /*//Continuous line chart method
         public void linestart()
         {
@@ -90,7 +103,7 @@ namespace View
 
         private void elementList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.chartsVM.ChosenElementName = elementList.SelectedItem.ToString();
+           // this.chartsVM.ChosenElementName = elementList.SelectedItem.ToString();
         }
     }
 }
