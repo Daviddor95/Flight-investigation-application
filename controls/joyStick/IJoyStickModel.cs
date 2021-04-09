@@ -21,7 +21,7 @@ namespace Model
             set;
             get;
         }
-        
+
         float throttleScrollerY
         {
             set;
@@ -77,10 +77,11 @@ namespace Model
             get;
         }
 
-        
+
 
         void startJoystick();
         void startScrollers();
         void startDataTable();
+        void startAllJoystickModel();
     }
 }

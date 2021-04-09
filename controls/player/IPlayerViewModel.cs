@@ -15,12 +15,12 @@ namespace ViewModel
             set;
             get;
         }
-        int VM_Time
+        float VM_Time
         {
             set;
             get;
         }
-        int VM_LengthSec
+        float VM_LengthSec
         {
             get;
         }

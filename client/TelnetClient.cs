@@ -21,7 +21,7 @@ namespace Client
         {
             IPAddress addr = IPAddress.Parse(ip);
             simulator = new Socket(addr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            simulator.Connect(new IPEndPoint(addr, 5400));
+            simulator.Connect(new IPEndPoint(addr, port));
             this.input = new StreamReader(new NetworkStream(this.simulator));
             this.output = new StreamWriter(new NetworkStream(this.simulator));
         }

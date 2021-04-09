@@ -10,7 +10,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using Client;
-//using Flight_investigation_application.controls.player;
 using System.Reflection;
 using Util;
 
@@ -26,7 +25,7 @@ namespace Model
         private string[] CSVLines;
         private string[] XMLLines;
         private int sampleRate;
-        private int lengthSec;
+        private float lengthSec;
         private int currentLine;
         private static IFIAModel model;
         private List<DataType> importantData;
@@ -66,7 +65,7 @@ namespace Model
                 NotifyPropertyChanged("Time");
             }
         }
-        public int LengthSec
+        public float LengthSec
         {
             get
             {
@@ -94,24 +93,6 @@ namespace Model
             //this.loadXML();
             this.initialize(client);
             this.connect();
-            /*
-            this.client = client;
-            this.playing = true;
-            this.PlaybackSpeed = 1;
-            this.Time = DateTime.MinValue;
-            this.sampleRate = 10;
-            this.currentLine = 0;
-
-            this.importantData = new List<DataType>();
-            this.importantData.Add(new DataType() { Data = "altimeter:i.a.f", Value = 0 });//altimeter_indicated-altitude-ft
-            //importantData.Add(new DataType() { Data = "altimeter:p.a.f", Value = 10001 }); // altimeter_pressure-alt-ft
-            this.importantData.Add(new DataType() { Data = "airspeed", Value = 0 }); // airspeed-kt
-            //importantData.Add(new DataType() { Data = "Indicated airspeed", Value = 20001 }); //airspeed-indicator_indicated-speed-kt
-            this.importantData.Add(new DataType() { Data = "direction", Value = 0 });//heading-deg
-            this.importantData.Add(new DataType() { Data = "yaw", Value = 0 }); //(side-slip-deg)
-            this.importantData.Add(new DataType() { Data = "roll", Value = 0 });
-            this.importantData.Add(new DataType() { Data = "pitch", Value = 0 });
-*/
         }
         private void connect()
         {
@@ -126,34 +107,14 @@ namespace Model
             this.playing = false;
             this.client.disconnect();
         }
-/*        public void start()
-        {
-            new Thread(delegate ()
-            {
-                while (this.playing && this.currentLine < this.CSVLines.Length && this.currentLine >= 0)
-                {
-                    this.playVideo();
-                    if (this.PlaybackSpeed != 0)
-                    {
-                        Thread.Sleep((int)(1000 / (this.sampleRate * Math.Abs(this.PlaybackSpeed))));
-                    }
-                    else
-                    {
-                        this.playing = false;
-                    }
-                    //moveJoystick();
-                    //graph();
-                }
-            }).Start();
-        }*/
         private void playVideo()
         {
             this.client.write(this.CSVLines[this.currentLine]);
-            if (this.PlaybackSpeed > 0)
+            if (this.PlaybackSpeed > 0 && this.currentLine < this.CSVLines.Length)
             {
                 this.currentLine++;
             }
-            else
+            else if (this.currentLine > 0)
             {
                 this.currentLine--;
             }
@@ -180,18 +141,21 @@ namespace Model
         {
             this.currentLine = 0;
             this.Time = DateTime.MinValue;
+            this.playVideo();
         }
         public void jumpToEnd()
         {
             this.currentLine = this.CSVLines.Length - 5;
             this.Time = DateTime.MinValue.AddSeconds(this.lengthSec);
+            this.playVideo();
         }
         public void fastForward()
         {
-            if (this.currentLine + 10 * this.sampleRate < this.CSVLines.Length)
-            {
+            //if (this.currentLine + 10 * this.sampleRate < this.CSVLines.Length)
+            if (this.Time < DateTime.MinValue.AddSeconds(this.lengthSec - 10))
+                {
                 this.Time = this.Time.AddSeconds(10);
-                this.currentLine += 10 * this.sampleRate;
+                this.jumpToTime();
             }
             else
             {
@@ -200,10 +164,11 @@ namespace Model
         }
         public void fastBackwards()
         {
-            if (this.currentLine - 10 * this.sampleRate > 0)
+            //if (this.currentLine - 10 * this.sampleRate > 0)
+            if (this.Time > DateTime.MinValue.AddSeconds(10))
             {
                 this.Time = this.Time.Subtract(new TimeSpan(0, 0, 10));
-                this.currentLine -= 10 * this.sampleRate;
+                this.jumpToTime();
             }
             else
             {
@@ -214,6 +179,7 @@ namespace Model
         {
             TimeSpan diff = this.Time - DateTime.MinValue;
             this.currentLine = (int) diff.TotalSeconds * this.sampleRate;
+            this.playVideo();
         }
         public void loadCSVFile()
         {
@@ -234,7 +200,8 @@ namespace Model
         {
             string xml;
             // Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"settings\playback_small.xml"
-            using (StreamReader input = new StreamReader(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), System.IO.Path.Combine(@"\settings\", "playback_speed.xml"))))
+            // System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), System.IO.Path.Combine(@"\settings\", "playback_speed.xml"))
+            using (StreamReader input = new StreamReader(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), System.IO.Path.Combine(@"settings\", "playback_speed.xml"))))
             {
                 xml = input.ReadToEnd();
             }
@@ -276,26 +243,3 @@ namespace Model
         }
     }
 }
-
-/*            OpenFileDialog FileDialog = new OpenFileDialog();
-            if ((bool)FileDialog.ShowDialog())
-            {
-                IPAddress addr = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
-                using (Socket flightGear = new Socket(addr.AddressFamily, SocketType.Stream, ProtocolType.Tcp))
-                {
-                    flightGear.Connect(new IPEndPoint(addr, 5400));
-                    using (StreamReader input = new StreamReader(FileDialog.FileName))
-                    {
-                        using (StreamWriter output = new StreamWriter(new NetworkStream(flightGear)))
-                        {
-                            string line;
-                            while ((line = input.ReadLine()) != null)
-                            {
-                                output.WriteLine(line);
-                                output.Flush();
-                                Thread.Sleep(100);
-                            }
-                        }
-                    }
-                }
-            }*/

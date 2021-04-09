@@ -19,7 +19,7 @@ namespace Model
             set;
             get;
         }
-        int LengthSec
+        float LengthSec
         {
             get;
             set;

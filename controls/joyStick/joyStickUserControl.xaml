@@ -14,18 +14,18 @@
             <Ellipse Fill="#FFF4F4F5" Name ="Joystick" Height="110" Canvas.Left="110" Stroke="Black" Canvas.Top="20" Width="110"  RenderTransformOrigin="0.5,0.509"/>
             <Ellipse Fill="#545454" x:Name="Knob" Height="60" Canvas.Left="{Binding Path=VM_Aileron, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stroke="Black" Canvas.Top="{Binding Path=VM_Elevator, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="60"  RenderTransformOrigin="0.461,0.455"/>
             <Slider x:Name="mcSlider_Copy"  
-            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_Rudder, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115">
+            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_Rudder, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" >
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
                         <SkewTransform/>
-                        <RotateTransform Angle="-180.421"/>
+                        <RotateTransform Angle="-180"/>
                         <TranslateTransform X="-83.069" Y="-46.245"/>
                     </TransformGroup>
                 </Slider.RenderTransform>
             </Slider>
             <Slider x:Name="mcSlider"  
-        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_Throttle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124">
+        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_Throttle, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124" TickFrequency="1E-06">
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -36,7 +36,7 @@
                 </Slider.RenderTransform>
             </Slider>
         </Canvas>
-        <DataGrid Name="dgSimple" ItemsSource="{Binding Source=VM_DataTable}" SelectionChanged="dgSimple_SelectionChanged" Margin="5,160,6,0" Height="225" VerticalAlignment="Top"/>
+        <DataGrid Name="dgSimple" ItemsSource="{Binding Path=VM_DataTable, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="dgSimple_SelectionChanged" Margin="5,160,6,0" Height="225" VerticalAlignment="Top"/>
 
     </Grid>
 

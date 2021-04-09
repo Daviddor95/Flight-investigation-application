@@ -23,7 +23,7 @@ namespace ViewModel
                 model.PlaybackSpeed = value;
             }
         }
-        public int VM_Time
+        public float VM_Time
         {
             get
             {
@@ -43,7 +43,7 @@ namespace ViewModel
                 return this.model.Time;
             }
         }
-        public int VM_LengthSec
+        public float VM_LengthSec
         {
             get
             {
