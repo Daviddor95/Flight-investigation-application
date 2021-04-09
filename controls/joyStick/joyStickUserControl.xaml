@@ -25,7 +25,7 @@
                 </Slider.RenderTransform>
             </Slider>
             <Slider x:Name="mcSlider"  
-        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_Throttle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124">
+        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_Throttle, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124">
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -36,7 +36,7 @@
                 </Slider.RenderTransform>
             </Slider>
         </Canvas>
-        <DataGrid Name="dgSimple" ItemsSource="{Binding Source=VM_DataTable}" SelectionChanged="dgSimple_SelectionChanged" Margin="5,160,6,0" Height="225" VerticalAlignment="Top"/>
+        <DataGrid Name="dgSimple" ItemsSource="{Binding Path=VM_DataTable, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="dgSimple_SelectionChanged" Margin="5,160,6,0" Height="225" VerticalAlignment="Top"/>
 
     </Grid>
 

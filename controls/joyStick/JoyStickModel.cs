@@ -34,7 +34,7 @@ namespace Model
             set
             {
                 xOfJoystick = value;
-                NotifyPropertyChanged("aileronJoystickX");
+                NotifyPropertyChanged("xOfJoystick");
             }
         }
          public float elevatorJoystickY
@@ -46,7 +46,7 @@ namespace Model
             set
             {
                 yOfJoystick = value;
-                NotifyPropertyChanged("elevatorJoystickY");
+                NotifyPropertyChanged("yOfJoystick");
             }
         }
 
@@ -59,7 +59,7 @@ namespace Model
             set
             {
                 yOfThrottleScroller = value;
-                NotifyPropertyChanged("throttleScrollerY");
+                NotifyPropertyChanged("yOfThrottleScroller");
             }
         }
 
@@ -72,7 +72,7 @@ namespace Model
             set
             {
                 xOfRudderScroller = value;
-                NotifyPropertyChanged("rudderScrollerX");
+                NotifyPropertyChanged("xOfRudderScroller");
             }
         }
 
@@ -171,8 +171,8 @@ namespace Model
             float radius = 55;
             float x = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[0]);
             float y = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[1]);
-            this.aileronJoystickX = x * radius;
-            this.elevatorJoystickY = y * radius;  
+            this.aileronJoystickX = 135 + x * radius;
+            this.elevatorJoystickY = 20 + y * radius;
         }
 
         public void startScrollers()
