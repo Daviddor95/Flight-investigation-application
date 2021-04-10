@@ -8,7 +8,7 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              d:DesignHeight="396" d:DesignWidth="519">
     <Grid>
-        <lvc:CartesianChart x:Name="chart6" Series="{Binding VM_SeriesCollectionChart6, UpdateSourceTrigger=PropertyChanged}" LegendLocation="Left" Margin="237,10,10,165">
+        <lvc:CartesianChart x:Name="chart6" Series="{Binding VM_SeriesCollectionChart6, UpdateSourceTrigger=PropertyChanged}" LegendLocation="Left" Margin="130,10,10,107">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Time" Labels="{Binding VM_LabelsChart67, UpdateSourceTrigger=PropertyChanged}" FontSize="14"></lvc:Axis>
             </lvc:CartesianChart.AxisX>

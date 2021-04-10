@@ -13,13 +13,13 @@ namespace Model
         public event PropertyChangedEventHandler PropertyChanged;
         public void start()
         {
-            new Thread(delegate ()
+            Thread theT = new Thread(delegate ()
             {
                 while (this.playing && this.currentLine < this.CSVLines.Length - 1 && this.currentLine >= 0)
                 {
                     this.playVideo();
                     this.startAllJoystickModel();
-                    //graph();
+                    this.chart(); //graph();
                     if (this.PlaybackSpeed != 0)
                     {
                         Thread.Sleep((int)(1000 / (this.sampleRate * Math.Abs(this.PlaybackSpeed))));
@@ -29,7 +29,9 @@ namespace Model
                         this.playing = false;
                     }
                 }
-            }).Start();
+            });//.Start();
+            theT.SetApartmentState(ApartmentState.STA);
+            theT.Start();
         }
         public void closeWindow()
         {

@@ -12,8 +12,8 @@
         </Grid.ColumnDefinitions>
         <Canvas Name="LayoutRoot">
             <Ellipse Fill="#FFF4F4F5" Name ="Joystick" Height="110" Canvas.Left="110" Stroke="Black" Canvas.Top="20" Width="110"  RenderTransformOrigin="0.5,0.509"/>
-            <Ellipse Fill="#545454" x:Name="Knob" Height="60"  Canvas.Left="{Binding Path=VM_Aileron, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Stroke="Black" Canvas.Top="{Binding Path=VM_Elevator, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="60">
-                <!--<Ellipse.RenderTransform>{Binding Path=VM_Aileron, UpdateSourceTrigger=PropertyChanged}RenderTransformOrigin="0.461,0.455"
+            <Ellipse Fill="#545454" x:Name="Knob" Height="60" Canvas.Left="{Binding Path=VM_aileronJoystickX, UpdateSourceTrigger=PropertyChanged}" Stroke="Black" Canvas.Top="{Binding Path=VM_elevatorJoystickY, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="60"  RenderTransformOrigin="0.461,0.455">
+                <!--<Ellipse.RenderTransform>{Binding Path=VM_Aileron, UpdateSourceTrigger=PropertyChanged}
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
@@ -23,7 +23,7 @@
                 </Ellipse.RenderTransform>-->
             </Ellipse>
             <Slider x:Name="mcSlider_Copy"  
-            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_Rudder, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" >
+            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_rudderScrollerX, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" >
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -34,7 +34,7 @@
                 </Slider.RenderTransform>
             </Slider>
             <Slider x:Name="mcSlider"  
-        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_Throttle, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124" TickFrequency="1E-06">
+        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_throttleScrollerY, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124" TickFrequency="1E-06">
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -44,9 +44,20 @@
                     </TransformGroup>
                 </Slider.RenderTransform>
             </Slider>
-        </Canvas>
-        <DataGrid Name="dgSimple" ItemsSource="{Binding Path=VM_DataTable, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="dgSimple_SelectionChanged" Margin="5,160,6,0" Height="225" VerticalAlignment="Top"/>
 
+            <TextBlock Text = "Altimeter: " Width = "55" Canvas.Left="10" Canvas.Top="165" />
+            <TextBlock Width = "100" Text = "{Binding VM_altimeterM}" Canvas.Left="70" Canvas.Top="169" />
+            <TextBlock Text = "Airspeed: " Width = "55" Canvas.Left="10" Canvas.Top="180" />
+            <TextBlock Width = "100" Text = "{Binding VM_airspeedM}" Canvas.Left="65" Canvas.Top="180" />
+            <TextBlock Text = "Yaw: " Width = "55" Canvas.Left="10" Canvas.Top="210" />
+            <TextBlock Width = "100" Text = "{Binding VM_directionM}" Canvas.Left="65" Canvas.Top="194" />
+            <TextBlock Text = "Roll: " Width = "55" Canvas.Left="10" Canvas.Top="225" />
+            <TextBlock Width = "100" Text = "{Binding VM_yawM}" Canvas.Left="55" Canvas.Top="210" />
+            <TextBlock Text = "Pitch: " Width = "55" Canvas.Left="10" Canvas.Top="240" />
+            <TextBlock Width = "100" Text = "{Binding VM_rollM}" Canvas.Left="40" Canvas.Top="225" />
+            <TextBlock Text = "Direction: " Width = "55" Canvas.Left="10" Canvas.Top="195" />
+            <TextBlock Width = "100" Text = "{Binding VM_pitchM}" Canvas.Left="45" Canvas.Top="240" />
+        </Canvas>
     </Grid>
 
 </UserControl>
