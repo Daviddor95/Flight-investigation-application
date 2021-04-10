@@ -26,7 +26,7 @@ namespace View
     /// </summary>
     public partial class FlightInvestigationWindow : Window
     {
-        FlightInvestigationViewModel mainVM;
+        IFlightInvestigationViewModel mainVM;
         public FlightInvestigationWindow()
         {
             InitializeComponent();

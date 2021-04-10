@@ -36,5 +36,6 @@
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="8" Height="25" Canvas.Left="478" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123359.png" MouseUp="JumpToEnd_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Height="25" Canvas.Left="328" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123362.png" MouseUp="FastBackwards_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Height="25" Canvas.Left="299" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123360.png" MouseUp="JumpToStart_MouseUp"/>
+        <TextBlock x:Name="exception" Grid.Column="9" HorizontalAlignment="Center" Margin="9.6,6,9.6,5.8" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="25" Width="176" FontSize="10" TextAlignment="Center"/>
     </Grid>
 </UserControl>

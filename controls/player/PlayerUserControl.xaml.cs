@@ -81,7 +81,21 @@ namespace View
         {
             if (e.Key == Key.Enter && playbackSpeed != null)
             {
-                this.playerVM.VM_PlaybackSpeed = float.Parse(playbackSpeed.Text);
+                if (this.playerVM.VM_PlaybackSpeed == 0)
+                {
+                    this.playerVM.play();
+                }
+                float speed;
+                bool valid = float.TryParse(playbackSpeed.Text, out speed);
+                if (valid)
+                {
+                    this.playerVM.VM_PlaybackSpeed = speed;
+                    exception.Text = "";
+                }
+                else
+                {
+                    exception.Text = "Please enter a valid value";
+                }
             }
         }
     }
