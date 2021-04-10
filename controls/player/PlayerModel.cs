@@ -12,6 +12,7 @@ using System.Threading;
 using Client;
 using System.Reflection;
 using Util;
+using System.Xml;
 
 namespace Model
 {
@@ -89,7 +90,7 @@ namespace Model
         }
         private FIAModel(ITelnetClient client)
         {
-            //this.loadXML();
+            this.loadXML();
             this.initialize(client);
             this.connect();
         }
@@ -128,52 +129,73 @@ namespace Model
         }
         public void play()
         {
-            this.playing = true;
-            this.start();
+            if (this.CSVLines != null)
+            {
+                this.playing = true;
+                this.start();
+            }
         }
         public void pause()
         {
-            this.playing = false;
+            if (this.CSVLines != null)
+            {
+                this.playing = false;
+            }
         }
         public void stop()
         {
-            this.jumpToStart();
-            this.pause();
+            if (this.CSVLines != null)
+            {
+                this.jumpToStart();
+                this.pause();
+            }
         }
         public void jumpToStart()
         {
-            this.currentLine = 0;
-            this.Time = DateTime.MinValue;
-            this.playVideo();
+            if (this.CSVLines != null)
+            {
+                this.currentLine = 0;
+                this.Time = DateTime.MinValue;
+                this.playVideo();
+            }
         }
         public void jumpToEnd()
         {
-            this.currentLine = this.CSVLines.Length - 5;
-            this.Time = DateTime.MinValue.AddSeconds(this.lengthSec);
-            this.playVideo();
+            if (this.CSVLines != null)
+            {
+                this.currentLine = this.CSVLines.Length - 5;
+                this.Time = DateTime.MinValue.AddSeconds(this.lengthSec);
+                this.playVideo();
+            }
         }
         public void fastForward()
         {
-            if (this.Time < DateTime.MinValue.AddSeconds(this.lengthSec - 10))
+            if (this.CSVLines != null)
             {
-                this.Time = this.Time.AddSeconds(10);
-                this.jumpToTime();
-            }
-            else
-            {
-                this.jumpToEnd();
+                if (this.Time < DateTime.MinValue.AddSeconds(this.lengthSec - 10))
+                {
+                    this.Time = this.Time.AddSeconds(10);
+                    this.jumpToTime();
+                }
+                else
+                {
+                    this.jumpToEnd();
+                }
             }
         }
         public void fastBackwards()
         {
-            if (this.Time > DateTime.MinValue.AddSeconds(10))
+            if (this.CSVLines != null)
             {
-                this.Time = this.Time.Subtract(new TimeSpan(0, 0, 10));
-                this.jumpToTime();
-            }
-            else
-            {
-                this.jumpToStart();
+                if (this.Time > DateTime.MinValue.AddSeconds(10))
+                {
+                    this.Time = this.Time.Subtract(new TimeSpan(0, 0, 10));
+                    this.jumpToTime();
+                }
+                else
+                {
+                    this.jumpToStart();
+                }
             }
         }
         public void jumpToTime()
@@ -197,12 +219,10 @@ namespace Model
                 this.LengthSec = this.CSVLines.Length / this.sampleRate;
             }
         }
-/*        private void loadXML()
+        private void loadXML()
         {
             string xml;
-            // Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"settings\playback_small.xml"
-            // System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), System.IO.Path.Combine(@"\settings\", "playback_speed.xml"))
-            using (StreamReader input = new StreamReader(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), System.IO.Path.Combine(@"settings\", "playback_speed.xml"))))
+            using (StreamReader input = new StreamReader(Path.Combine(Environment.CurrentDirectory, @"settings\", "playback_small.xml")))
             {
                 xml = input.ReadToEnd();
             }
@@ -211,18 +231,18 @@ namespace Model
             {
                 if (s.Contains("Recording:"))
                 {
-                    this.sampleRate = Int32.Parse(s.Where(Char.IsDigit).ToString());
+                    string rate = new string(s.Where(Char.IsDigit).ToArray());
+                    this.sampleRate = Int32.Parse(rate);
                     break;
                 }
             }
-        }*/
+        }
         private void initialize(ITelnetClient client)
         {
             this.client = client;
             this.playing = false;
             this.PlaybackSpeed = 1;
             this.Time = DateTime.MinValue;
-            this.sampleRate = 10;
             this.currentLine = 0;
 
             this.importantData = new List<DataType>();

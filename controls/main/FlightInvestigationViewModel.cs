@@ -9,7 +9,7 @@ using Client;
 
 namespace ViewModel
 {
-    public class FlightInvestigationViewModel : INotifyPropertyChanged
+    public class FlightInvestigationViewModel : IFlightInvestigationViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private IFIAModel model;
