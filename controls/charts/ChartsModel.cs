@@ -36,7 +36,7 @@ namespace Model
             set
             {
                 String chosenElementName = value;
-                NotifyPropertyChanged("chosenElementName");
+                NotifyPropertyChanged("ChosenElementName");
             }
         }
         public SeriesCollection SeriesCollectionChart6 {
@@ -47,7 +47,7 @@ namespace Model
             set
             {
                 seriesCollectionChart6 = (value);
-                NotifyPropertyChanged("seriesCollectionChart6");
+                NotifyPropertyChanged("SeriesCollectionChart6");
             }
         }
         public List<string> LabelsChart67 {
