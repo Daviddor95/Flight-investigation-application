@@ -37,7 +37,22 @@ namespace View
             // so when proprty is updated there , 
             //it will be updated through ddata binding in the view (xaml file)
             DataContext = joystickVM;
-          
+
+        }
+
+        private void mcSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void mcSlider_Copy_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void dgSimple_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
