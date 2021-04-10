@@ -25,12 +25,13 @@ namespace View
     public partial class joystickUserControl : UserControl
     {
         //private List<DataType> importantData;
-        JoystickViewModel joystickVM;
+        private JoystickViewModel joystickVM;
         public joystickUserControl()
         {
             InitializeComponent();
             joystickVM = new JoystickViewModel(FIAModel.Model);
             DataContext = joystickVM;
+          
         }
 
 

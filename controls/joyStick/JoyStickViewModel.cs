@@ -9,7 +9,7 @@ using Util;
 
 namespace ViewModel
 {
-    class JoystickViewModel : IJoystickViewModel
+    public class JoystickViewModel : IJoystickViewModel
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,6 +23,7 @@ namespace ViewModel
             set
             {
                 model.elevatorJoystickY = value;
+                NotifyPropertyChanged("VM_Elevator");
             }
         }
         public float VM_Aileron
@@ -34,6 +35,7 @@ namespace ViewModel
             set
             {
                 model.aileronJoystickX = value;
+                NotifyPropertyChanged("VM_Aileron");
             }
         }
         public float VM_Rudder
@@ -45,6 +47,7 @@ namespace ViewModel
             set
             {
                 model.rudderScrollerX = value;
+                NotifyPropertyChanged("VM_Rudder");
             }
         }
         public float VM_Throttle
@@ -56,6 +59,7 @@ namespace ViewModel
             set
             {
                 model.throttleScrollerY = value;
+                NotifyPropertyChanged("VM_Throttle");
             }
 
         }
@@ -138,6 +142,7 @@ namespace ViewModel
             set
             {
                 model.DataTableM = value;
+                NotifyPropertyChanged("VM_DataTable");
             }
         }
 
