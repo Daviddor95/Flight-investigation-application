@@ -100,7 +100,7 @@ namespace Model
         }
 
         private float _new_Y_value;
-        private double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
+        private float[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
         // functions -----------------------------------------------------------------------
         public void chart() // will be called every new currentLine of CSV
@@ -120,7 +120,7 @@ namespace Model
                 // Add the abscissa //this is the X line's marks like 0 1 2 3->
                 //this.labelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
                 // Add the data of the line chart
-                this.Mylineseries.Values = new ChartValues<double>(temp);
+                this.Mylineseries.Values = new ChartValues<float>(temp);
 
                 // Start the Chart line drewing
                 createLine();

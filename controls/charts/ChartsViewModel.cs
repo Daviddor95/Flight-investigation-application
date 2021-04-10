@@ -10,7 +10,7 @@ using Model;
 
 namespace ViewModel
 {
-    class ChartsViewModel
+    public class ChartsViewModel// : InterfaceChartsViewModel
     {
         public ChartsViewModel(IFIAModel model)
         {
@@ -44,7 +44,6 @@ namespace ViewModel
         public Double VM_MaxRangeChart6 { get { return this.model.MaxRangeChart6; } }
         public Double VM_MinRangeChart6 { get { return this.model.MinRangeChart6; } }
         public LineSeries VM_Mylineseries { get { return this.model.Mylineseries; } } //first Y values in a chart
-    //    public string ChosenElement { get { return model.ChosenElement; } }
-     //   public string PeasonElement { get { return model.PeasonElement; } }
+
     }
 }
