@@ -13,7 +13,7 @@
         <Canvas Name="LayoutRoot">
             <Ellipse Fill="#FFF4F4F5" Name ="Joystick" Height="110" Canvas.Left="110" Stroke="Black" Canvas.Top="20" Width="110"  RenderTransformOrigin="0.5,0.509"/>
             <Ellipse Fill="#545454" x:Name="Knob" Height="60" Canvas.Left="{Binding Path=VM_Aileron, UpdateSourceTrigger=PropertyChanged}" Stroke="Black" Canvas.Top="{Binding Path=VM_Elevator, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="60"  RenderTransformOrigin="0.461,0.455">
-                <!--<Ellipse.RenderTransform>
+                <!--<Ellipse.RenderTransform>{Binding Path=VM_Aileron, UpdateSourceTrigger=PropertyChanged}
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
