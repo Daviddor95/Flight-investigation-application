@@ -8,13 +8,13 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              d:DesignHeight="396" d:DesignWidth="519">
     <Grid>
-        <lvc:CartesianChart x:Name="chart6" Series="{Binding SeriesCollectionChart6}" LegendLocation="Left" Margin="237,10,10,165">
+        <lvc:CartesianChart x:Name="chart6" Series="{Binding VM_SeriesCollectionChart6, UpdateSourceTrigger=PropertyChanged}" LegendLocation="Left" Margin="237,10,10,165">
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Time" Labels="{Binding LabelsChart67}" FontSize="14"></lvc:Axis>
+                <lvc:Axis Title="Time" Labels="{Binding VM_LabelsChart67, UpdateSourceTrigger=PropertyChanged}" FontSize="14"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis MaxValue="{Binding MaxValueChart6}" MinValue="{Binding MinValueChart6}" 
-                          MinRange="{Binding MinRangeChart6}" MaxRange="{Binding MaxRangeChart6}"/>
+                <lvc:Axis MaxValue="10" MinValue="-10" 
+                          MinRange="10" MaxRange="-10"/>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
         <ComboBox x:Name="elementList" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115" Height="21" SelectionChanged="elementList_SelectionChanged">
