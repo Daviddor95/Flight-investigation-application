@@ -173,6 +173,8 @@ namespace Model
             float y = float.Parse(this.CSVLines[currentLine].Split(',')[1]);
             this.aileronJoystickX = 135 + x * radius;
             this.elevatorJoystickY = 20 + y * radius;
+            
+            
         }
 
         public void startScrollers()
