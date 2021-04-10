@@ -17,7 +17,6 @@ namespace Model
 {
     public partial class FIAModel : IFIAModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private ITelnetClient client;
         private volatile bool playing;
         private float playbackSpeed;
@@ -235,13 +234,6 @@ namespace Model
             this.importantData.Add(new DataType() { Data = "yaw", Value = 0 }); //(side-slip-deg)
             this.importantData.Add(new DataType() { Data = "roll", Value = 0 });
             this.importantData.Add(new DataType() { Data = "pitch", Value = 0 });
-        }
-        public void NotifyPropertyChanged(string propName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            }
         }
     }
 }
