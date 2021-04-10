@@ -19,7 +19,7 @@ namespace Model
                 {
                     this.playVideo();
                     this.startAllJoystickModel();
-                    //this.chart(); //graph();
+                    this.chart(); //graph();
                     if (this.PlaybackSpeed != 0)
                     {
                         Thread.Sleep((int)(1000 / (this.sampleRate * Math.Abs(this.PlaybackSpeed))));

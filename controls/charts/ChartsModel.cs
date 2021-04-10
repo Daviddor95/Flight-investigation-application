@@ -100,7 +100,7 @@ namespace Model
         }
 
         private float _new_Y_value;
-        private float[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
+        private float[] temp = { 0, 10, 0, 3, 0, 7, 9, 0 };
 
         // functions -----------------------------------------------------------------------
         public void chart() // will be called every new currentLine of CSV
