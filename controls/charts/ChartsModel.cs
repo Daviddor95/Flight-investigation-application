@@ -136,6 +136,7 @@ namespace Model
             SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
             SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
 
+            /*
             //code that should work with CSV and time
             int locationOfElement = 21;//the index in csvLine[currentLine]
             float max = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[locationOfElement]);
@@ -164,6 +165,7 @@ namespace Model
             minValueChart6 = min;
             maxRangeChart6 = maxValueChart6;
             minRangeChart6 = minValueChart6;
+            */
 
             /* //for now just copyied from xaml.cs
             Task.Run(() =>
