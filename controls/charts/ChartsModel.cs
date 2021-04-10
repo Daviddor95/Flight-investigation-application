@@ -35,30 +35,30 @@ namespace Model
             }
             set
             {
-                chosenElementName = value;
+                String chosenElementName = value;
                 NotifyPropertyChanged("chosenElementName");
             }
         }
-        public SeriesCollection SeriesCollectionChart6 { 
-            get 
-            { 
-                return seriesCollectionChart6; 
+        public SeriesCollection SeriesCollectionChart6 {
+            get
+            {
+                return seriesCollectionChart6;
             }
-            set 
-            { 
-                seriesCollectionChart6 = value;
+            set
+            {
+                seriesCollectionChart6 = (value);
                 NotifyPropertyChanged("seriesCollectionChart6");
             }
         }
-        public List<string> LabelsChart67 { 
+        public List<string> LabelsChart67 {
             get { return labelsChart67; }
             set
             {
-                labelsChart67 = value;
+                labelsChart67 = (value);
                 NotifyPropertyChanged("LabelsChart67");
             }
         }
-        public Double MaxValueChart6 { 
+        public Double MaxValueChart6 {
             get { return maxValueChart6; }
             set
             {
@@ -87,14 +87,14 @@ namespace Model
                 NotifyPropertyChanged("MinRangeChart6");
             }
         }
-        public LineSeries Mylineseries { 
-            get 
-            { 
-                return mylineseries; 
+        public LineSeries Mylineseries {
+            get
+            {
+                return mylineseries;
             }
             set
             {
-                mylineseries = value;
+                mylineseries = (value);
                 NotifyPropertyChanged("Mylineseries");
             }
         }
@@ -105,36 +105,43 @@ namespace Model
         // functions -----------------------------------------------------------------------
         public void chart() // will be called every new currentLine of CSV
         {
-            // Instantiate ListBox
-            List<String> elements = new List<String>();
+            //Application.Current.Dispatcher.Invoke((Action)delegate{
+                // Instantiate ListBox
+                //List<String> elements = new List<String>();
 
-            // Instantiate a line chart
-            LineSeries mylineseries = new LineSeries();
-            // Set the title of the polyline, the name of the chosen element
-            mylineseries.Title = "element";
-            // line chart line form
-            mylineseries.LineSmoothness = 0;
-            //Distance style of line chart
-            mylineseries.PointGeometry = null;
-            // Add the abscissa //this is the X line's marks like 0 1 2 3->
-            labelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
-            // Add the data of the line chart
-            mylineseries.Values = new ChartValues<double>(temp);
-            seriesCollectionChart6 = new SeriesCollection { };
-            SeriesCollectionChart6.Add(mylineseries);
+                // Instantiate a line chart
+                this.Mylineseries = new LineSeries();
+                // Set the title of the polyline, the name of the chosen element
+                this.Mylineseries.Title = "";
+                // line chart line form
+                this.Mylineseries.LineSmoothness = 0;
+                //Distance style of line chart
+                this.Mylineseries.PointGeometry = null;
+                // Add the abscissa //this is the X line's marks like 0 1 2 3->
+                //this.labelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+                // Add the data of the line chart
+                this.Mylineseries.Values = new ChartValues<double>(temp);
 
-            // Start the Chart line drewing
-            createLine();
+                // Start the Chart line drewing
+                createLine();
+            //});
         }
         public void createLine()
         {
             var r = new Random(); //this is the Y in the points //Ordinate
-            _new_Y_value = r.Next(-5, 5);
-            LabelsChart67.Add(DateTime.Now.ToString()); //new time
-            LabelsChart67.RemoveAt(0); // remove the erliast time
+            this._new_Y_value = r.Next(-5, 5);
+            this.LabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+            this.LabelsChart67.Add(DateTime.Now.ToString()); //new time
+            this.LabelsChart67.RemoveAt(0); // remove the erliast time
+            NotifyPropertyChanged("LabelsChart67");
+
             // Update the ordinate data, the Y value of the new point
-            SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
-            SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
+            this.SeriesCollectionChart6 = new SeriesCollection { };
+            this.SeriesCollectionChart6.Add(this.mylineseries);
+            this.SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
+            this.SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
+            NotifyPropertyChanged("SeriesCollectionChart6");
+            
 
             /*
             //code that should work with CSV and time

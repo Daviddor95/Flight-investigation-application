@@ -52,7 +52,7 @@ namespace View
             // Instantiate a line chart
             LineSeries mylineseries = new LineSeries();
             // Set the title of the polyline, the name of the chosen element
-            mylineseries.Title = "";
+            mylineseries.Title = ":)";
             // line chart line form
             mylineseries.LineSmoothness = 0;
             //Distance style of line chart
