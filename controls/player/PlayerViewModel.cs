@@ -28,19 +28,21 @@ namespace ViewModel
             get
             {
                 TimeSpan diff = model.Time - DateTime.MinValue;
-                return (int)diff.TotalSeconds;
+                return (float) diff.TotalSeconds;
             }
             set
             {
                 this.model.Time = DateTime.MinValue.AddSeconds(value);
                 this.model.jumpToTime();
+                NotifyPropertyChanged("VM_Time");
+                NotifyPropertyChanged("VM_DigitalTime");
             }
         }
         public string VM_DigitalTime
         {
             get
             {
-                return this.model.Time.ToString("HH:mm:ss");
+                return DateTime.MinValue.AddSeconds(this.VM_Time).ToString("HH:mm:ss");
             }
         }
         public float VM_LengthSec

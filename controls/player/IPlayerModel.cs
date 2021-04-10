@@ -24,14 +24,7 @@ namespace Model
             get;
             set;
         }
-/*        FIAModel Model
-        {
-            get;
-        }*/
-        //void connect(string ip, int port);
-        //void disconnect();
         void start();
-        //void playVideo();
         void play();
         void pause();
         void stop();
