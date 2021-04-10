@@ -64,7 +64,7 @@ namespace ViewModel
 
         }
 
-        public float VM_Pitch
+        public float VM_pitchM
         {
             get
             {
@@ -73,9 +73,10 @@ namespace ViewModel
             set
             {
                 model.pitchM = value;
+                NotifyPropertyChanged("VM_pitchM");
             }
         }
-        public float VM_Roll
+        public float VM_rollM
         {
             get
             {
@@ -84,9 +85,10 @@ namespace ViewModel
             set
             {
                 model.rollM = value;
+                NotifyPropertyChanged("VM_rollM");
             }
         }
-        public float VM_Yaw
+        public float VM_yawM
         {
             get
             {
@@ -95,9 +97,10 @@ namespace ViewModel
             set
             {
                 model.yawM = value;
+                NotifyPropertyChanged("VM_yawM");
             }
         }
-        public float VM_Direction
+        public float VM_directionM
         {
             get
             {
@@ -106,11 +109,12 @@ namespace ViewModel
             set
             {
                 model.directionM = value;
+                NotifyPropertyChanged("VM_directionM");
             }
 
         }
 
-        public float VM_Altimeter
+        public float VM_altimeterM
         {
             get
             {
@@ -119,9 +123,10 @@ namespace ViewModel
             set
             {
                 model.altimeterM = value;
+                NotifyPropertyChanged("VM_altimeterM");
             }
         }
-        public float VM_Airspeed
+        public float VM_airspeedM
         {
             get
             {
@@ -130,6 +135,7 @@ namespace ViewModel
             set
             {
                 model.airspeedM = value;
+                NotifyPropertyChanged("VM_airspeedM");
             }
         }
 

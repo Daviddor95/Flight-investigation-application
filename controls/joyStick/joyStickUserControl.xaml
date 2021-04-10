@@ -44,9 +44,20 @@
                     </TransformGroup>
                 </Slider.RenderTransform>
             </Slider>
-        </Canvas>
-        <DataGrid Name="dgSimple" ItemsSource="{Binding Path=VM_DataTableM, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="dgSimple_SelectionChanged" Margin="5,160,6,0" Height="225" VerticalAlignment="Top"/>
 
+            <TextBlock Text = "Altimeter: " Width = "55" Canvas.Left="10" Canvas.Top="165" />
+            <TextBlock Width = "100" Text = "{Binding VM_altimeterM}" Canvas.Left="70" Canvas.Top="169" />
+            <TextBlock Text = "Airspeed: " Width = "55" Canvas.Left="10" Canvas.Top="180" />
+            <TextBlock Width = "100" Text = "{Binding VM_airspeedM}" Canvas.Left="65" Canvas.Top="180" />
+            <TextBlock Text = "Yaw: " Width = "55" Canvas.Left="10" Canvas.Top="210" />
+            <TextBlock Width = "100" Text = "{Binding VM_directionM}" Canvas.Left="65" Canvas.Top="194" />
+            <TextBlock Text = "Roll: " Width = "55" Canvas.Left="10" Canvas.Top="225" />
+            <TextBlock Width = "100" Text = "{Binding VM_yawM}" Canvas.Left="55" Canvas.Top="210" />
+            <TextBlock Text = "Pitch: " Width = "55" Canvas.Left="10" Canvas.Top="240" />
+            <TextBlock Width = "100" Text = "{Binding VM_rollM}" Canvas.Left="40" Canvas.Top="225" />
+            <TextBlock Text = "Direction: " Width = "55" Canvas.Left="10" Canvas.Top="195" />
+            <TextBlock Width = "100" Text = "{Binding VM_pitchM}" Canvas.Left="45" Canvas.Top="240" />
+        </Canvas>
     </Grid>
 
 </UserControl>

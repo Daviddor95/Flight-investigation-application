@@ -27,34 +27,34 @@ namespace ViewModel
             set;
             get;
         }
-        float VM_Airspeed
+        float VM_airspeedM
         {
             set;
             get;
         }
-        float VM_Altimeter
+        float VM_altimeterM
         {
             set;
             get;
 
         }
 
-        float VM_Direction
+        float VM_directionM
         {
             set;
             get;
         }
-        float VM_Yaw
+        float VM_yawM
         {
             set;
             get;
         }
-        float VM_Roll
+        float VM_rollM
         {
             set;
             get;
         }
-        float VM_Pitch
+        float VM_pitchM
         {
             set;
             get;

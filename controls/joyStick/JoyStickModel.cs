@@ -183,18 +183,22 @@ namespace Model
         }
         public void startDataTable()
         {
-            this.direction = float.Parse(this.CSVLines[currentLine].Split(',')[19]);
-            this.airspeed = float.Parse(this.CSVLines[currentLine].Split(',')[21]);
-            this.altimeter = float.Parse(this.CSVLines[currentLine].Split(',')[26]);
-            this.yaw = float.Parse(this.CSVLines[currentLine].Split(',')[20]);
-            this.roll = float.Parse(this.CSVLines[currentLine].Split(',')[17]);
-            this.pitch = float.Parse(this.CSVLines[currentLine].Split(',')[18]);
-            this.importantData[0].Value = this.altimeter;
+            this.directionM = float.Parse(this.CSVLines[currentLine].Split(',')[19]);
+            this.airspeedM = float.Parse(this.CSVLines[currentLine].Split(',')[21]);
+            this.altimeterM = float.Parse(this.CSVLines[currentLine].Split(',')[26]);
+            this.yawM = float.Parse(this.CSVLines[currentLine].Split(',')[20]);
+            this.rollM = float.Parse(this.CSVLines[currentLine].Split(',')[17]);
+            this.pitchM = float.Parse(this.CSVLines[currentLine].Split(',')[18]);
+            
+
+            /*this.importantData[0].Value = this.altimeter;
             this.importantData[1].Value = this.airspeed;
             this.importantData[2].Value = this.direction;
             this.importantData[3].Value = this.yaw;
             this.importantData[4].Value = this.roll;
             this.importantData[5].Value = this.pitch;
+           */
+
 
         }
 
