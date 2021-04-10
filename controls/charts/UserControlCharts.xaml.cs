@@ -27,27 +27,27 @@ namespace View
     {
         private String chosenElementName;
         //public event PropertyChangedEventHandler PropertyChanged;
-        private int elementPreasonIndex;
-        private int elementChosenIndex;
+        //private int elementPreasonIndex;
+        //private int elementChosenIndex;
 
         private SeriesCollection seriesCollectionChart6;
         private double maxValueChart6;
         private double minValueChart6;
         private double maxRangeChart6;
-        double minRangeChart6;
+        private double minRangeChart6;
         List<string> labelsChart67;
-        LineSeries mylineseries;
+        //LineSeries mylineseries;
         private double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
         ChartsViewModel chartsVM;
         public UserControlCharts()
         {
             InitializeComponent();
-            chartsVM = new ChartsViewModel(FIAModel.Model);
-            DataContext = chartsVM;
+            this.chartsVM = new ChartsViewModel(FIAModel.Model);
+            DataContext = this.chartsVM;
  
             // Instantiate ListBox
-            List<String> elements = new List<String>();
+            //List<String> elements = new List<String>();
 
             // Instantiate a line chart
             LineSeries mylineseries = new LineSeries();

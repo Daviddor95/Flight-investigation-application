@@ -31,23 +31,19 @@ namespace ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private IFIAModel model;
 
-        public String ChosenElementName {
-            get { return model.ChosenElementName; }
-            set { model.ChosenElementName = value; }
+        public String VM_ChosenElementName
+        {
+            get { return this.model.ChosenElementName; }
+            set { this.model.ChosenElementName = value; }
         }
 
-        public SeriesCollection SeriesCollectionChart6 { get { return model.SeriesCollectionChart6; } }
-      //  public SeriesCollection SeriesCollectionChart7 { get { return model.SeriesCollectionChart7; } }
-        public List<string> LabelsChart67 { get { return model.LabelsChart67; } }
-        public Double MaxValueChart6 { get { return model.MaxValueChart6; } }
-        public Double MinValueChart6 { get { return model.MinValueChart6; } }
-        public Double MaxRangeChart6 { get { return model.MaxRangeChart6; } }
-        public Double MinRangeChart6 { get { return model.MinRangeChart6; } }
-        //public Double MaxValueChart7 { get { return model.MaxValueChart7; } }
-        //public Double MinValueChart7 { get { return model.MinValueChart7; } }
-        //public Double MaxRangeChart7 { get { return model.MaxRangeChart7; } }
-        //public Double MinRangeChart7 { get { return model.MinRangeChart7; } }
-        public LineSeries mylineseries { get { return model.Mylineseries; } } //first Y values in a chart
+        public SeriesCollection VM_SeriesCollectionChart6 { get { return this.model.SeriesCollectionChart6; } }
+        public List<string> VM_LabelsChart67 { get { return this.model.LabelsChart67; } }
+        public Double VM_MaxValueChart6 { get { return this.model.MaxValueChart6; } }
+        public Double VM_MinValueChart6 { get { return this.model.MinValueChart6; } }
+        public Double VM_MaxRangeChart6 { get { return this.model.MaxRangeChart6; } }
+        public Double VM_MinRangeChart6 { get { return this.model.MinRangeChart6; } }
+        public LineSeries VM_Mylineseries { get { return this.model.Mylineseries; } } //first Y values in a chart
     //    public string ChosenElement { get { return model.ChosenElement; } }
      //   public string PeasonElement { get { return model.PeasonElement; } }
     }

@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Model
 {
-    partial class FIAModel
+    partial class FIAModel : IFIAModel
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public void start()
         {
             new Thread(delegate ()
@@ -32,6 +34,13 @@ namespace Model
         public void closeWindow()
         {
             this.disconnect();
+        }
+        public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 }

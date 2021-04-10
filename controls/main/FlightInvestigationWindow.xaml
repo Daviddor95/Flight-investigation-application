@@ -18,5 +18,6 @@
         </Grid.ColumnDefinitions>
         <controls:PlayerUserControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="110" VerticalAlignment="Top" Margin="10,0,10,0"/>
         <controls:joystickUserControl Grid.Row="0" Grid.Column="1" Margin="0,0,-0.4,0.4"/>
+        <controls:UserControlCharts Grid.Row="0" Margin="10"/>
     </Grid>
 </Window>
