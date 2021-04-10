@@ -45,11 +45,11 @@ namespace Model
         {
             get
             {
-                return this.time;
+                return this.time; ;
             }
             set
             {
-                DateTime endTime = new DateTime().AddSeconds(LengthSec);
+                DateTime endTime = new DateTime().AddSeconds(this.LengthSec);
                 if (value >= DateTime.MinValue && value <= endTime)
                 {
                     this.time = value;
@@ -156,7 +156,7 @@ namespace Model
         public void fastForward()
         {
             if (this.Time < DateTime.MinValue.AddSeconds(this.lengthSec - 10))
-                {
+            {
                 this.Time = this.Time.AddSeconds(10);
                 this.jumpToTime();
             }
@@ -180,7 +180,7 @@ namespace Model
         public void jumpToTime()
         {
             TimeSpan diff = this.Time - DateTime.MinValue;
-            this.currentLine = (int) diff.TotalSeconds * this.sampleRate;
+            this.currentLine =(int) diff.TotalSeconds * this.sampleRate;
             this.playVideo();
         }
         public void loadCSVFile()

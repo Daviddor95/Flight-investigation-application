@@ -25,14 +25,10 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Slider x:Name="playerSlider" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="11" Height="20" HorizontalContentAlignment="Stretch" ValueChanged="Slider_ValueChanged" Value="{Binding Path=VM_Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Maximum="{Binding Path=VM_LengthSec}"/>
-        <Button Content="Open CSV file" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="OpenCSV" Click="OpenCSV_Click">
-                <Button.ContextMenu>
-                    <ContextMenu/>
-                </Button.ContextMenu>
-            </Button>
+        <Button Content="Open CSV file" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="OpenCSV" Click="OpenCSV_Click"/>
         <TextBox x:Name="playbackSpeed" VerticalAlignment="Center" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="3" Height="25" Canvas.Left="401" TextWrapping="Wrap" Text="{Binding Path=VM_PlaybackSpeed, UpdateSourceTrigger=Explicit, StringFormat=N1}" Canvas.Top="10" Width="50" TextAlignment="Center" FontSize="16" MaxLines="1" MaxLength="4" KeyUp="playbackSpeed_KeyUp"/>
         <TextBlock Grid.Row="0" VerticalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="4" Height="25" Canvas.Left="313" TextWrapping="Wrap" Text="Play speed" Canvas.Top="10" Width="88" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="time" VerticalAlignment="Center" Grid.Row="0" Grid.Column="10" Text="{Binding VM_DigitalTime}" Height="25" Canvas.Left="689" TextWrapping="Wrap" Canvas.Top="10" Width="75" TextAlignment="Center" FontSize="16" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="time" VerticalAlignment="Center" Grid.Row="0" Grid.Column="10" Text="{Binding Path=VM_DigitalTime, UpdateSourceTrigger=PropertyChanged}" Height="25" Canvas.Left="689" TextWrapping="Wrap" Canvas.Top="10" Width="75" TextAlignment="Center" FontSize="16" HorizontalAlignment="Right"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="5" Height="25" Canvas.Left="388" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123357.png" MouseUp="Pause_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="4" Height="25" Canvas.Left="358" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123358.png" MouseUp="Play_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="6" Height="25" Canvas.Left="419" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123361.png" MouseUp="Stop_MouseUp"/>
