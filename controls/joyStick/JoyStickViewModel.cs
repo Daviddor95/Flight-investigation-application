@@ -14,7 +14,7 @@ namespace ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
         private IFIAModel model;
-        public float VM_Elevator
+        public float VM_elevatorJoystickY
         {
             get
             {
@@ -23,10 +23,10 @@ namespace ViewModel
             set
             {
                 model.elevatorJoystickY = value;
-                NotifyPropertyChanged("VM_Elevator");
+                NotifyPropertyChanged("VM_elevatorJoystickY");
             }
         }
-        public float VM_Aileron
+        public float VM_aileronJoystickX
         {
             get
             {
@@ -35,10 +35,10 @@ namespace ViewModel
             set
             {
                 model.aileronJoystickX = value;
-                NotifyPropertyChanged("VM_Aileron");
+                NotifyPropertyChanged("VM_aileronJoystickX");
             }
         }
-        public float VM_Rudder
+        public float VM_rudderScrollerX
         {
             get
             {
@@ -47,10 +47,10 @@ namespace ViewModel
             set
             {
                 model.rudderScrollerX = value;
-                NotifyPropertyChanged("VM_Rudder");
+                NotifyPropertyChanged("VM_rudderScrollerX");
             }
         }
-        public float VM_Throttle
+        public float VM_throttleScrollerY
         {
             get
             {
@@ -59,7 +59,7 @@ namespace ViewModel
             set
             {
                 model.throttleScrollerY = value;
-                NotifyPropertyChanged("VM_Throttle");
+                NotifyPropertyChanged("VM_throttleScrollerY");
             }
 
         }
@@ -133,7 +133,7 @@ namespace ViewModel
             }
         }
 
-        public List<DataType> VM_DataTable
+        public List<DataType> VM_DataTableM
         {
             get
             {
@@ -142,7 +142,7 @@ namespace ViewModel
             set
             {
                 model.DataTableM = value;
-                NotifyPropertyChanged("VM_DataTable");
+                NotifyPropertyChanged("VM_DataTableM");
             }
         }
 

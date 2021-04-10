@@ -6,23 +6,23 @@ namespace ViewModel
 {
     interface IJoystickViewModel: INotifyPropertyChanged
     {
-        float VM_Elevator
+        float VM_elevatorJoystickY
         {
             set;
             get;
         }
-        float VM_Aileron
+        float VM_aileronJoystickX
         {
             set;
             get;
         }
-        float VM_Rudder
+        float VM_rudderScrollerX
         {
             set;
             get;
         }
 
-        float VM_Throttle
+        float VM_throttleScrollerY
         {
             set;
             get;
@@ -59,7 +59,7 @@ namespace ViewModel
             set;
             get;
         }
-        List<DataType> VM_DataTable
+        List<DataType> VM_DataTableM
         {
             set;
             get;
