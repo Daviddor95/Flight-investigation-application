@@ -9,11 +9,17 @@ using Util;
 
 namespace ViewModel
 {
+    /// <summary>JoystickViewModel a viewModel class, responsible, in our project, 
+    /// for passing the value to the view of the joystick, it's scrollers and the a few more lines of text.
+    /// </summary>
     public class JoystickViewModel : IJoystickViewModel
     {
-
+        //if there is a change, through data binding for example, it will help us to be notified about it
         public event PropertyChangedEventHandler PropertyChanged;
+        // the model we use in the project
         private IFIAModel model;
+
+        //the property of elevator(canvas.Top of the inner elipse of joystick)
         public float VM_elevatorJoystickY
         {
             get
@@ -26,6 +32,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_elevatorJoystickY");
             }
         }
+
+        //the property of aileron(canvas.left of the inner elipse of joystick)
         public float VM_aileronJoystickX
         {
             get
@@ -38,6 +46,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_aileronJoystickX");
             }
         }
+
+        //the property of rudder(the scroller's, thats near and under the joystick, value)
         public float VM_rudderScrollerX
         {
             get
@@ -50,6 +60,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_rudderScrollerX");
             }
         }
+
+        //the property of throttle(the left scroller's value, near the joystick)
         public float VM_throttleScrollerY
         {
             get
@@ -64,6 +76,7 @@ namespace ViewModel
 
         }
 
+        //the property of pitch
         public float VM_pitchM
         {
             get
@@ -76,6 +89,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_pitchM");
             }
         }
+
+        //the property of roll
         public float VM_rollM
         {
             get
@@ -88,6 +103,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_rollM");
             }
         }
+
+        //the property of yaw
         public float VM_yawM
         {
             get
@@ -100,6 +117,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_yawM");
             }
         }
+
+        //the property of direction (the direction of the flight)
         public float VM_directionM
         {
             get
@@ -114,6 +133,7 @@ namespace ViewModel
 
         }
 
+        //the property of altimeter
         public float VM_altimeterM
         {
             get
@@ -126,6 +146,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_altimeterM");
             }
         }
+
+        //the property of airspeed
         public float VM_airspeedM
         {
             get
@@ -152,7 +174,9 @@ namespace ViewModel
             }
         }
 
-        //DON'T TOUCH, IT'S DAVID
+        //initializing the model to be our model that this viewmodel is actually rellated to.
+        //every property that changes in the model , notifies the rellevant property in the view model,
+        //(so it wil eventually change the value, through DATA Binding, in the view part (XAML))
         public JoystickViewModel(IFIAModel model)
         {
             this.model = model;
@@ -161,6 +185,8 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_" + eventArgs.PropertyName);
             };
         }
+
+        //once the property changes, it notifies this property has changed, so values will be updated as necessary
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
