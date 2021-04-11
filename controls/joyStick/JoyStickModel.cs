@@ -9,24 +9,15 @@ using Util;
 
 namespace Model
 {
-    /// <summary>FIAModel is an partial class.
-    /// its the Model part for the desktop app as part of the mvvm design pattern.
-    /// here only specified the functions needed for 
-    /// the joystick, it's scrollers and the other data desplayed(yaw, roll pitch...)
-    /// </summary>
-
     public partial class FIAModel : IFIAModel
     {
-        //the joystick's inner elipse coordinates
+        //public event PropertyChangedEventHandler PropertyChanged;
         private float xOfJoystick;
         private float yOfJoystick;
 
-        //the Rudder scroller's value
         private float xOfRudderScroller;
-        //the Rudder Throttle's value
         private float yOfThrottleScroller;
 
-        //the data we need to display through a flight
         private float direction;
         private float altimeter;
         private float airspeed;
@@ -34,7 +25,6 @@ namespace Model
         private float roll;
         private float pitch;
 
-        //the property of aileron
         public float aileronJoystickX
         {
             get
@@ -47,8 +37,6 @@ namespace Model
                 NotifyPropertyChanged("aileronJoystickX");
             }
         }
-
-        //the property of elevator
         public float elevatorJoystickY
         {
             get
@@ -62,7 +50,6 @@ namespace Model
             }
         }
 
-        //the property of throttle
         public float throttleScrollerY
         {
             get
@@ -76,7 +63,6 @@ namespace Model
             }
         }
 
-        //the property of rudder
         public float rudderScrollerX
         {
             get
@@ -90,7 +76,6 @@ namespace Model
             }
         }
 
-        //the property of direction 
         public float directionM
         {
             get
@@ -104,7 +89,6 @@ namespace Model
             }
         }
 
-        //the property of altimeter
         public float altimeterM
         {
             get
@@ -117,8 +101,6 @@ namespace Model
                 NotifyPropertyChanged("altimeterM");
             }
         }
-
-        //the property of airspeed
         public float airspeedM
         {
             get
@@ -132,7 +114,6 @@ namespace Model
             }
         }
 
-        //the property of yaw
         public float yawM
         {
             get
@@ -145,8 +126,6 @@ namespace Model
                 NotifyPropertyChanged("yawM");
             }
         }
-
-        //the property of roll
         public float rollM
         {
             get
@@ -160,7 +139,6 @@ namespace Model
             }
         }
 
-        //the property of pitch
         public float pitchM
         {
             get
@@ -174,7 +152,6 @@ namespace Model
             }
         }
 
-        //the property of DataTableM
         public List<DataType> DataTableM
         {
             get
@@ -188,40 +165,22 @@ namespace Model
             }
         }
 
-        /// <summary>startJoystick func' 
-        /// is made for changing the value of the coordinates of the inner elipse on the joystick.
-        /// the set functions of the relevant properties are called.
-        /// </summary>
+
         public void startJoystick()
         {
             float radius = 55;
             float x = float.Parse(this.CSVLines[currentLine].Split(',')[0]);
             float y = float.Parse(this.CSVLines[currentLine].Split(',')[1]);
-            //135,45 are is the center of the outer elipse of joystick
-            //so its the correct coordinates for the inner elipse of joystick
-            //to be right in the middle of the outer elipse.
-            //the elipse will move from themiddle due to
-            //changes in the aileron and elevator values
             this.aileronJoystickX = 135 + x * radius;
             this.elevatorJoystickY = 45 + y * radius;
         }
 
-        /// <summary>startScrollers func' 
-        /// is made for changing the value of the 2 Scrollers that near the joystick.
-        // /// the set functions of the relevant properties are called.
-        /// </summary>
         public void startScrollers()
         {
             this.rudderScrollerX = float.Parse(this.CSVLines[currentLine].Split(',')[2]);
             this.throttleScrollerY = float.Parse(this.CSVLines[currentLine].Split(',')[6]);
 
         }
-
-        /// <summary>startDataTable func' 
-        /// is made for changing the value's written next to the names of the 6 features:
-        /// roll, pitch, yaw, directio, altimeter and airspeed.
-        // the set functions of the relevant properties are called.
-        /// </summary>
         public void startDataTable()
         {
             this.directionM = float.Parse(this.CSVLines[currentLine].Split(',')[19]);
@@ -230,9 +189,19 @@ namespace Model
             this.yawM = float.Parse(this.CSVLines[currentLine].Split(',')[20]);
             this.rollM = float.Parse(this.CSVLines[currentLine].Split(',')[17]);
             this.pitchM = float.Parse(this.CSVLines[currentLine].Split(',')[18]);
+            
+
+            /*this.importantData[0].Value = this.altimeter;
+            this.importantData[1].Value = this.airspeed;
+            this.importantData[2].Value = this.direction;
+            this.importantData[3].Value = this.yaw;
+            this.importantData[4].Value = this.roll;
+            this.importantData[5].Value = this.pitch;
+           */
+
+
         }
-        
-        //updating all data together
+
         public void startAllJoystickModel()
         {
             startJoystick();
@@ -241,8 +210,13 @@ namespace Model
 
         }
 
-       
-
+        /*public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }*/
     }
 }
  
