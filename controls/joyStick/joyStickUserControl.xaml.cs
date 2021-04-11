@@ -17,62 +17,28 @@ using ViewModel;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for UserControl1.xaml
-    /// </summary>
+    // <summary>
+    // View part of the mvvm design pattern, that is relevant for our project,
+    // specificaly for the code behind view of the joystick,it's scrollers and
+    // the other text with data displayed (roll, pitch...)
+    // </summary>
     //
-
     public partial class joystickUserControl : UserControl
     {
-        //private List<DataType> importantData;
+        //the viewModel rellevant for this view
         private JoystickViewModel joystickVM;
         public joystickUserControl()
         {
             InitializeComponent();
+            //creating a new view model that will match the obly model we have for the project)
             joystickVM = new JoystickViewModel(FIAModel.Model);
+
+            //updating Data context to be the viewModel created,
+            // so when proprty is updated there , 
+            //it will be updated through ddata binding in the view (xaml file)
             DataContext = joystickVM;
           
         }
-
-
-        private void mcSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            
-        }
-
-        private void mcSlider_Copy_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            
-        }
-
-        private void dgSimple_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-       /* public void startJoystickVM()
-        {
-            this.joystickVM.startJoystickVM();
-        }
-
-        public void radiusVM()
-        {
-            this.joystickVM.radiusVM();
-        }
-        public void startDataTableVM()
-        {
-            this.joystickVM.startDataTableVM();
-        }*/
-
     }
-   
-
-
-   /* public class DataType
-    {
-        public string Data { get; set; }
-
-        public int Value { get; set; }
-    }*/
 }
 
