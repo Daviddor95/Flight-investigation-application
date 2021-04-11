@@ -23,7 +23,7 @@
                 </Ellipse.RenderTransform>-->
             </Ellipse>
             <Slider x:Name="mcSlider_Copy"  
-            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_rudderScrollerX, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" >
+            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_rudderScrollerX, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" IsEnabled="False" >
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
