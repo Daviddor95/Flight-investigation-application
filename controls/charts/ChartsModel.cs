@@ -7,7 +7,7 @@ using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Threading;
-//using static System.Net.Mime.MediaTypeNames;
+using System.Windows;
 
 namespace Model
 {
@@ -15,17 +15,17 @@ namespace Model
     {
         // variables -- small letters ------------------------------------------------------
         private String chosenElementName;
-        //public event PropertyChangedEventHandler PropertyChanged;
-       // private int elementPreasonIndex;
-        //private int elementChosenIndex;
 
         private SeriesCollection seriesCollectionChart6;
-        private double maxValueChart6;
-        private double minValueChart6;
-        private double maxRangeChart6;
-        private double minRangeChart6;
+        private float maxValueChart6;
+        private float minValueChart6;
+        private float maxRangeChart6;
+        private float minRangeChart6;
         private List<string> labelsChart67;
-        private LineSeries mylineseries;
+        private LineSeries mylineseriesChart6;
+        private LineSeries mylineseriesChart7;
+        private string[] elementListNames;
+
         // get set for variables -- big letter ---------------------------------------------
         public String ChosenElementName
         {
@@ -37,6 +37,27 @@ namespace Model
             {
                 String chosenElementName = value;
                 NotifyPropertyChanged("ChosenElementName");
+            }
+        }
+        public String[] ElementListNames //the list of element we can chose from in combobox
+        {
+            get
+            {
+                return elementListNames = new string[] { "aileron", "elevator", "rudder", "flaps", "slats", "speedbrake",
+                "throttle", "throttle", "engine - pump", "electric - pump", "external - power", "APU - generator",
+                "latitude - deg", "longitude - deg", "altitude - ft", "roll - deg", "pitch - deg", "heading - deg",
+                "side - slip - deg", "airspeed - kt", "glideslope", "vertical - speed - fps", "airspeed - indicator_indicated - speed - kt",
+            "altimeter_indicated - altitude - ft", "altimeter_pressure - alt - ft", "attitude - indicator_indicated - pitch - deg",
+                "attitude - indicator_indicated - roll - deg", "attitude - indicator_internal - pitch - deg",
+                "attitude - indicator_internal - roll - deg", "encoder_indicated - altitude - ft", "encoder_pressure - alt - ft",
+                "gps_indicated - altitude - ft", "gps_indicated - ground - speed - kt", "gps_indicated - vertical - speed",
+                "indicated - heading - deg", "magnetic - compass_indicated - heading - deg", "slip - skid - ball_indicated - slip - skid",
+                "turn - indicator_indicated - turn - rate", "vertical - speed - indicator_indicated - speed - fpm", "engine_rpm" }; ;
+            }
+            set
+            {
+                String[] elementListNames = value;
+                NotifyPropertyChanged("ElementListNames");
             }
         }
         public SeriesCollection SeriesCollectionChart6 {
@@ -58,7 +79,7 @@ namespace Model
                 NotifyPropertyChanged("LabelsChart67");
             }
         }
-        public Double MaxValueChart6 {
+        public float MaxValueChart6 {
             get { return maxValueChart6; }
             set
             {
@@ -66,152 +87,132 @@ namespace Model
                 NotifyPropertyChanged("MaxValueChart6");
             }
         }
-        public Double MinValueChart6 { get { return minValueChart6; }
+        public float MinValueChart6 { get { return minValueChart6; }
             set
             {
                 minValueChart6 = value;
                 NotifyPropertyChanged("MinValueChart6");
             }
         }
-        public Double MaxRangeChart6 { get { return maxRangeChart6; }
+        public float MaxRangeChart6 { get { return maxRangeChart6; }
             set
             {
                 maxRangeChart6 = value;
                 NotifyPropertyChanged("MaxRangeChart6");
             }
         }
-        public Double MinRangeChart6 { get { return minRangeChart6; }
+        public float MinRangeChart6 { get { return minRangeChart6; }
             set
             {
                 minRangeChart6 = value;
                 NotifyPropertyChanged("MinRangeChart6");
             }
         }
-        public LineSeries Mylineseries {
+        public LineSeries MylineseriesChart6 {
             get
             {
-                return mylineseries;
+                return mylineseriesChart6;
             }
             set
             {
-                mylineseries = (value);
-                NotifyPropertyChanged("Mylineseries");
+                mylineseriesChart6 = (value);
+                NotifyPropertyChanged("MylineseriesChart6");
+            }
+        }
+        public LineSeries MylineseriesChart7
+        {
+            get
+            {
+                return mylineseriesChart7;
+            }
+            set
+            {
+                mylineseriesChart7 = (value);
+                NotifyPropertyChanged("MylineseriesChart7");
             }
         }
 
-        private float _new_Y_value;
-        private float[] temp = { 0, 0, 0, 0, 0, 0, 9, 0 };
+        private float new_value_chart6;
+        private float new_value_chart7;
+        private float[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
         // functions -----------------------------------------------------------------------
         public void chart() // called from start in mainModel
-        {
-            //this.Dispatcher.Invoke(() =>
-            //{
+        { 
+            NotifyPropertyChanged("ElementListNames");
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
                 // Instantiate a line chart 
-                this.Mylineseries = new LineSeries();
+                this.MylineseriesChart6 = new LineSeries();
                 // Set the title of the polyline, the name of the chosen element
-                this.Mylineseries.Title = "";
+                this.MylineseriesChart6.Title = "roll";
                 // line chart line form
-                this.Mylineseries.LineSmoothness = 0;
+                this.MylineseriesChart6.LineSmoothness = 0;
                 //Distance style of line chart
-                this.Mylineseries.PointGeometry = null;
-                // Add the abscissa //this is the X line's marks like 0 1 2 3->
-                //this.labelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+                this.MylineseriesChart6.PointGeometry = null;
                 // Add the data of the line chart
-                this.Mylineseries.Values = new ChartValues<float>(temp);
+                this.MylineseriesChart6.Values = new ChartValues<float>(temp);
+                this.MylineseriesChart7 = new LineSeries();
+                // Set the title of the polyline, the name of the chosen element
+                this.MylineseriesChart7.Title = "air speed";
+                // line chart line form
+                this.MylineseriesChart7.LineSmoothness = 0;
+                //Distance style of line chart
+                this.MylineseriesChart7.PointGeometry = null;
+                // Add the data of the line chart
+                this.MylineseriesChart7.Values = new ChartValues<float>(temp);
+                this.SeriesCollectionChart6 = new SeriesCollection { };
+                this.SeriesCollectionChart6.Add(this.mylineseriesChart6);
+                this.SeriesCollectionChart6.Add(this.mylineseriesChart7);
+                List<string> LabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
 
-            var r = new Random(); //this is the Y in the points //Ordinate
-            this._new_Y_value = r.Next(-5, 5);
-            List<string> tempLabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
-            tempLabelsChart67.Add("0"); //new time
-            tempLabelsChart67.RemoveAt(0); // remove the erliast time
-            this.LabelsChart67 = tempLabelsChart67;
-            NotifyPropertyChanged("LabelsChart67");
-
-            // Update the ordinate data, the Y value of the new point
-            this.SeriesCollectionChart6 = new SeriesCollection { };
-            this.SeriesCollectionChart6.Add(this.mylineseries);
-            this.SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
-            this.SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
-            NotifyPropertyChanged("SeriesCollectionChart6");
-            //});
-
-            // Start the Chart line drewing
-            //createLine();
-        }
-        public void createLine()
-        {
-            var r = new Random(); //this is the Y in the points //Ordinate
-            this._new_Y_value = r.Next(-5, 5);
-            List<string> tempLabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
-            tempLabelsChart67.Add("0"); //new time
-            tempLabelsChart67.RemoveAt(0); // remove the erliast time
-            this.LabelsChart67 = tempLabelsChart67;
-            NotifyPropertyChanged("LabelsChart67");
-
-            // Update the ordinate data, the Y value of the new point
-            this.SeriesCollectionChart6 = new SeriesCollection { };
-            this.SeriesCollectionChart6.Add(this.mylineseries);
-            this.SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
-            this.SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
-            NotifyPropertyChanged("SeriesCollectionChart6");
-            
-
-            /*
-            //code that should work with CSV and time
-            int locationOfElement = 21;//the index in csvLine[currentLine]
-            float max = Int32.Parse(this.CSVLines[currentLine].Split(new string[] { "," }, StringSplitOptions.None)[locationOfElement]);
-            float min = max;
-            DateTime timeTemp = this.Time; //so Time wont change by opps
-
-            for (int i = 30; i > 0; --i)//start from 30sec before correntTime, and goes to currentTime
-            {
-                LabelsChart67.Add((timeTemp.AddSeconds(-i)).ToString()); //new time
-                LabelsChart67.RemoveAt(0); // remove the erliast time
-                // Update the ordinate data, the Y value of the new point
-                _new_Y_value = Int32.Parse(this.CSVLines[currentLine - i].Split(new string[] { "," }, StringSplitOptions.None)[locationOfElement]);
-                SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
-                SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
-                //finding max & min Value/Range for the chart
-                if (max < _new_Y_value)
+                //add the points to the chart
+                int locationOfElement6 = 17;//the index in csvLine[currentLine] //17=roll
+                int locationOfElement7 = 21;//the index in csvLine[currentLine] //17=roll
+                DateTime timeTemp = this.Time; //so Time wont change by opps
+                int j = 30;
+                if(currentLine < 30)//for the first 30sec of the video
                 {
-                    max = _new_Y_value;
+                    j = currentLine;
                 }
-                if (min > _new_Y_value)
+                float max = float.Parse(this.CSVLines[currentLine].Split(',')[locationOfElement6]);
+                float min = max;
+                
+                for (int i = j; i > 0; --i)//start from 30sec before correntTime, and goes to currentTime
                 {
-                    min = _new_Y_value;
-                }
-            }
-            maxValueChart6 = max;
-            minValueChart6 = min;
-            maxRangeChart6 = maxValueChart6;
-            minRangeChart6 = minValueChart6;
-            */
-
-            /* //for now just copyied from xaml.cs ---------------------
-            Task.Run(() =>
-            {
-                var r = new Random(); //this is the Y in the points //Ordinate
-                while (true)
-                {
-                    //here we update new current X and Y
-                    // y is the new time , x is the value of the element in the new time
-                    Thread.Sleep(1000); //need to go
-                    _new_Y_value = r.Next(-5, 5);
-                    // Update the UI element of the form in the worker thread through Dispatcher
-                    Application.Current.Dispatcher.Invoke(() =>
+                    //LabelsChart67.Add((timeTemp.AddSeconds(-i)).ToString()); //new time
+                    LabelsChart67.Add("0");//this.Time.ToString("HH:mm:ss"));
+                    LabelsChart67.RemoveAt(0); // remove the erliast time
+                     // Update the ordinate data, the Y value of the new point
+                     //chart 6
+                    new_value_chart6 = float.Parse(this.CSVLines[currentLine - i].Split(',')[locationOfElement6]);
+                    SeriesCollectionChart6[0].Values.Add(new_value_chart6); // add new data
+                    SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
+                     //chart 7
+                    new_value_chart7 = float.Parse(this.CSVLines[currentLine - i].Split(',')[locationOfElement7]);
+                    SeriesCollectionChart6[1].Values.Add(new_value_chart7); // add new data
+                    SeriesCollectionChart6[1].Values.RemoveAt(0); // remove data from the start
+                     //finding max & min Value/Range for the chart
+                    if (max < Math.Max(new_value_chart6, new_value_chart7))
                     {
-                        // Update the horizontal time , the X line
-                        LabelsChart67.Add(DateTime.Now.ToString()); //new time
-                        LabelsChart67.RemoveAt(0); // remove the erliast time
-                                                   // Update the ordinate data, the Y value of the new point
-                        SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
-                        SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
-                    });
+                        max = Math.Max(new_value_chart6, new_value_chart7);
+                    }
+                    if (min > Math.Min(new_value_chart6, new_value_chart7))
+                    {
+                        min = Math.Min(new_value_chart6, new_value_chart7);
+                    }
                 }
-            });*/
+                this.MaxValueChart6 = (int)max + 1;
+                this.MinValueChart6 = (int)min - 1;
+                if (this.MaxValueChart6 < 0)
+                    this.MaxValueChart6 = 0.1F;
+                if (this.MinValueChart6 > 0)
+                    this.MinValueChart6 = 0;
+                NotifyPropertyChanged("SeriesCollectionChart6");
+                NotifyPropertyChanged("LabelsChart67");
+            });
         }
-
         //--------------------------------------------------------------------------------
         /*
         void elementChange() // when a new element is chosen
@@ -219,5 +220,24 @@ namespace Model
             createLine();
         }
         */
+        public void createLine()
+        {
+            /*// for random values, for testing
+                 var r = new Random(); //this is the Y in the points //Ordinate
+                 this._new_Y_value = r.Next(-5, 5);
+                 List<string> tempLabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+                 tempLabelsChart67.Add("0"); //new time
+                 tempLabelsChart67.RemoveAt(0); // remove the erliast time
+                 this.LabelsChart67 = tempLabelsChart67;
+                 NotifyPropertyChanged("LabelsChart67");
+
+                 // Update the ordinate data, the Y value of the new point
+                 this.SeriesCollectionChart6 = new SeriesCollection { };
+                 this.SeriesCollectionChart6.Add(this.mylineseries);
+                 this.SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
+                 this.SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
+                 NotifyPropertyChanged("SeriesCollectionChart6");
+                 */
+        }
     }
 }
