@@ -12,17 +12,15 @@ namespace ViewModel
     interface InterfaceChartsViewModel : INotifyPropertyChanged
     {
         String VM_ChosenElementName { get; set; }
+        String[] VM_ElementListNames { get; set; }
+
         SeriesCollection VM_SeriesCollectionChart6 { set; get; }
-    //    SeriesCollection SeriesCollectionChart7 { set; get; }
         List<string> VM_LabelsChart67 { get; set; } //this is the X line's labels with is the time, so it's the same in chart 6 & 7
-        double VM_MaxValueChart6 { get; set; }
-        double VM_MinValueChart6 { get; set; }
-        double VM_MaxRangeChart6 { get; set; }
-        double VM_MinRangeChart6 { get; set; }
-      //  double MaxValueChart7 { get; set; }
-
-        LineSeries VM_Mylineseries { set; get; } //first Y values in a chart
-
+        float VM_MaxValueChart6 { get; set; }
+        float VM_MinValueChart6 { get; set; }
+        float VM_MaxRangeChart6 { get; set; }
+        float VM_MinRangeChart6 { get; set; }
+        LineSeries VM_MylineseriesChart6 { set; get; } //first Y values in a chart
 
     }
 }
