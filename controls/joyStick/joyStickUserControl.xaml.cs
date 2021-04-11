@@ -50,7 +50,7 @@ namespace View
         }
 
 
-        private void mcSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+       /* private void mcSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             
         }
@@ -63,7 +63,7 @@ namespace View
         private void dgSimple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        }
+        }*/
 
        /* public void startJoystickVM()
         {
