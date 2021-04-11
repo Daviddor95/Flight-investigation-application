@@ -7,7 +7,7 @@ using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Threading;
-using static System.Net.Mime.MediaTypeNames;
+//using static System.Net.Mime.MediaTypeNames;
 
 namespace Model
 {
@@ -16,8 +16,8 @@ namespace Model
         // variables -- small letters ------------------------------------------------------
         private String chosenElementName;
         //public event PropertyChangedEventHandler PropertyChanged;
-        private int elementPreasonIndex;
-        private int elementChosenIndex;
+       // private int elementPreasonIndex;
+        //private int elementChosenIndex;
 
         private SeriesCollection seriesCollectionChart6;
         private double maxValueChart6;
@@ -100,16 +100,14 @@ namespace Model
         }
 
         private float _new_Y_value;
-        private float[] temp = { 0, 10, 0, 3, 0, 7, 9, 0 };
+        private float[] temp = { 0, 0, 0, 0, 0, 0, 9, 0 };
 
         // functions -----------------------------------------------------------------------
-        public void chart() // will be called every new currentLine of CSV
+        public void chart() // called from start in mainModel
         {
-            //Application.Current.Dispatcher.Invoke((Action)delegate{
-                // Instantiate ListBox
-                //List<String> elements = new List<String>();
-
-                // Instantiate a line chart
+            //this.Dispatcher.Invoke(() =>
+            //{
+                // Instantiate a line chart 
                 this.Mylineseries = new LineSeries();
                 // Set the title of the polyline, the name of the chosen element
                 this.Mylineseries.Title = "";
@@ -122,17 +120,33 @@ namespace Model
                 // Add the data of the line chart
                 this.Mylineseries.Values = new ChartValues<float>(temp);
 
-                // Start the Chart line drewing
-                createLine();
+            var r = new Random(); //this is the Y in the points //Ordinate
+            this._new_Y_value = r.Next(-5, 5);
+            List<string> tempLabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+            tempLabelsChart67.Add("0"); //new time
+            tempLabelsChart67.RemoveAt(0); // remove the erliast time
+            this.LabelsChart67 = tempLabelsChart67;
+            NotifyPropertyChanged("LabelsChart67");
+
+            // Update the ordinate data, the Y value of the new point
+            this.SeriesCollectionChart6 = new SeriesCollection { };
+            this.SeriesCollectionChart6.Add(this.mylineseries);
+            this.SeriesCollectionChart6[0].Values.Add(_new_Y_value); // add new data
+            this.SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
+            NotifyPropertyChanged("SeriesCollectionChart6");
             //});
+
+            // Start the Chart line drewing
+            //createLine();
         }
         public void createLine()
         {
             var r = new Random(); //this is the Y in the points //Ordinate
             this._new_Y_value = r.Next(-5, 5);
-            this.LabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
-            this.LabelsChart67.Add(DateTime.Now.ToString()); //new time
-            this.LabelsChart67.RemoveAt(0); // remove the erliast time
+            List<string> tempLabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+            tempLabelsChart67.Add("0"); //new time
+            tempLabelsChart67.RemoveAt(0); // remove the erliast time
+            this.LabelsChart67 = tempLabelsChart67;
             NotifyPropertyChanged("LabelsChart67");
 
             // Update the ordinate data, the Y value of the new point
@@ -174,7 +188,7 @@ namespace Model
             minRangeChart6 = minValueChart6;
             */
 
-            /* //for now just copyied from xaml.cs
+            /* //for now just copyied from xaml.cs ---------------------
             Task.Run(() =>
             {
                 var r = new Random(); //this is the Y in the points //Ordinate

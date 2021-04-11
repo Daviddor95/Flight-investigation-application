@@ -21,7 +21,7 @@ namespace ViewModel
         double VM_MinRangeChart6 { get; set; }
       //  double MaxValueChart7 { get; set; }
 
-        LineSeries mylineseries { set; get; } //first Y values in a chart
+        LineSeries VM_Mylineseries { set; get; } //first Y values in a chart
 
 
     }
