@@ -1,38 +1,26 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
 using ViewModel;
 using Model;
-using Client;
-using Flight_investigation_application;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /*
+        The FlightInvestigationWindow class
+        The class responsible to the interaction between the user and the main window
+     */
     public partial class FlightInvestigationWindow : Window
     {
+        // Declaring a field for the view model
         IFlightInvestigationViewModel mainVM;
+        // Constructor of the FlightInvestigationWindow class
         public FlightInvestigationWindow()
         {
             InitializeComponent();
             this.mainVM = new FlightInvestigationViewModel(FIAModel.Model);
             DataContext = mainVM;
         }
+        // Close window properly (disconnects the server)
         private void Window_Closed(object sender, EventArgs e)
         {
             this.mainVM.closeWindow();

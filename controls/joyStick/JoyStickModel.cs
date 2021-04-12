@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
-using Util;
-
-namespace Model
+﻿namespace Model
 {
     public partial class FIAModel : IFIAModel
     {
@@ -149,19 +140,6 @@ namespace Model
             {
                 pitch = value;
                 NotifyPropertyChanged("pitchM");
-            }
-        }
-
-        public List<DataType> DataTableM
-        {
-            get
-            {
-                return importantData;
-            }
-            set
-            {
-                importantData = value;
-                NotifyPropertyChanged("DataTableM");
             }
         }
 

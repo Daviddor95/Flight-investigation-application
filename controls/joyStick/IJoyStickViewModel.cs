@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using Util;
+﻿using System.ComponentModel;
 
 namespace ViewModel
 {
@@ -59,11 +57,7 @@ namespace ViewModel
             set;
             get;
         }
-        List<DataType> VM_DataTableM
-        {
-            set;
-            get;
-        }
+
         /*void radiusVM();
         
         void startJoystickVM();
