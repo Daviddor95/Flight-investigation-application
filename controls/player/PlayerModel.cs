@@ -59,7 +59,10 @@ namespace Model
                 }
                 else
                 {
-                    this.time = endTime;
+                    /*this.time = endTime;
+                    this.jumpToTime();*/
+                    this.pause();
+                    this.jumpToEnd();
                 }
                 NotifyPropertyChanged("Time");
             }
@@ -135,6 +138,7 @@ namespace Model
         {
             if (this.CSVLines != null && !this.playing)
             {
+                this.jumpToTime();
                 this.playing = true;
                 this.start();
             }
@@ -163,6 +167,7 @@ namespace Model
             {
                 this.currentLine = 0;
                 this.Time = DateTime.MinValue;
+                this.jumpToTime();
                 this.playVideo();
             }
         }
@@ -171,8 +176,10 @@ namespace Model
         {
             if (this.CSVLines != null)
             {
-                this.currentLine = this.CSVLines.Length - 5;
+                this.currentLine = this.CSVLines.Length - 1; // m5
                 this.Time = DateTime.MinValue.AddSeconds(this.lengthSec);
+                this.pause();
+                this.jumpToTime();
                 this.playVideo();
             }
         }
@@ -219,38 +226,20 @@ namespace Model
         public void loadCSVFile()
         {
             this.initialize(this.client);
-            OpenFileDialog FileDialog = new OpenFileDialog();
-            if ((bool)FileDialog.ShowDialog())
-            {
-                string csv;
-                using (StreamReader input = new StreamReader(FileDialog.FileName))
-                {
-                    csv = input.ReadToEnd();
-                }
-                this.CSVLines = csv.Split('\n').Where(x => !string.IsNullOrEmpty(x)).ToArray();
-                this.LengthSec = this.CSVLines.Length / this.sampleRate;
-            }
+            this.CSVLines = this.loadFile().Split('\n').Where(x => !string.IsNullOrEmpty(x)).ToArray();
+            this.LengthSec = this.CSVLines.Length / this.sampleRate;
         }
         // Load the XML file to the project
         public void loadXML()
         {
-            OpenFileDialog FileDialog = new OpenFileDialog();
-            if ((bool)FileDialog.ShowDialog())
+            string[] XMLLines = this.loadFile().Split('\n');
+            foreach (string s in XMLLines)
             {
-                string xml;
-                using (StreamReader input = new StreamReader(FileDialog.FileName))
+                if (s.Contains("Recording:"))
                 {
-                    xml = input.ReadToEnd();
-                }
-                string[] XMLLines = xml.Split('\n');
-                foreach (string s in XMLLines)
-                {
-                    if (s.Contains("Recording:"))
-                    {
-                        string rate = new string(s.Where(Char.IsDigit).ToArray());
-                        this.sampleRate = Int32.Parse(rate);
-                        break;
-                    }
+                    string rate = new string(s.Where(Char.IsDigit).ToArray());
+                    this.sampleRate = Int32.Parse(rate);
+                    break;
                 }
             }
         }
@@ -266,16 +255,21 @@ namespace Model
         // Load the regular flight CSV file to the project
         public void loadRegFlight()
         {
+            this.regFlight = this.loadFile().Split('\n').Where(x => !string.IsNullOrEmpty(x)).ToArray();
+        }
+        // Load a file and return his contents as a string
+        private string loadFile()
+        {
             OpenFileDialog FileDialog = new OpenFileDialog();
+            string fileContent = "";
             if ((bool)FileDialog.ShowDialog())
             {
-                string flight;
                 using (StreamReader input = new StreamReader(FileDialog.FileName))
                 {
-                    flight = input.ReadToEnd();
+                    fileContent = input.ReadToEnd();
                 }
-                this.regFlight = flight.Split('\n').Where(x => !string.IsNullOrEmpty(x)).ToArray();
             }
+            return fileContent;
         }
     }
 }
