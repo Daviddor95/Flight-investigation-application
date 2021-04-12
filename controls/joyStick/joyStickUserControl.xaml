@@ -12,18 +12,10 @@
         </Grid.ColumnDefinitions>
         <Canvas Name="LayoutRoot">
             <Ellipse Fill="#FFF4F4F5" Name ="Joystick" Height="110" Canvas.Left="110" Stroke="Black" Canvas.Top="20" Width="110"  RenderTransformOrigin="0.5,0.509"/>
-            <Ellipse Fill="#545454" x:Name="Knob" Height="60" Canvas.Left="{Binding Path=VM_aileronJoystickX, UpdateSourceTrigger=PropertyChanged}" Stroke="Black" Canvas.Top="{Binding Path=VM_elevatorJoystickY, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="60"  RenderTransformOrigin="0.461,0.455">
-                <!--<Ellipse.RenderTransform>{Binding Path=VM_Aileron, UpdateSourceTrigger=PropertyChanged}
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="{Binding Path= VM_Aileron, UpdateSourceTrigger=PropertyChanged}" Y="{Binding VM_Elevator, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    </TransformGroup>
-                </Ellipse.RenderTransform>-->
+            <Ellipse Fill="#545454" x:Name="Knob" Height="60" Canvas.Left="{Binding VM_aileronJoystickX, FallbackValue=135, TargetNullValue=135}" Stroke="Black" Canvas.Top="{Binding VM_elevatorJoystickY, FallbackValue=45, Mode=OneWay, TargetNullValue=45}" Width="60"  RenderTransformOrigin="0.461,0.455">
             </Ellipse>
             <Slider x:Name="mcSlider_Copy"  
-            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_rudderScrollerX, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" >
+            Background="WhiteSmoke" Minimum="-1" RenderTransformOrigin="0.386,2.27" ValueChanged="mcSlider_Copy_ValueChanged" Value="{Binding Path=VM_rudderScrollerX, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="21" Canvas.Left="225" Canvas.Top="180" Width="115" TickFrequency="1E-06" IsEnabled="False" >
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -34,7 +26,7 @@
                 </Slider.RenderTransform>
             </Slider>
             <Slider x:Name="mcSlider"  
-        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_throttleScrollerY, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124" TickFrequency="1E-06">
+        Background="WhiteSmoke"  Minimum="0" RenderTransformOrigin="0.171,3.807" ValueChanged="mcSlider_ValueChanged" Value="{Binding Path=VM_throttleScrollerY, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Maximum="1" Height="23" Canvas.Left="46" Canvas.Top="75" Width="124" TickFrequency="1E-06" IsEnabled="False">
                 <Slider.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
