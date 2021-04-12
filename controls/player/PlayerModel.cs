@@ -18,17 +18,21 @@ namespace Model
 {
     public partial class FIAModel : IFIAModel
     {
+        // Fields for the client (for client-server communication), playbackSpeed, time, sampleRate (number of rows in
+        // the file which represent a second), lengthSec (length of the flight in seconds), currentLine (the current
+        // line in the file), playing (flag that indicates that the video should play), CSVLines (holds the CSV file
+        // in memory), model (holds the one and only instance of the class)
         private ITelnetClient client;
         private volatile bool playing;
         private float playbackSpeed;
         private DateTime time;
         private string[] CSVLines;
-        private string[] XMLLines;
         private int sampleRate;
         private float lengthSec;
         private int currentLine;
         private static IFIAModel model;
         private List<DataType> importantData;
+        // Properties for the PlaybackSpeed, Time, LengthSec and model
         public float PlaybackSpeed
         {
             get
@@ -77,6 +81,7 @@ namespace Model
                 NotifyPropertyChanged("LengthSec");
             }
         }
+        
         public static IFIAModel Model
         {
             get
@@ -90,7 +95,7 @@ namespace Model
         }
         private FIAModel(ITelnetClient client)
         {
-            this.loadXML();
+            //this.loadXML();
             this.initialize(client);
             this.connect();
         }
@@ -129,7 +134,7 @@ namespace Model
         }
         public void play()
         {
-            if (this.CSVLines != null)
+            if (this.CSVLines != null && !this.playing)
             {
                 this.playing = true;
                 this.start();
@@ -219,9 +224,30 @@ namespace Model
                 this.LengthSec = this.CSVLines.Length / this.sampleRate;
             }
         }
-        private void loadXML()
+        // Load the XML file to the project
+        public void loadXML()
         {
-            string xml;
+            OpenFileDialog FileDialog = new OpenFileDialog();
+            if ((bool)FileDialog.ShowDialog())
+            {
+                string xml;
+                using (StreamReader input = new StreamReader(FileDialog.FileName))
+                {
+                    xml = input.ReadToEnd();
+                }
+                string[] XMLLines = xml.Split('\n');
+                foreach (string s in XMLLines)
+                {
+                    if (s.Contains("Recording:"))
+                    {
+                        string rate = new string(s.Where(Char.IsDigit).ToArray());
+                        this.sampleRate = Int32.Parse(rate);
+                        break;
+                    }
+                }
+            }
+
+            /*string xml;
             using (StreamReader input = new StreamReader(Path.Combine(Environment.CurrentDirectory, @"settings\", "playback_small.xml")))
             {
                 xml = input.ReadToEnd();
@@ -235,7 +261,7 @@ namespace Model
                     this.sampleRate = Int32.Parse(rate);
                     break;
                 }
-            }
+            }*/
         }
         private void initialize(ITelnetClient client)
         {
