@@ -15,17 +15,18 @@ namespace Model
         // Fields for the client (for client-server communication), playbackSpeed, time, sampleRate (number of rows in
         // the file which represent a second), lengthSec (length of the flight in seconds), currentLine (the current
         // line in the file), playing (flag that indicates that the video should play), CSVLines (holds the CSV file
-        // in memory), model (holds the one and only instance of the class)
+        // in memory), regFlight (holds the regular flight CSV file), model (holds the one and only instance of the
+        // class)
         private ITelnetClient client;
         private volatile bool playing;
         private float playbackSpeed;
         private DateTime time;
         private string[] CSVLines;
+        private string[] regFlight;
         private int sampleRate;
         private float lengthSec;
         private int currentLine;
         private static IFIAModel model;
-        //private List<DataType> importantData;
         // Properties for the PlaybackSpeed, Time, LengthSec and model
         public float PlaybackSpeed
         {
@@ -261,13 +262,20 @@ namespace Model
             this.PlaybackSpeed = 1;
             this.Time = DateTime.MinValue;
             this.currentLine = 0;
-            /*this.importantData = new List<DataType>();
-            this.importantData.Add(new DataType() { Data = "altimeter:i.a.f", Value = 0 }); //altimeter_indicated-altitude-ft
-            this.importantData.Add(new DataType() { Data = "airspeed", Value = 0 }); // airspeed-kt
-            this.importantData.Add(new DataType() { Data = "direction", Value = 0 }); //heading-deg
-            this.importantData.Add(new DataType() { Data = "yaw", Value = 0 }); //(side-slip-deg)
-            this.importantData.Add(new DataType() { Data = "roll", Value = 0 });
-            this.importantData.Add(new DataType() { Data = "pitch", Value = 0 });*/
+        }
+        // Load the regular flight CSV file to the project
+        public void loadRegFlight()
+        {
+            OpenFileDialog FileDialog = new OpenFileDialog();
+            if ((bool)FileDialog.ShowDialog())
+            {
+                string flight;
+                using (StreamReader input = new StreamReader(FileDialog.FileName))
+                {
+                    flight = input.ReadToEnd();
+                }
+                this.regFlight = flight.Split('\n').Where(x => !string.IsNullOrEmpty(x)).ToArray();
+            }
         }
     }
 }

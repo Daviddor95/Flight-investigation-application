@@ -90,12 +90,19 @@ namespace View
                 }
             }
         }
-        // Open the "Open File" dialog to load the CML file
+        // Open the "Open File" dialog to load the XML file
         private void openXML_Click(object sender, RoutedEventArgs e)
         {
             this.playerVM.loadXML();
+            this.openRegFlight.IsEnabled = true;
+            this.exception.Text = "Please open regular flight file";
+        }
+        // Open the "Open File" dialog to load the regular flight CSV file
+        private void openRegFlight_Click(object sender, RoutedEventArgs e)
+        {
+            this.playerVM.loadRegFlight();
             this.OpenCSV.IsEnabled = true;
-            this.exception.Text = "Please open CSV file";
+            this.exception.Text = "Please open test flight file";
         }
     }
 }

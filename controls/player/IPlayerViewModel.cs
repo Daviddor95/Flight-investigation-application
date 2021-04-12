@@ -48,5 +48,7 @@ namespace ViewModel
         void loadCSV();
         // Load the XML file to the project
         void loadXML();
+        // Load the regular flight CSV file to the project
+        void loadRegFlight();
     }
 }

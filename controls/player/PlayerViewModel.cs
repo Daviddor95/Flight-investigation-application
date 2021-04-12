@@ -122,5 +122,10 @@ namespace ViewModel
         {
             this.model.loadXML();
         }
+        // Load the regular flight CSV file to the project
+        public void loadRegFlight()
+        {
+            this.model.loadRegFlight();
+        }
     }
 }
