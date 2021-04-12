@@ -181,6 +181,11 @@
     <Resource Include="controls\player\player icons\player-48x48-123362.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="PicturesFor README\Capture.JPG" />
+    <Resource Include="PicturesFor README\Capture2.JPG" />
+    <Resource Include="PicturesFor README\Capturesss.JPG" />
+    <Resource Include="PicturesFor README\Graphs11.JPG" />
+    <Resource Include="PicturesFor README\Joystick Begining.JPG" />
     <Content Include="settings\playback_small.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
