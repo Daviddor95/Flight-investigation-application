@@ -36,7 +36,9 @@ namespace View
 
         private void elementList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //empty
+            //save the selected ele every time one is chosen
+           // String typeItem = (String)elementList.SelectedItem;
+            this.chartsVM.VM_ChosenElementName = elementList.SelectedItem.ToString();
         }
     }
 }

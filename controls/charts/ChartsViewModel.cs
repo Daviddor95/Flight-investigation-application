@@ -51,7 +51,6 @@ namespace ViewModel
             }
         }
         // for chart 6 and 7
-        // for chart 6 and 7
         public SeriesCollection VM_SeriesCollectionChart6 //what points we see on the chart
         { 
             get 
