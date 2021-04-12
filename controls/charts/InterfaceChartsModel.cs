@@ -16,8 +16,12 @@ namespace Model
         String[] ElementListNames { get; set; }
         int LocationOfElement6 { get; set; }
 
-    //for the charts
-    SeriesCollection SeriesCollectionChart6 { set; get; }
+        //for the charts
+        //chart 8
+        SeriesCollection SeriesCollectionChart8 { set; get; }
+        ScatterSeries MyScatterSeriesChart8 { set; get; }
+        //chart 6+7
+        SeriesCollection SeriesCollectionChart6 { set; get; }
         List<string> LabelsChart67 { get; set; } //this is the X line's labels with is the time, so it's the same in chart 6 & 7
         float MaxValueChart6 { get; set; }
         float MinValueChart6 { get; set; }

@@ -29,13 +29,25 @@ namespace ViewModel
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-        // for comboBox
+        // for comboBox ----------------------------------------------
         public String VM_ChosenElementName
         {
             get { return this.model.ChosenElementName; }
             set { 
                 this.model.ChosenElementName = value;
                 NotifyPropertyChanged("VM_ChosenElementName");
+            }
+        }
+        public int VM_LocationOfElement6
+        {
+            get
+            {
+                return model.LocationOfElement6;
+            }
+            set
+            {
+                model.LocationOfElement6 = value;
+                NotifyPropertyChanged("VM_LocationOfElement6");
             }
         }
         public string[] VM_ElementListNames
@@ -50,7 +62,32 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_ElementListNames");
             }
         }
-        // for chart 6 and 7
+        // chart 8 ---------------------------------------
+        public SeriesCollection VM_SeriesCollectionChart8
+        {
+            get
+            {
+                return model.SeriesCollectionChart8;
+            }
+            set
+            {
+                model.SeriesCollectionChart8 = (value);
+                NotifyPropertyChanged("VM_SeriesCollectionChart8");
+            }
+        }
+        public ScatterSeries VM_MyScatterSeriesChart8
+        {
+            get
+            {
+                return model.MyScatterSeriesChart8;
+            }
+            set
+            {
+                model.MyScatterSeriesChart8 = (value);
+                NotifyPropertyChanged("VM_MyScatterSeriesChart8");
+            }
+        }
+        // for chart 6 and 7 -----------------------------------
         public SeriesCollection VM_SeriesCollectionChart6 //what points we see on the chart
         { 
             get 
