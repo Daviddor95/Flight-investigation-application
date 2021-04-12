@@ -35,6 +35,7 @@ namespace View
         private void OpenCSV_Click(object sender, RoutedEventArgs e)
         {
             this.playerVM.loadCSV();
+            this.exception.Text = "";
         }
 
         private void Pause_MouseUp(object sender, MouseButtonEventArgs e)
@@ -97,6 +98,13 @@ namespace View
                     exception.Text = "Please enter a valid value";
                 }
             }
+        }
+
+        private void openXML_Click(object sender, RoutedEventArgs e)
+        {
+            this.playerVM.loadXML();
+            this.OpenCSV.IsEnabled = true;
+            this.exception.Text = "Please open CSV file";
         }
     }
 }
