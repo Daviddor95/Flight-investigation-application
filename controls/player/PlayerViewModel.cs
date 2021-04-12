@@ -103,5 +103,9 @@ namespace ViewModel
         {
             this.model.jumpToTime();
         }
+        public void loadXML()
+        {
+            this.model.loadXML();
+        }
     }
 }
