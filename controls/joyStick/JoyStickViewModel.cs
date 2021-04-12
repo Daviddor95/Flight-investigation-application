@@ -156,6 +156,14 @@ namespace ViewModel
             }
         }
 
+        internal IJoystickViewModel IJoystickViewModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         //DON'T TOUCH, IT'S DAVID
         public JoystickViewModel(IFIAModel model)
         {

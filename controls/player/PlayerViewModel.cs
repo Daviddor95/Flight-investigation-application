@@ -55,6 +55,15 @@ namespace ViewModel
                 return model.LengthSec;
             }
         }
+
+        internal IPlayerViewModel IPlayerViewModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Constructor of the PlayerViewModel class
         public PlayerViewModel(IFIAModel model)
         {
