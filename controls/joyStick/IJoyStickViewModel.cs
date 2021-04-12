@@ -4,7 +4,10 @@ using Util;
 
 namespace ViewModel
 {
-    interface IJoystickViewModel: INotifyPropertyChanged
+    /// <summary>IJoystickViewModel is an interface for the viewmodel that will be used for the joystick, its scroller and user story 5 
+    /// (the data about yaw, roll, pitch, direction (of flight), airspeed and altimeter in the flight)
+    /// the functions will be explained in the JoystickViewModel itself</summary>
+    interface IJoystickViewModel : INotifyPropertyChanged
     {
         float VM_elevatorJoystickY
         {

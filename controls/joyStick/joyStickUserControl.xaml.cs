@@ -34,6 +34,7 @@ namespace View
 
         }
 
+
         private void mcSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
@@ -49,45 +50,29 @@ namespace View
 
         }
 
+        /* public void startJoystickVM()
+         {
+             this.joystickVM.startJoystickVM();
+         }
 
-       /* private void mcSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            
-        }
-
-        private void mcSlider_Copy_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            
-        }
-
-        private void dgSimple_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }*/
-
-       /* public void startJoystickVM()
-        {
-            this.joystickVM.startJoystickVM();
-        }
-
-        public void radiusVM()
-        {
-            this.joystickVM.radiusVM();
-        }
-        public void startDataTableVM()
-        {
-            this.joystickVM.startDataTableVM();
-        }*/
+         public void radiusVM()
+         {
+             this.joystickVM.radiusVM();
+         }
+         public void startDataTableVM()
+         {
+             this.joystickVM.startDataTableVM();
+         }*/
 
     }
-   
 
 
-   /* public class DataType
-    {
-        public string Data { get; set; }
 
-        public int Value { get; set; }
-    }*/
+    /* public class DataType
+     {
+         public string Data { get; set; }
+
+         public int Value { get; set; }
+     }*/
 }
 
