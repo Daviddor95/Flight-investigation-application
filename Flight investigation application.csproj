@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -91,7 +106,6 @@
     <Compile Include="controls\main\FlightInvestigationViewModel.cs" />
     <Compile Include="controls\main\IFlightInvestigationModel.cs" />
     <Compile Include="controls\main\IFlightInvestigationViewModel.cs" />
-    <Compile Include="controls\player\DataType.cs" />
     <Compile Include="controls\joystick\JoystickViewModel.cs" />
     <Compile Include="controls\player\IPlayerModel.cs" />
     <Compile Include="controls\player\IPlayerViewModel.cs" />
@@ -142,7 +156,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Plugins\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\player\player icons\player-48x48-123363.png" />
   </ItemGroup>
@@ -165,9 +181,27 @@
     <Resource Include="controls\player\player icons\player-48x48-123362.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="PicturesForREADME\Capture.JPG" />
+    <Resource Include="PicturesForREADME\Capture2.JPG" />
+    <Resource Include="PicturesForREADME\Capturesss.JPG" />
+    <Resource Include="PicturesForREADME\Graphs11.JPG" />
+    <Resource Include="PicturesForREADME\Joystick Begining.JPG" />
+    <None Include="README.md" />
     <Content Include="settings\playback_small.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

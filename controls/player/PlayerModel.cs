@@ -1,21 +1,15 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using Microsoft.Win32;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
 using Client;
-using System.Reflection;
-using Util;
-using System.Xml;
 
 namespace Model
 {
+    /*
+        The FIAModel class
+        This part from the FIAModel class responsible to the logic behind the player controller
+     */
     public partial class FIAModel : IFIAModel
     {
         // Fields for the client (for client-server communication), playbackSpeed, time, sampleRate (number of rows in
@@ -31,7 +25,7 @@ namespace Model
         private float lengthSec;
         private int currentLine;
         private static IFIAModel model;
-        private List<DataType> importantData;
+        //private List<DataType> importantData;
         // Properties for the PlaybackSpeed, Time, LengthSec and model
         public float PlaybackSpeed
         {
@@ -81,7 +75,6 @@ namespace Model
                 NotifyPropertyChanged("LengthSec");
             }
         }
-        
         public static IFIAModel Model
         {
             get
@@ -93,25 +86,29 @@ namespace Model
                 return model;
             }
         }
+        // Constructor of the FIAModel class. Used the singleton design pattern
         private FIAModel(ITelnetClient client)
         {
-            //this.loadXML();
             this.initialize(client);
             this.connect();
         }
+        // Connect to the localhost ip address and port 5400
         private void connect()
         {
             this.connect("127.0.0.1", 5400);
         }
+        // Connect to the given IP address and port number
         private void connect(string ip, int port)
         {
-            client.connect(ip, port);
+            this.client.connect(ip, port);
         }
+        // Disconnect from the server
         private void disconnect()
         {
             this.playing = false;
             this.client.disconnect();
         }
+        // Show a single frame and update time and current line
         private void playVideo()
         {
             this.client.write(this.CSVLines[this.currentLine]);
@@ -132,6 +129,7 @@ namespace Model
                 }
             }
         }
+        // Play the video
         public void play()
         {
             if (this.CSVLines != null && !this.playing)
@@ -140,6 +138,7 @@ namespace Model
                 this.start();
             }
         }
+        // Pause the video
         public void pause()
         {
             if (this.CSVLines != null)
@@ -147,6 +146,7 @@ namespace Model
                 this.playing = false;
             }
         }
+        // Stop the video
         public void stop()
         {
             if (this.CSVLines != null)
@@ -155,6 +155,7 @@ namespace Model
                 this.pause();
             }
         }
+        // Jump to the start of the video
         public void jumpToStart()
         {
             if (this.CSVLines != null)
@@ -164,6 +165,7 @@ namespace Model
                 this.playVideo();
             }
         }
+        // Jump to the end of the video
         public void jumpToEnd()
         {
             if (this.CSVLines != null)
@@ -173,6 +175,7 @@ namespace Model
                 this.playVideo();
             }
         }
+        // Jump 10 seconds forward
         public void fastForward()
         {
             if (this.CSVLines != null)
@@ -188,6 +191,7 @@ namespace Model
                 }
             }
         }
+        // Jump 10 seconds backwards
         public void fastBackwards()
         {
             if (this.CSVLines != null)
@@ -203,12 +207,14 @@ namespace Model
                 }
             }
         }
+        // Jump to the new time set
         public void jumpToTime()
         {
             TimeSpan diff = this.Time - DateTime.MinValue;
             this.currentLine =(int) diff.TotalSeconds * this.sampleRate;
             this.playVideo();
         }
+        // Load the CSV file to the project
         public void loadCSVFile()
         {
             this.initialize(this.client);
@@ -246,23 +252,8 @@ namespace Model
                     }
                 }
             }
-
-            /*string xml;
-            using (StreamReader input = new StreamReader(Path.Combine(Environment.CurrentDirectory, @"settings\", "playback_small.xml")))
-            {
-                xml = input.ReadToEnd();
-            }
-            this.XMLLines = xml.Split('\n');
-            foreach (string s in this.XMLLines)
-            {
-                if (s.Contains("Recording:"))
-                {
-                    string rate = new string(s.Where(Char.IsDigit).ToArray());
-                    this.sampleRate = Int32.Parse(rate);
-                    break;
-                }
-            }*/
         }
+        // Initialize the model class
         private void initialize(ITelnetClient client)
         {
             this.client = client;
@@ -270,16 +261,13 @@ namespace Model
             this.PlaybackSpeed = 1;
             this.Time = DateTime.MinValue;
             this.currentLine = 0;
-
-            this.importantData = new List<DataType>();
-            this.importantData.Add(new DataType() { Data = "altimeter:i.a.f", Value = 0 });//altimeter_indicated-altitude-ft
-            //importantData.Add(new DataType() { Data = "altimeter:p.a.f", Value = 10001 }); // altimeter_pressure-alt-ft
+            /*this.importantData = new List<DataType>();
+            this.importantData.Add(new DataType() { Data = "altimeter:i.a.f", Value = 0 }); //altimeter_indicated-altitude-ft
             this.importantData.Add(new DataType() { Data = "airspeed", Value = 0 }); // airspeed-kt
-            //importantData.Add(new DataType() { Data = "Indicated airspeed", Value = 20001 }); //airspeed-indicator_indicated-speed-kt
-            this.importantData.Add(new DataType() { Data = "direction", Value = 0 });//heading-deg
+            this.importantData.Add(new DataType() { Data = "direction", Value = 0 }); //heading-deg
             this.importantData.Add(new DataType() { Data = "yaw", Value = 0 }); //(side-slip-deg)
             this.importantData.Add(new DataType() { Data = "roll", Value = 0 });
-            this.importantData.Add(new DataType() { Data = "pitch", Value = 0 });
+            this.importantData.Add(new DataType() { Data = "pitch", Value = 0 });*/
         }
     }
 }

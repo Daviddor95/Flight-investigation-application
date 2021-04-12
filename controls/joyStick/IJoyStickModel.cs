@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Util;
+﻿using System.ComponentModel;
+
 //namespace Flight_investigation_application.controls.Joystick
 namespace Model
 {
@@ -39,11 +34,6 @@ namespace Model
 
 
         float directionM
-        {
-            set;
-            get;
-        }
-        List<DataType> DataTableM
         {
             set;
             get;

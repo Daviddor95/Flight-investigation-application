@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:View"
              mc:Ignorable="d" d:DesignWidth="800" Height="110">
     <Grid Height="110">
+        <!-- Define the grid layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="37"/>
             <RowDefinition Height="30"/>
@@ -24,19 +25,24 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
+        <!-- Define the slider -->
         <Slider x:Name="playerSlider" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="11" Height="20" HorizontalContentAlignment="Stretch" ValueChanged="Slider_ValueChanged" Value="{Binding Path=VM_Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Maximum="{Binding Path=VM_LengthSec}"/>
+        <!-- Define open file buttons -->
         <Button Content="Open CSV file" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="OpenCSV" Click="OpenCSV_Click" IsEnabled="False"/>
+        <Button x:Name="openXML" Content="Open XML file" HorizontalAlignment="Center" Margin="0,8.8,0,9.4" Grid.Row="2" VerticalAlignment="Center" Width="100" Height="25" Click="openXML_Click"/>
+        <!-- Define the playback speed input text box -->
         <TextBox x:Name="playbackSpeed" VerticalAlignment="Center" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="3" Height="25" Canvas.Left="401" TextWrapping="Wrap" Text="{Binding Path=VM_PlaybackSpeed, UpdateSourceTrigger=Explicit, StringFormat=N1}" Canvas.Top="10" Width="50" TextAlignment="Center" FontSize="16" MaxLines="1" MaxLength="4" KeyUp="playbackSpeed_KeyUp"/>
+        <!-- Define textblocks for time, messages and play speed -->
         <TextBlock Grid.Row="0" VerticalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="4" Height="25" Canvas.Left="313" TextWrapping="Wrap" Text="Play speed" Canvas.Top="10" Width="88" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="exception" Grid.Column="9" HorizontalAlignment="Center" Margin="9.6,6,9.6,5.8" TextWrapping="Wrap" Text="Please open XML file" VerticalAlignment="Center" Height="25" Width="176" FontSize="10" TextAlignment="Center"/>
         <TextBlock x:Name="time" VerticalAlignment="Center" Grid.Row="0" Grid.Column="10" Text="{Binding Path=VM_DigitalTime, UpdateSourceTrigger=PropertyChanged}" Height="25" Canvas.Left="689" TextWrapping="Wrap" Canvas.Top="10" Width="75" TextAlignment="Center" FontSize="16" HorizontalAlignment="Right"/>
-        <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="5" Height="25" Canvas.Left="388" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123357.png" MouseUp="Pause_MouseUp"/>
+        <!-- Define the player buttons -->
+        <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Height="25" Canvas.Left="299" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123360.png" MouseUp="JumpToStart_MouseUp"/>
+        <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Height="25" Canvas.Left="328" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123362.png" MouseUp="FastBackwards_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="4" Height="25" Canvas.Left="358" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123358.png" MouseUp="Play_MouseUp"/>
+        <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="5" Height="25" Canvas.Left="388" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123357.png" MouseUp="Pause_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="6" Height="25" Canvas.Left="419" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123361.png" MouseUp="Stop_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="7" Height="25" Canvas.Left="448" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123363.png" MouseUp="FastForward_MouseUp"/>
         <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="8" Height="25" Canvas.Left="478" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123359.png" MouseUp="JumpToEnd_MouseUp"/>
-        <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Height="25" Canvas.Left="328" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123362.png" MouseUp="FastBackwards_MouseUp"/>
-        <Image VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Height="25" Canvas.Left="299" Canvas.Top="60" Width="25" Source="player icons/player-48x48-123360.png" MouseUp="JumpToStart_MouseUp"/>
-        <TextBlock x:Name="exception" Grid.Column="9" HorizontalAlignment="Center" Margin="9.6,6,9.6,5.8" TextWrapping="Wrap" Text="Please open XML file" VerticalAlignment="Center" Height="25" Width="176" FontSize="10" TextAlignment="Center"/>
-        <Button x:Name="openXML" Content="Open XML file" HorizontalAlignment="Center" Margin="0,8.8,0,9.4" Grid.Row="2" VerticalAlignment="Center" Width="100" Height="25" Click="openXML_Click"/>
     </Grid>
 </UserControl>

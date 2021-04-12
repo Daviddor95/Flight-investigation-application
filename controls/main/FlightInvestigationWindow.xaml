@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="Flight investigation application" Height="598" Width="800" Closed="Window_Closed" MinWidth="700" MinHeight="500">
     <Grid>
+        <!-- Define the grid layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="110"/>
@@ -16,6 +17,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
+        <!-- Insert the controllers in the grid -->
         <controls:PlayerUserControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="110" VerticalAlignment="Top" Margin="10,0,10,0"/>
         <controls:joystickUserControl Grid.Row="0" Grid.Column="1" Margin="0,0,-0.4,0.4"/>
         <controls:UserControlCharts Grid.Row="0" Margin="10"/>

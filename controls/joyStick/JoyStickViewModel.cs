@@ -1,11 +1,6 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Util;
 
 namespace ViewModel
 {
@@ -158,19 +153,6 @@ namespace ViewModel
             {
                 model.airspeedM = value;
                 NotifyPropertyChanged("VM_airspeedM");
-            }
-        }
-
-        public List<DataType> VM_DataTableM
-        {
-            get
-            {
-                return model.DataTableM;
-            }
-            set
-            {
-                model.DataTableM = value;
-                NotifyPropertyChanged("VM_DataTableM");
             }
         }
 

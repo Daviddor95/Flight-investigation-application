@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
-using Util;
+﻿using System.Collections.Generic;
 
 namespace Model
 {
@@ -174,20 +167,6 @@ namespace Model
             }
         }
 
-        //the property of DataTableM
-        public List<DataType> DataTableM
-        {
-            get
-            {
-                return importantData;
-            }
-            set
-            {
-                importantData = value;
-                NotifyPropertyChanged("DataTableM");
-            }
-        }
-
         /// <summary>startJoystick func' 
         /// is made for changing the value of the coordinates of the inner elipse on the joystick.
         /// the set functions of the relevant properties are called.
@@ -240,8 +219,6 @@ namespace Model
             startDataTable();
 
         }
-
-
 
     }
 }
