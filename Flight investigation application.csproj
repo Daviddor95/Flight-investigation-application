@@ -186,6 +186,7 @@
     <Resource Include="PicturesForREADME\Capturesss.JPG" />
     <Resource Include="PicturesForREADME\Graphs11.JPG" />
     <Resource Include="PicturesForREADME\Joystick Begining.JPG" />
+    <None Include="README.md" />
     <Content Include="settings\playback_small.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
