@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Wpf;
+using LiveCharts.Defaults;
 using System.Threading;
 using System.Windows;
 
@@ -28,6 +29,9 @@ namespace Model
         private LineSeries mylineseriesChart6;
         private LineSeries mylineseriesChart7;
 
+        private SeriesCollection seriesCollectionChart8;
+        private ScatterSeries myScatterSeriesChart8;
+
         // get set for variables -- big letter ---------------------------------------------
         public String ChosenElementName
         {
@@ -37,7 +41,7 @@ namespace Model
             }
             set
             {
-                String chosenElementName = value;
+                chosenElementName = value;
                 elementChange();
                 NotifyPropertyChanged("ChosenElementName");
             }
@@ -50,16 +54,17 @@ namespace Model
             }
             set
             {
-                int locationOfElement6 = value;
+                locationOfElement6 = value;
+                NotifyPropertyChanged("LocationOfElement6");
             }
         }
         public String[] ElementListNames //the list of element we can chose from in combobox
         {
             get
             {
-                //there are 5 elements in each row
+                //there are melements in each row
                 return elementListNames = new string[] { "aileron", "elevator", "rudder", "flaps", "slats", 
-                    "speedbrake", "throttle", "throttle", "engine - pump", "electric - pump", 
+                    "speedbrake","throttle", "throttle", "engine - pump", "electric - pump", 
                     "external - power", "APU - generator", "latitude - deg", "longitude - deg", "altitude - ft", 
                     "roll - deg", "pitch - deg", "heading - deg", "side - slip - deg", "airspeed - kt", 
                     "glideslope", "vertical - speed - fps", "airspeed - indicator_indicated - speed - kt", "altimeter_indicated - altitude - ft", "altimeter_pressure - alt - ft", 
@@ -69,10 +74,36 @@ namespace Model
             }
             set
             {
-                String[] elementListNames = value;
+                elementListNames = value;
                 NotifyPropertyChanged("ElementListNames");
             }
         }
+        // for chart 8 =====----------------------------------------------
+        public SeriesCollection SeriesCollectionChart8
+        {
+            get
+            {
+                return seriesCollectionChart8;
+            }
+            set
+            {
+                seriesCollectionChart8 = (value);
+                NotifyPropertyChanged("SeriesCollectionChart8");
+            }
+        }
+        public ScatterSeries MyScatterSeriesChart8
+        {
+            get
+            {
+                return myScatterSeriesChart8;
+            }
+            set
+            {
+                myScatterSeriesChart8 = (value);
+                NotifyPropertyChanged("MyScatterSeriesChart8");
+            }
+        }
+        // for chart 6 7 -------------------------------------------------
         public SeriesCollection SeriesCollectionChart6 {
             get
             {
@@ -145,17 +176,16 @@ namespace Model
             }
         }
 
-        private float new_value_chart6;
-        private float new_value_chart7;
-        private float[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
-
         // functions -----------------------------------------------------------------------
         public void chart() // called from start in mainModel
-        { 
-            NotifyPropertyChanged("ElementListNames");
+        {
+            float new_value_chart6;
+            float new_value_chart7;
+            //float[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
             Application.Current.Dispatcher.Invoke(() =>
             {
+                //chart 6+7
                 // Instantiate a line chart 
                 this.MylineseriesChart6 = new LineSeries();
                 // Set the title of the polyline, the name of the chosen element
@@ -163,28 +193,36 @@ namespace Model
                 // line chart line form
                 this.MylineseriesChart6.LineSmoothness = 0;
                 //Distance style of line chart
-                this.MylineseriesChart6.PointGeometry = null;
+                //this.MylineseriesChart6.PointGeometry = null;
                 // Add the data of the line chart
-                this.MylineseriesChart6.Values = new ChartValues<float>(temp);
+                this.MylineseriesChart6.Values = new ChartValues<float>();
                 this.MylineseriesChart7 = new LineSeries();
                 // Set the title of the polyline, the name of the chosen element
-                this.MylineseriesChart7.Title = "air speed";
+                this.MylineseriesChart7.Title = "pitch";
                 // line chart line form
                 this.MylineseriesChart7.LineSmoothness = 0;
                 //Distance style of line chart
-                this.MylineseriesChart7.PointGeometry = null;
+                //this.MylineseriesChart7.PointGeometry = null;
                 // Add the data of the line chart
-                this.MylineseriesChart7.Values = new ChartValues<float>(temp);
+                this.MylineseriesChart7.Values = new ChartValues<float>();
                 this.SeriesCollectionChart6 = new SeriesCollection { };
                 this.SeriesCollectionChart6.Add(this.mylineseriesChart6);
                 this.SeriesCollectionChart6.Add(this.mylineseriesChart7);
-                List<string> LabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
+                List<string> LabelsChart67 = new List<string> { "" };
 
-                //add the points to the chart
+                //chart 8
+                this.MyScatterSeriesChart8 = new ScatterSeries();
+                this.MyScatterSeriesChart8.MinPointShapeDiameter = 10;
+                this.MyScatterSeriesChart8.MaxPointShapeDiameter = 11;
+                this.MyScatterSeriesChart8.Values = new ChartValues<ScatterPoint>();
+                this.SeriesCollectionChart8 = new SeriesCollection { };
+                
+
+                //add the points to the charts (6+7 and 8)
                 // locationOfElement6 = 17;//the index in csvLine[currentLine] //17=roll
-                int locationOfElement7 = 21;//the index in csvLine[currentLine] //21=airspeed
+                int locationOfElement7 = 18;//the index in csvLine[currentLine] //18=pitch 21=airspeed
                 DateTime timeTemp = this.Time; //so Time wont change by opps
-                int j = 10;
+                int j = 30;
                 if(currentLine < j)//for the first 30sec of the video
                 {
                     j = currentLine;
@@ -195,17 +233,16 @@ namespace Model
                 for (int i = j; i > 0; --i)//start from 30sec before correntTime, and goes to currentTime
                 {
                     //LabelsChart67.Add((timeTemp.AddSeconds(-i)).ToString()); //new time
-                    LabelsChart67.Add("0");//this.Time.ToString("HH:mm:ss"));
-                    LabelsChart67.RemoveAt(0); // remove the erliast time
+                    //LabelsChart67.Add("0");//this.Time.ToString("HH:mm:ss"));
+                    //LabelsChart67.RemoveAt(0); // remove the erliast time
                      // Update the ordinate data, the Y value of the new point
                      //chart 6
                     new_value_chart6 = float.Parse(this.CSVLines[currentLine - i].Split(',')[this.LocationOfElement6]);
                     SeriesCollectionChart6[0].Values.Add(new_value_chart6); // add new data
-                    SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
                      //chart 7
                     new_value_chart7 = float.Parse(this.CSVLines[currentLine - i].Split(',')[locationOfElement7]);
                     SeriesCollectionChart6[1].Values.Add(new_value_chart7); // add new data
-                    SeriesCollectionChart6[1].Values.RemoveAt(0); // remove data from the start
+
                      //finding max & min Value/Range for the chart
                     if (max < Math.Max(new_value_chart6, new_value_chart7))
                     {
@@ -215,15 +252,21 @@ namespace Model
                     {
                         min = Math.Min(new_value_chart6, new_value_chart7);
                     }
+
+                    //chart 8
+                    this.MyScatterSeriesChart8.Values.Add(new ScatterPoint((double)new_value_chart6, (double)new_value_chart7, 10)); // add new data
                 }
-                this.MaxValueChart6 = (int)max + 1;
-                this.MinValueChart6 = (int)min - 1;
-                if (this.MaxValueChart6 < 0)
-                    this.MaxValueChart6 = 0.1F;
+                this.SeriesCollectionChart8.Add(this.MyScatterSeriesChart8);
+                NotifyPropertyChanged("SeriesCollectionChart8");
+                //set min & max for chart 6+7
+                this.MaxValueChart6 = (int)max + 2;
+                this.MinValueChart6 = (int)min - 2;
+                if (this.MaxValueChart6 < 1)
+                    this.MaxValueChart6 = 1;
                 if (this.MinValueChart6 > 0)
                     this.MinValueChart6 = 0;
                 NotifyPropertyChanged("SeriesCollectionChart6");
-                NotifyPropertyChanged("LabelsChart67");
+                //NotifyPropertyChanged("LabelsChart67");
             });
         }
         //--------------------------------------------------------------------------------
@@ -232,7 +275,7 @@ namespace Model
         //here we find the index of the chosen ele from CSV, and we put it in locationOfElement6
         void elementChange() // when a new element is chosen
         {
-            this.LocationOfElement6 = 17;
+            this.LocationOfElement6 = 17; // roll=17
             for (int i = 0; i < elementListNames.Length; i++)
             {
                 if(elementListNames[i].Equals(this.ChosenElementName))

@@ -38,7 +38,7 @@ namespace View
         {
             //save the selected ele every time one is chosen
            // String typeItem = (String)elementList.SelectedItem;
-            this.chartsVM.VM_ChosenElementName = elementList.SelectedItem.ToString();
+            this.chartsVM.VM_LocationOfElement6 = elementList.SelectedIndex;
         }
     }
 }
