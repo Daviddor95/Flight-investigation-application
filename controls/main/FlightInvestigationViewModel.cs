@@ -22,6 +22,15 @@ namespace ViewModel
                 NotifyPropertyChanged("VM_" + eventArgs.PropertyName);
             };
         }
+
+        internal IFlightInvestigationViewModel IFlightInvestigationViewModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Notifies that the given property has changed
         public void NotifyPropertyChanged(string propName)
         {

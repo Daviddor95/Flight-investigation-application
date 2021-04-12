@@ -176,6 +176,14 @@ namespace Model
             }
         }
 
+        public IFIAModel IFIAModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // functions -----------------------------------------------------------------------
         public void chart() // called from start in mainModel
         {

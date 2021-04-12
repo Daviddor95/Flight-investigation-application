@@ -19,6 +19,15 @@ namespace Client
         public TelnetClient()
         {
         }
+
+        internal ITelnetClient ITelnetClient
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Connects to the server on the given IP address and port number
         public void connect(string ip, int port)
         {

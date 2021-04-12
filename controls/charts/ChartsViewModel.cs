@@ -155,7 +155,13 @@ namespace ViewModel
                 NotifyPropertyChanged("MinRangeChart6");
             }
         }
-        
 
+        internal InterfaceChartsViewModel InterfaceChartsViewModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
