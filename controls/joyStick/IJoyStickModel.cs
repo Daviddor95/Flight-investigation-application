@@ -3,6 +3,9 @@
 //namespace Flight_investigation_application.controls.Joystick
 namespace Model
 {
+    /// <summary>IFIAModel is an interface for the model that will be used for the joystick, its scroller and user story 5 
+    /// (the data about yaw, roll, pitch, direction (of flight), airspeed and altimeter in the flight.)
+    /// the functions will be explained in the FIAModel itself</summary>
     public partial interface IFIAModel : INotifyPropertyChanged
     {
         float aileronJoystickX
@@ -66,6 +69,7 @@ namespace Model
             set;
             get;
         }
+
 
 
 

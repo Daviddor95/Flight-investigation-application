@@ -15,6 +15,9 @@ namespace Model
     {
         // variables -- small letters ------------------------------------------------------
         private String chosenElementName;
+        private string[] elementListNames;
+        //locationOfElement6 is only in model, put 0=aileron for when a element was not chosen yet
+        private int locationOfElement6;//the index in csvLine[currentLine] for the chosenElementName
 
         private SeriesCollection seriesCollectionChart6;
         private float maxValueChart6;
@@ -24,7 +27,6 @@ namespace Model
         private List<string> labelsChart67;
         private LineSeries mylineseriesChart6;
         private LineSeries mylineseriesChart7;
-        private string[] elementListNames;
 
         // get set for variables -- big letter ---------------------------------------------
         public String ChosenElementName
@@ -36,23 +38,34 @@ namespace Model
             set
             {
                 String chosenElementName = value;
+                elementChange();
                 NotifyPropertyChanged("ChosenElementName");
+            }
+        }
+        public int LocationOfElement6
+        {
+            get
+            {
+                return locationOfElement6;
+            }
+            set
+            {
+                int locationOfElement6 = value;
             }
         }
         public String[] ElementListNames //the list of element we can chose from in combobox
         {
             get
             {
-                return elementListNames = new string[] { "aileron", "elevator", "rudder", "flaps", "slats", "speedbrake",
-                "throttle", "throttle", "engine - pump", "electric - pump", "external - power", "APU - generator",
-                "latitude - deg", "longitude - deg", "altitude - ft", "roll - deg", "pitch - deg", "heading - deg",
-                "side - slip - deg", "airspeed - kt", "glideslope", "vertical - speed - fps", "airspeed - indicator_indicated - speed - kt",
-            "altimeter_indicated - altitude - ft", "altimeter_pressure - alt - ft", "attitude - indicator_indicated - pitch - deg",
-                "attitude - indicator_indicated - roll - deg", "attitude - indicator_internal - pitch - deg",
-                "attitude - indicator_internal - roll - deg", "encoder_indicated - altitude - ft", "encoder_pressure - alt - ft",
-                "gps_indicated - altitude - ft", "gps_indicated - ground - speed - kt", "gps_indicated - vertical - speed",
-                "indicated - heading - deg", "magnetic - compass_indicated - heading - deg", "slip - skid - ball_indicated - slip - skid",
-                "turn - indicator_indicated - turn - rate", "vertical - speed - indicator_indicated - speed - fpm", "engine_rpm" }; ;
+                //there are 5 elements in each row
+                return elementListNames = new string[] { "aileron", "elevator", "rudder", "flaps", "slats", 
+                    "speedbrake", "throttle", "throttle", "engine - pump", "electric - pump", 
+                    "external - power", "APU - generator", "latitude - deg", "longitude - deg", "altitude - ft", 
+                    "roll - deg", "pitch - deg", "heading - deg", "side - slip - deg", "airspeed - kt", 
+                    "glideslope", "vertical - speed - fps", "airspeed - indicator_indicated - speed - kt", "altimeter_indicated - altitude - ft", "altimeter_pressure - alt - ft", 
+                    "attitude - indicator_indicated - pitch - deg", "attitude - indicator_indicated - roll - deg", "attitude - indicator_internal - pitch - deg", "attitude - indicator_internal - roll - deg", "encoder_indicated - altitude - ft", 
+                    "encoder_pressure - alt - ft", "gps_indicated - altitude - ft", "gps_indicated - ground - speed - kt", "gps_indicated - vertical - speed", "indicated - heading - deg", 
+                    "magnetic - compass_indicated - heading - deg", "slip - skid - ball_indicated - slip - skid", "turn - indicator_indicated - turn - rate", "vertical - speed - indicator_indicated - speed - fpm", "engine_rpm" }; ;
             }
             set
             {
@@ -146,7 +159,7 @@ namespace Model
                 // Instantiate a line chart 
                 this.MylineseriesChart6 = new LineSeries();
                 // Set the title of the polyline, the name of the chosen element
-                this.MylineseriesChart6.Title = "roll";
+                this.MylineseriesChart6.Title = elementListNames[this.LocationOfElement6];
                 // line chart line form
                 this.MylineseriesChart6.LineSmoothness = 0;
                 //Distance style of line chart
@@ -168,15 +181,15 @@ namespace Model
                 List<string> LabelsChart67 = new List<string> { "0:00", "0:00", "0:00", "0:00", "0:00" };
 
                 //add the points to the chart
-                int locationOfElement6 = 17;//the index in csvLine[currentLine] //17=roll
-                int locationOfElement7 = 21;//the index in csvLine[currentLine] //17=roll
+                // locationOfElement6 = 17;//the index in csvLine[currentLine] //17=roll
+                int locationOfElement7 = 21;//the index in csvLine[currentLine] //21=airspeed
                 DateTime timeTemp = this.Time; //so Time wont change by opps
-                int j = 30;
-                if(currentLine < 30)//for the first 30sec of the video
+                int j = 10;
+                if(currentLine < j)//for the first 30sec of the video
                 {
                     j = currentLine;
                 }
-                float max = float.Parse(this.CSVLines[currentLine].Split(',')[locationOfElement6]);
+                float max = float.Parse(this.CSVLines[currentLine].Split(',')[this.LocationOfElement6]);
                 float min = max;
                 
                 for (int i = j; i > 0; --i)//start from 30sec before correntTime, and goes to currentTime
@@ -186,7 +199,7 @@ namespace Model
                     LabelsChart67.RemoveAt(0); // remove the erliast time
                      // Update the ordinate data, the Y value of the new point
                      //chart 6
-                    new_value_chart6 = float.Parse(this.CSVLines[currentLine - i].Split(',')[locationOfElement6]);
+                    new_value_chart6 = float.Parse(this.CSVLines[currentLine - i].Split(',')[this.LocationOfElement6]);
                     SeriesCollectionChart6[0].Values.Add(new_value_chart6); // add new data
                     SeriesCollectionChart6[0].Values.RemoveAt(0); // remove data from the start
                      //chart 7
@@ -214,12 +227,19 @@ namespace Model
             });
         }
         //--------------------------------------------------------------------------------
-        /*
+        //yes, this isnt good if they change the elemts order in the csv&xml
+        //  but for now, the ElementListNames is in the order that they shoe in csv so we will use it
+        //here we find the index of the chosen ele from CSV, and we put it in locationOfElement6
         void elementChange() // when a new element is chosen
         {
-            createLine();
+            this.LocationOfElement6 = 17;
+            for (int i = 0; i < elementListNames.Length; i++)
+            {
+                if(elementListNames[i].Equals(this.ChosenElementName))
+                    this.LocationOfElement6 = i;
+            }
         }
-        */
+        
         public void createLine()
         {
             /*// for random values, for testing

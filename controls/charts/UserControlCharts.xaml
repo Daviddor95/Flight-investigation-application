@@ -20,7 +20,7 @@
         </lvc:CartesianChart>
 
         <ComboBox x:Name="elementList" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="307" Height="21" 
-                  ItemsSource="{Binding Path=VM_ElementListNames}" SelectedItem="{Binding Path=VM_ChosenElement}" IsEditable="True" SelectionChanged="elementList_SelectionChanged">
+                  ItemsSource="{Binding Path=VM_ElementListNames}" SelectedItem="{Binding Path=VM_ChosenElement, Mode=TwoWay}" IsEditable="False" SelectionChanged="elementList_SelectionChanged">
         </ComboBox>
     </Grid>
 </UserControl>
