@@ -9,7 +9,7 @@ for Developers: WPF, C#, c++ too. You can use Visual Studio 2019.
 #### Dependencies
 LiveChrts, LiveCharts.WPF
 ## Installing
-Download the zip from this repository, or use git on the termianl:
+Download the zip from this repository, or use git on the terminal:
 ```sh 
 git clone https://github.com/Daviddor95/Flight-investigation-application
 ```
@@ -29,8 +29,9 @@ Start our app (throught Visual studio for example).
 features throught the flight, by the movement of the joystick 
 and for showing the changes in the rudder and throttle features throught the flight, 
 throught the movement of the little sliders near the joystick.
+Also you can see the changes in the Data of Yaw, Pitch, Roll, Direction, Airspeed, Altimeter Desplayed too.
 - charts - show a graph that empesizes the changes in a value of the flight feature we choose.
-- another line that empesizes the same for the most correlated feature the the first feature,
+- another line that empesizes the same for the most correlated feature the first feature,
 - another graph that emphesizes the line of regression and the exception values.
 ![alt text](https://github.com/Daviddor95/Flight-investigation-application/PicturesForREADME/Capture.jpg?raw=true)
 
@@ -38,23 +39,24 @@ throught the movement of the little sliders near the joystick.
 ## Project Structure
 Our project is made out of 2 folders:
 - Client - Everything connected to the interaction of our App with the FlightGear App.
-- Controls - Contains 3 folders: Player, Joystick, Charts and main.
+- Settings - Includes playback_small.xml and the reg_flight.csv
+- Controls - Contains 4 folders: Player, Joystick, Charts and main.
 
 ### Everyone of the controlls folders is responsible fora  different asspect:
 Joystick is responsible fore the joystick and its sliders movement,
-player for playing the flight video throught filght gear in certain speed and do on..
+player for playing the flight video throught filght gear in certain speed and so on..
 
 ### Every controller is made in the MVVM design pattern:
 It contains a model(A Partial Class) which holds the logic behind the movement/changes in the controller,
 It contains a viewmodel which hold on the properties to connect to the view,
-and a view which holds the way the conroller looks like, 
+and a view which holds the way the controller looks like, 
 in a xaml file which interacts with the view model throught Data Binding.
 For every Controller, we created an inteface for the viewModel and for The model.
-These interfaces extended the INotifyPropertyChanged Class,
+These interfaces extended the INotifyPropertyChanged Interface,
 which enabled us to notify the properties of the model and the viewmodel, 
 so evantually, the needed changes in the view will happen.
 The main folder actually combines all the controllers together:
-Creates a united view, viewmodel, and adds more functions to our Model (partial class)
+Creates a united view, and adds more functions to our Model (partial class)
 
 ## UML:
 
