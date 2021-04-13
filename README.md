@@ -60,6 +60,6 @@ Creates a united view, and adds more functions to our Model (partial class)
 ### for Demostrarion of the app click here:
 https://youtu.be/Sf_riQ1MhFA
 ## UML:
-
+<img src = "https://user-images.githubusercontent.com/56928005/114501619-ff45e280-9c32-11eb-9c75-fab44f9576ab.png" width="650" height="350"></br>
 
 
