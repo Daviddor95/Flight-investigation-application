@@ -182,13 +182,14 @@
     <Resource Include="controls\player\player icons\player-48x48-123362.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="PicturesForREADME\Capture.JPG" />
-    <Resource Include="PicturesForREADME\Capture2.JPG" />
-    <Resource Include="PicturesForREADME\Capturesss.JPG" />
-    <Resource Include="PicturesForREADME\Graphs11.JPG" />
-    <Resource Include="PicturesForREADME\Joystick Begining.JPG" />
     <None Include="README.md" />
     <Resource Include="PicturesForREADME\Uml.png" />
+    <Resource Include="PicturesForREADME\FirstScreen.JPG" />
+    <Resource Include="PicturesForREADME\GraphsImage.png" />
+    <Resource Include="PicturesForREADME\Joystick Begining.JPG" />
+    <Resource Include="PicturesForREADME\joystickImage.png" />
+    <Resource Include="PicturesForREADME\middleScreen.png" />
+    <Resource Include="PicturesForREADME\PlayerImage.png" />
     <Content Include="settings\playback_small.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
