@@ -4,7 +4,7 @@
 > The most important diagrams are the graphs, joystick, the video slider, playack speed and more..
 
 
-<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/middleScreen.png?token=ARKD3RM7CEWXBIW66K3K5OTAOV66K" width="600" height="450"></br>
+<img src = "https://github.com/Daviddor95/Flight-investigation-application/blob/master/PicturesForREADME/middleScreen.png" width="600" height="450"></br>
 
 ## Whats required for getting started?
 ### Prerequisites
@@ -62,6 +62,6 @@ Creates a united view, and adds more functions to our Model (partial class)
 ### for Demostrarion of the app click here:
 https://youtu.be/Sf_riQ1MhFA
 ## UML:
-<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/Uml.png?token=ARKD3RN3MUU3QBXOIHEZWWDAOV7BW" width="650" height="350"></br>
+<img src = "https://github.com/Daviddor95/Flight-investigation-application/blob/master/PicturesForREADME/Uml.png" width="650" height="350"></br>
 
 
