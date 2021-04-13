@@ -33,7 +33,7 @@ Also you can see the changes in the Data of Yaw, Pitch, Roll, Direction, Airspee
 - charts - show a graph that empesizes the changes in a value of the flight feature we choose.
 - another line that empesizes the same for the most correlated feature the first feature,
 - another graph that emphesizes the line of regression and the exception values.
-![alt text](https://github.com/Daviddor95/Flight-investigation-application/PicturesForREADME/Capture.jpg)
+![alt text](/PicturesForREADME/Capture.jpg)
 
 
 ## Project Structure
