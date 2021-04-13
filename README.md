@@ -62,6 +62,6 @@ Creates a united view, and adds more functions to our Model (partial class)
 ### for Demostrarion of the app click here:
 https://youtu.be/Sf_riQ1MhFA
 ## UML:
-<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/Uml.png?token=ARKD3RIKXDGQA3WREGOTNXDAOV6MC" width="650" height="350"></br>
+<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/Uml.png?token=ARKD3RN3MUU3QBXOIHEZWWDAOV7BW" width="650" height="350"></br>
 
 
