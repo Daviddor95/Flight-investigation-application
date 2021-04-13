@@ -21,7 +21,7 @@ Go to settings and after you entering:
 --fdm=null
 ```
 Click "Fly".
-After you here "Need help? use help tuturials"
+After you hear "Need help? use help tuturials"
 Start our app (throught Visual studio for example).
 ## ✨ Special Features✨
 - Player - The main slider you can use for going back and forth throught the flight time, and see the flightGear app changing constantly due to the time, speed, buttom we choose.
@@ -30,10 +30,9 @@ features throught the flight, by the movement of the joystick
 and for showing the changes in the rudder and throttle features throught the flight, 
 throught the movement of the little sliders near the joystick.
 Also you can see the changes in the Data of Yaw, Pitch, Roll, Direction, Airspeed, Altimeter Desplayed too.
-- charts - show a graph that empesizes the changes in a value of the flight feature we choose.
-- another line that empesizes the same for the most correlated feature the first feature,
-- another graph that emphesizes the line of regression and the exception values.
-![alt text](/PicturesForREADME/Capture.jpg)
+- charts - show a graph that empesizes the changes in a value of the flight feature we choose, compares to another feature.
+- another graph that emphesizes the last 30 values of the feature we chose.
+
 
 
 ## Project Structure
@@ -55,9 +54,11 @@ For every Controller, we created an inteface for the viewModel and for The model
 These interfaces extended the INotifyPropertyChanged Interface,
 which enabled us to notify the properties of the model and the viewmodel, 
 so evantually, the needed changes in the view will happen.
+Every View of every controller, extends the UserControl class, and they are all used in the main View.
 The main folder actually combines all the controllers together:
 Creates a united view, and adds more functions to our Model (partial class)
-
+### for Demostrarion of the app click here:
+https://youtu.be/Sf_riQ1MhFA
 ## UML:
 
 
