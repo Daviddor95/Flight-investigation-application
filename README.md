@@ -4,7 +4,7 @@
 > The most important diagrams are the graphs, joystick, the video slider, playack speed and more..
 ## Whats required for getting started?
 ### Prerequisites
-Download .NET 5.0, FlightGear Simulator.
+Download .NET 4.7.2, FlightGear Simulator.
 for Developers: WPF, C#, c++ too. You can use Visual Studio 2019.
 #### Dependencies
 LiveChrts, LiveCharts.WPF
@@ -33,7 +33,7 @@ Also you can see the changes in the Data of Yaw, Pitch, Roll, Direction, Airspee
 - charts - show a graph that empesizes the changes in a value of the flight feature we choose.
 - another line that empesizes the same for the most correlated feature the first feature,
 - another graph that emphesizes the line of regression and the exception values.
-![alt text](https://github.com/Daviddor95/Flight-investigation-application/PicturesForREADME/Capture.jpg?raw=true)
+![alt text](https://github.com/Daviddor95/Flight-investigation-application/blob/PicturesForREADME/Capture.jpg?raw=true)
 
 
 ## Project Structure
@@ -60,21 +60,5 @@ Creates a united view, and adds more functions to our Model (partial class)
 
 ## UML:
 
-### More about implementation of Plugin
-### For more info click here:
-
-## Plugins
-
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
 
 
