@@ -3,6 +3,7 @@
 > This app desplays real time data changes of the flight Parameters, throught different charts and diagrams.
 > The most important diagrams are the graphs, joystick, the video slider, playack speed and more..
 
+
 <img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/middleScreen.png?token=ARKD3RJB5P3RUGJFELZ7ACLAOV6KO" width="550" height="450"></br>
 
 ## Whats required for getting started?
