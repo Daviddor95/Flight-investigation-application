@@ -2,6 +2,7 @@
 > A Desktop application that interacts with a Flight Gear simulator app.
 > This app desplays real time data changes of the flight Parameters, throught different charts and diagrams.
 > The most important diagrams are the graphs, joystick, the video slider, playack speed and more..
+<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/middleScreen.png?token=ARKD3RJ62CHB3BFBMP5FWQDAOV5N4" width="650" height="350"></br>
 ## Whats required for getting started?
 ### Prerequisites
 Download .NET 4.7.2, FlightGear Simulator.
@@ -25,14 +26,16 @@ After you hear "Need help? use help tuturials"
 Start our app (throught Visual studio for example).
 ## ✨ Special Features✨
 - Player - The main slider you can use for going back and forth throught the flight time, and see the flightGear app changing constantly due to the time, speed, buttom we choose.
+<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/PlayerImage.png?token=ARKD3RIKNLMLLYQFXIHQSNLAOV5QC" width="650" height="350"></br>
 - Joystick - Responsible for showing the changes in the aileron (x-coordinate) and elevator(y-coordinate) 
 features throught the flight, by the movement of the joystick 
 and for showing the changes in the rudder and throttle features throught the flight, 
 throught the movement of the little sliders near the joystick.
 Also you can see the changes in the Data of Yaw, Pitch, Roll, Direction, Airspeed, Altimeter Desplayed too.
+<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/joystickImage.png?token=ARKD3RPX6GKJIRETECFF4NLAOV5SI" width="650" height="350"></br>
 - charts - show a graph that empesizes the changes in a value of the flight feature we choose, compares to another feature.
 - another graph that emphesizes the last 30 values of the feature we chose.
-
+<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/GraphsImage.png?token=ARKD3RKOJXFWHEC55OCXQB3AOV5TS" width="650" height="350"></br>
 
 
 ## Project Structure
@@ -60,6 +63,6 @@ Creates a united view, and adds more functions to our Model (partial class)
 ### for Demostrarion of the app click here:
 https://youtu.be/Sf_riQ1MhFA
 ## UML:
-<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/Uml.png?token=ARKD3RI4XEXV2CJCSDT2XVDAOV3KK" width="650" height="350"></br>
+<img src = "https://raw.githubusercontent.com/Daviddor95/Flight-investigation-application/master/PicturesForREADME/Uml.png?token=ARKD3RJ5UIHXLZNX6BI2J43AOV5MI" width="650" height="350"></br>
 
 
